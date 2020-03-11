@@ -17,3 +17,7 @@ Semana 2
 -   Miércoles 1: .
 -   Jueves 2: .
 -   Viernes 3: .
+
+Semana 3
+
+-   Lunes 7

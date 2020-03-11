@@ -39,7 +39,7 @@ Resumen de los contenidos a conocer para el examen.
     -   ol -> lista ordenada.
     -   li -> list-item -> elemento de lista.
     -   a -> anchor -> enlace -> atributos principales: href.
-    -   <!--...--> -> comentarios.
+    -   **<!--...-->** -> comentarios.
     -   h1...h6 -> headers (cabeceras).
     -   p -> parrafo.
     -   br -> salto de linea.
