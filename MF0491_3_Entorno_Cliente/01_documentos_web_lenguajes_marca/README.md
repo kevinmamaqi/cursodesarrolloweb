@@ -62,7 +62,7 @@ Un lenguaje de marcado o lenguaje de marcas es una forma de codificar un documen
 
 **Referencia**: En total hay 130 etiquetas html, aumentan y cambian cada día: https://www.w3schools.com/TAGS/default.ASP
 
-### Elementos básicos de HTML:
+### Elementos básicos de CSS:
 
 _Selectores_
 Son los elementos a los que damos estilos. Pueden ser etiquetas html como por ejemplo: `h1: {color: red}, o p: {margin-top: 20px;}`. También podemos referenciar a clases e identificadores que añadimos a las clases html, por ejemplo: `<div id="caja-principal" class="caja-arriba">`. Si usamos el segundo podemos referenciar es caja como `#caja-principal: {margin-left: 30px;}` o `.caja-arriba: {margin-left: 30px}`.
