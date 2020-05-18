@@ -4,19 +4,16 @@ Breve calendario con los contenidos y tareas principales:
 
 Semana 1
 
--   Lunes 09: Crear primera estructura web.
--   Martes 10: Crear segunda estructura web.
--   Miércoles 11: Repasar el trabajo realizado con la teoría.
--   Jueves 12: Trabajo individual, crear CV.
--   Viernes 13: Teoría + repaso + presentación.
+-   Lunes 09/03: Crear primera estructura web.
+-   Martes 10/03: Crear segunda estructura web.
+-   Miércoles 11/03: Repasar el trabajo realizado con la teoría.
+-   Jueves 12/03: Trabajo individual, crear CV.
 
 Semana 2
 
--   Lunes 16: Repasar conceptos teóricos y prácticos.
--   Martes 17: Mejorar nuestro CV online.
--   Miércoles 18: Preparación para el examen.
--   Jueves 19: Preparación para el examen.
--   Viernes 20: **EXAMEN**.
+-   Lunes 18/05: Repasar conceptos teóricos y prácticos.
+-   Martes 19/05: Mejorar nuestro CV online.
+-   Miércoles 20/05: Preparación para el examen.
 
 ## Contenidos básicos
 
@@ -40,7 +37,7 @@ Resumen de los contenidos a conocer para el examen.
     -   li -> list-item -> elemento de lista.
     -   a -> anchor -> enlace -> atributos principales: href.
     -   **<!--...-->** -> comentarios.
-    -   h1...h6 -> headers (cabeceras).
+    -   h1...h6 -> headers (cabeceras, de h1 a h6).
     -   p -> parrafo.
     -   br -> salto de linea.
     -   hr -> linea horizontal.
@@ -57,3 +54,45 @@ Resumen de los contenidos a conocer para el examen.
     -   button -> botón.
 
 **Referencia**: En total hay 130 etiquetas html, aumentan y cambian cada día: https://www.w3schools.com/TAGS/default.ASP
+
+### Elementos básicos de HTML:
+
+_Selectores_
+Son los elementos a los que damos estilos. Pueden ser etiquetas html como por ejemplo: `h1: {color: red}, o p: {margin-top: 20px;}`. También podemos referenciar a clases e identificadores que añadimos a las clases html, por ejemplo: `<div id="caja-principal" class="caja-arriba">`. Si usamos el segundo podemos referenciar es caja como `#caja-principal: {margin-left: 30px;}` o `.caja-arriba: {margin-left: 30px}`.
+
+_Propiedades_
+Son las maneras en las que podemos dar estilos. Una propiedad de una frase es el color: `color: #000000;`. Los colores constan de dos partes la propiedad en si (color) y el valor (#000000).
+
+_Sintaxis_
+La sintaxis es estricta, primero se declara el selector, se abre una llave y se declara la propiedad, se finaliza asignando un valor a dicha propiedad. Por ejemplo: `p: {color: #000000}`.
+
+Propiedades principales:
+
+-   font-size
+-   text-align
+-   line-height
+-   letter-spacing
+-   padding
+-   border
+-   margin
+-   width
+-   height
+-   color
+-   background-color
+-   display
+-   border
+-   Flexbox: https://flexboxfroggy.com/ - Lo usamos para colocar cajas adecuadamente.
+
+### Modelo de caja y unidades en CSS
+
+Fundamental para posicionar los elementos que creamos:
+
+1. Modelo de caja: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model
+2. Unidades en CSS: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units
+3. Flexbox: https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox
+
+### Normalizadores
+
+Fundamental para garantizar que nuestros diseños y desarrollos se ven bien desde cualquier navegador. Siempre usaremos normalize.
+
+-   https://necolas.github.io/normalize.css/
