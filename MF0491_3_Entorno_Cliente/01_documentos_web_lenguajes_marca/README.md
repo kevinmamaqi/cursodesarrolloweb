@@ -12,12 +12,19 @@ Semana 1
 Semana 2
 
 -   Lunes 18/05: Repasar conceptos teóricos y prácticos.
--   Martes 19/05: Mejorar nuestro CV online.
--   Miércoles 20/05: Preparación para el examen.
+-   Martes 19/05: ...
+-   Miércoles 20/05: ...
+-   Jueves 21/05: ...
 
 ## Contenidos básicos
 
 Resumen de los contenidos a conocer para el examen.
+
+### ¿Qué son los lenguajes de marca?
+
+Mediante el uso de etiquetas (o notas) otorgamos un significado al texto para ser interpretado por otras personas o software.
+
+Un lenguaje de marcado o lenguaje de marcas es una forma de codificar un documento que, junto con el texto, incorpora etiquetas o marcas que contienen información adicional acerca de la estructura del texto o su presentación.
 
 ### Estrategias de diseño web
 
