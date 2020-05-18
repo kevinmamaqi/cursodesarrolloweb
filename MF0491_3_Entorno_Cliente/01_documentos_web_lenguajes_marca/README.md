@@ -71,7 +71,7 @@ _Propiedades_
 Son las maneras en las que podemos dar estilos. Una propiedad de una frase es el color: `color: #000000;`. Los colores constan de dos partes la propiedad en si (color) y el valor (#000000).
 
 _Sintaxis_
-La sintaxis es estricta, primero se declara el selector, se abre una llave y se declara la propiedad, se finaliza asignando un valor a dicha propiedad. Por ejemplo: `p: {color: #000000}`.
+La sintaxis es estricta, primero se declara el selector, se abre una llave y se declara la propiedad, se finaliza asignando un valor a dicha propiedad. Por ejemplo: `p {color: #000000}`.
 
 Propiedades principales:
 
