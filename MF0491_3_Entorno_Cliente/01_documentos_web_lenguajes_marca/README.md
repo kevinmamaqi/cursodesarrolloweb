@@ -64,13 +64,15 @@ Un lenguaje de marcado o lenguaje de marcas es una forma de codificar un documen
 
 ### Elementos básicos de CSS:
 
-_Selectores_
+**Selectores**
 Son los elementos a los que damos estilos. Pueden ser etiquetas html como por ejemplo: `h1: {color: red}, o p: {margin-top: 20px;}`. También podemos referenciar a clases e identificadores que añadimos a las clases html, por ejemplo: `<div id="caja-principal" class="caja-arriba">`. Si usamos el segundo podemos referenciar es caja como `#caja-principal: {margin-left: 30px;}` o `.caja-arriba: {margin-left: 30px}`.
 
-_Propiedades_
+Información sobre selectores CSS: https://developer.mozilla.org/es/docs/Web/CSS/Selectores_CSS
+
+**Propiedades**
 Son las maneras en las que podemos dar estilos. Una propiedad de una frase es el color: `color: #000000;`. Los colores constan de dos partes la propiedad en si (color) y el valor (#000000).
 
-_Sintaxis_
+**Sintaxis**
 La sintaxis es estricta, primero se declara el selector, se abre una llave y se declara la propiedad, se finaliza asignando un valor a dicha propiedad. Por ejemplo: `p {color: #000000}`.
 
 Propiedades principales:

@@ -1,0 +1,67 @@
+.caja-fondo {
+	background-color: green;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.caja-calculadora {
+	width: 400px;
+	max-width: 90%;
+	background-color: #fcfcfc;
+	border-radius: 6px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+	display: flex;
+	flex-direction: column;
+}
+
+.caja-arriba {
+	height: 100px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	font-size: 42px;
+	padding-right: 40px;
+	padding-bottom: 20px;
+	color: #666;
+	border-bottom: 1px solid #999;
+}
+
+.caja-abajo {
+	height: 250px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-items: space-between;
+}
+
+.caja-fila {
+	display: flex;
+	justify-content: stretch;
+	height: 20%;
+	border-bottom: 1px solid #ccc;
+	/* align-items: stretch; */
+}
+
+.caja-fila:last-child {
+	border-bottom: none;
+	/* align-items: stretch; */
+}
+
+.caja-boton {
+	display: flex;
+	width: 25%;
+	justify-content: center;
+	align-items: center;
+	border-left: 1px solid #ccc;
+}
+
+.caja-boton:first-child {
+	border-left: 0;
+}
+
+.caja-fila:last-child .caja-boton:nth-child(2) {
+	border-left: 1px solid transparent;
+}
