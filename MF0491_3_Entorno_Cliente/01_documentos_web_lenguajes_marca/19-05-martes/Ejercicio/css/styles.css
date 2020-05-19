@@ -1,0 +1,25 @@
+.caja-fondo {
+	display: flex;
+	background-color: #ddd;
+	width: 100vw;
+	height: 100vh;
+}
+
+.caja-izd {
+	width: 40%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.caja-dcha {
+	width: 60%;
+	height: 100vh;
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}

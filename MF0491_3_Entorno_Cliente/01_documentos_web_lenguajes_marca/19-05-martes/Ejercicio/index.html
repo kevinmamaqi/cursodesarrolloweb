@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+		/>
+		<link rel="stylesheet" href="./css/styles.css" />
+		<title>Ejercicio</title>
+	</head>
+	<body>
+		<div class="caja-fondo">
+			<div class="caja-izd">
+				<div class="caja-titulo-izd">
+					<h1>Registrate</h1>
+				</div>
+				<div class="caja-formulario">
+					<form>
+						<label for="nombre">Nombre</label>
+						<input type="text" name="nombre" id="nombre" />
+
+						<label for="email">Email</label>
+						<input type="email" name="email" id="email" />
+
+						<label for="contrasena">Contraseña</label>
+						<input
+							type="password"
+							name="contrasena"
+							id="contrasena"
+						/>
+						<p><a href="#">¿Has olvidado tu contraseña?</a></p>
+						<button type="submit">Enviar</button>
+					</form>
+				</div>
+				<div class="caja-boton">
+					<button type="button">Registrate con Google</button>
+				</div>
+				<div class="caja-enlace">
+					<p>¿Ya tienes una cuenta? <a href="#">Accede aquí</a></p>
+				</div>
+			</div>
+			<div class="caja-dcha">
+				<div class="caja-titulo-dcha">
+					<h2>SuperApp</h2>
+				</div>
+				<div class="caja-cuerpo">
+					<p>¿Cuanto te gustaria ganar?</p>
+					<div class="caja-mitad-cuerpo">
+						<div class="izd">
+							<img src="./img/icono-menos.png" alt="Menos" />
+						</div>
+						<div class="mitad">
+							<p>999</p>
+							<p>EUROS</p>
+						</div>
+						<div class="dcha">
+							<img src="./img/icono-mas.png" alt="Más" />
+						</div>
+					</div>
+					<label for="range-slider" style="display: none;"
+						>Range slider</label
+					>
+					<input type="range" name="range-slider" id="range-slider" />
+				</div>
+				<div class="caja-pie">
+					<h3>Envia dinero al extranjero</h3>
+					<p>
+						Envia dinero al extranjero y gana dinero cada mes por
+						comisiones con nuestro nuevo modelo.
+					</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
