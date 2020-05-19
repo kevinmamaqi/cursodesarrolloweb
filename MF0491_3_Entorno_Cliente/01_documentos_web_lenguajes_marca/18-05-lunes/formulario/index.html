@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+		/>
+		<link rel="stylesheet" href="./css/styles.css" />
+		<title>Formulario</title>
+	</head>
+	<body>
+		<div class="caja-exterior">
+			<div class="caja-contenedora bordes">
+				<div class="caja-arriba bordes">
+					<h1>Título</h1>
+					<h2>Sub-título</h2>
+					<p>Texto</p>
+				</div>
+				<div class="caja-abajo bordes">
+					<div class="caja-izd bordes">
+						<h3>Título</h3>
+						<p>Parráfo</p>
+						<form>
+							<label for="nombre">Nombre</label>
+							<input type="text" name="nombre" id="nombre" />
+
+							<div class="caja-direccion">
+								<p>Dirección</p>
+								<label
+									for="direccion-linea-1"
+									style="display: none;"
+									>Dirección linea 1</label
+								>
+								<input
+									type="text"
+									name="direccion-linea-1"
+									id="direccion-linea-1"
+									placeholder="Dirección linea 1"
+								/>
+
+								<label
+									for="direccion-linea-2"
+									style="display: none;"
+									>Dirección linea 2</label
+								>
+								<input
+									type="text"
+									name="direccion-linea-2"
+									id="direccion-linea-2"
+									placeholder="Dirección linea 2"
+								/>
+
+								<label for="ciudad" style="display: none;"
+									>Ciudad</label
+								>
+								<input
+									type="text"
+									name="ciudad"
+									id="ciudad"
+									placeholder="Ciudad"
+								/>
+								<div class="caja-cp-provincia">
+									<div class="provincia">
+										<label
+											for="provincia"
+											style="display: none;"
+											>Provincia</label
+										>
+										<input
+											type="text"
+											name="provincia"
+											id="provincia"
+											placeholder="Provincia"
+										/>
+									</div>
+
+									<div class="cp">
+										<label for="cp" style="display: none;"
+											>CP</label
+										>
+										<input
+											type="text"
+											name="cp"
+											id="cp"
+											placeholder="CP"
+										/>
+									</div>
+								</div>
+
+								<label
+									style="display: none;"
+									for="selector-paises"
+									>Selecciona país</label
+								>
+								<select
+									name="selector-paises"
+									id="selector-paises"
+								>
+									<option value="">Selecciona país</option>
+									<option value="espana">España</option>
+									<option value="italia">Italia</option>
+									<option value="francia">Francia</option>
+									<option value="portugal">Portugal</option>
+									<option value="grecia">Grecia</option>
+								</select>
+							</div>
+						</form>
+					</div>
+
+					<div class="caja-dcha bordes"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

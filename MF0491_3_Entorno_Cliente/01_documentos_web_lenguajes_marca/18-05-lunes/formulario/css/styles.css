@@ -1,0 +1,66 @@
+.caja-exterior {
+	background-color: #eee;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.caja-contenedora {
+	width: 700px;
+	max-width: 90%;
+	display: flex;
+	flex-direction: column;
+}
+
+.caja-arriba {
+	text-align: center;
+}
+
+.caja-abajo {
+	display: flex;
+}
+
+.caja-izd {
+	width: 50%;
+	height: 300px;
+	background-color: green;
+}
+
+.caja-dcha {
+	width: 50%;
+	height: 200px;
+	background-color: red;
+}
+
+.bordes {
+	border: 2px solid #999;
+}
+
+.caja-cp-provincia {
+	display: flex;
+	justify-content: space-between;
+	max-width: 100%;
+}
+
+.provincia {
+	width: 60%;
+	margin-right: 3%;
+}
+
+.provincia input {
+	width: 100%;
+	max-width: 100%;
+	display: block;
+}
+
+.cp {
+	width: 30%;
+}
+
+.cp input {
+	width: 100%;
+	max-width: 100%;
+	display: block;
+}
