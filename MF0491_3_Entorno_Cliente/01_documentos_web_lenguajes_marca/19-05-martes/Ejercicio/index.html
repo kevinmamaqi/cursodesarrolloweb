@@ -3,18 +3,20 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
 		/>
 		<link rel="stylesheet" href="./css/styles.css" />
+
 		<title>Ejercicio</title>
 	</head>
 	<body>
 		<div class="caja-fondo">
 			<div class="caja-izd">
 				<div class="caja-titulo-izd">
-					<h1>Registrate</h1>
+					<h1 id="titulo">Registrate</h1>
 				</div>
 				<div class="caja-formulario">
 					<form>
@@ -26,11 +28,14 @@
 
 						<label for="contrasena">Contraseña</label>
 						<input
+							class="password"
 							type="password"
 							name="contrasena"
 							id="contrasena"
 						/>
-						<p><a href="#">¿Has olvidado tu contraseña?</a></p>
+						<p class="recordar-password">
+							<a href="#">¿Has olvidado tu contraseña?</a>
+						</p>
 						<button type="submit">Enviar</button>
 					</form>
 				</div>
@@ -38,7 +43,10 @@
 					<button type="button">Registrate con Google</button>
 				</div>
 				<div class="caja-enlace">
-					<p>¿Ya tienes una cuenta? <a href="#">Accede aquí</a></p>
+					<p>
+						¿Ya tienes una cuenta?
+						<a class="enlace-naranja" href="#">Accede aquí</a>
+					</p>
 				</div>
 			</div>
 			<div class="caja-dcha">
