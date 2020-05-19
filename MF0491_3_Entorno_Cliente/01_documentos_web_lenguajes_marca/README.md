@@ -105,3 +105,14 @@ Fundamental para posicionar los elementos que creamos:
 Fundamental para garantizar que nuestros diseños y desarrollos se ven bien desde cualquier navegador. Siempre usaremos normalize.
 
 -   https://necolas.github.io/normalize.css/
+
+## Examen práctico
+
+| Partes a evaluar del examen práctico                                                                             | Puntuación |
+| ---------------------------------------------------------------------------------------------------------------- | ---------- |
+| Organizar archivos y documentos adecuadamente                                                                    | 1          |
+| Implementar las imágenes y estilos necesarios al documento HTML adecuadamente                                    | 1          |
+| Asignar etiquetas HTML adecuadas a los grandes bloques (div, header, footer y nav)                               | 1          |
+| Crear estructura de cajas y posicionarlas adecuadamente.                                                         | Hasta 3p.  |
+| Crear elementos HTML (formularios, listas, etc...) adecuadamente usando las propiedades necesarias en cada caso. | Hasta 2p.  |
+| Asignar colores, bordes, espacios, estilos, etc... fidedignos a los del documento                                | Hasta 2p.  |
