@@ -56,8 +56,8 @@ Un lenguaje de marcado o lenguaje de marcas es una forma de codificar un documen
     -   video
 -   Formularios:
     -   form -> define un formulario.
-    -   label -> etiqueta para el input.
-    -   input -> campo a rellenar por el usuario. Tipos: text, textarea, email, submit, etc...
+    -   label -> etiqueta para el input. Importante **usar etiqueta for=""**. Se enlaza directamente al campo con la etiqueta name. Ejemplo: `<label for="nombre">Nombre</label><input type="text" name="nombre" />`
+    -   input -> campo a rellenar por el usuario. Tipos: text, textarea, email, submit, etc... Importante **usar etiqueta name=""**.
     -   button -> botón.
 
 **Referencia**: En total hay 130 etiquetas html, aumentan y cambian cada día: https://www.w3schools.com/TAGS/default.ASP
