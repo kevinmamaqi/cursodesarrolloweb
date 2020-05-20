@@ -29,16 +29,48 @@
 }
 
 .caja-productos {
-	background-color: yellow;
 	width: 100%;
 	max-width: 80%;
-	height: 100px;
+	display: flex;
+	flex-direction: column;
 }
 
 .caja-formulario {
-	background-color: blue;
-	width: 200px;
 	width: 100%;
 	max-width: 80%;
-	height: 100px;
+}
+
+.caja-nombres {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 30px;
+	color: #666;
+	font-size: 12px;
+	text-transform: uppercase;
+}
+
+.caja-producto {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}
+
+.detalles img {
+	max-width: 80px;
+	width: 80px;
+	height: 80px;
+}
+
+.detalles .nombre {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.detalles .referencia,
+.detalles .detalles-producto {
+	margin-top: 8px;
+	margin-bottom: 8px;
+	font-size: 14px;
+	color: #666;
 }
