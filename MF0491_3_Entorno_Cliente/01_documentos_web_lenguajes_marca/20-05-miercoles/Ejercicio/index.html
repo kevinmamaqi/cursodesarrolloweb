@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+		/>
+		<link rel="stylesheet" href="./css/styles.css" />
+		<title>Ejercicio</title>
+	</head>
+	<body>
+		<div class="caja-fondo">
+			<div class="caja-izd">
+				<div class="caja-principal">
+					<div class="caja-logo">Red de<br />Programadores</div>
+					<div class="caja-busqueda">
+						<h1>Red de Programadores</h1>
+						<p>
+							Millones de empresas buscan programadores. Encuentra
+							los mejores en nuestra red de programadores.
+						</p>
+						<form>
+							<label for="busqueda" style="display: none;"
+								>Busqueda</label
+							>
+							<input
+								type="search"
+								name="busqueda"
+								placeholder="Introduce nombre, lugar, precio, ... etc..."
+							/>
+							<button type="submit">Buscar</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="caja-dcha">
+				<div class="caja-formulario">
+					<h2>Crea una cuenta</h2>
+					<p>Escoge uno de los siguientes métodos</p>
+					<div class="botones-registro">
+						<button class="facebook">Facebook</button>
+						<button class="google">Google</button>
+					</div>
+					<hr />
+					<p>O registrate con tu email</p>
+					<form>
+						<label for="email" style="display: none;">Email</label>
+						<input
+							type="email"
+							name="email"
+							id="email"
+							placeholder="Email"
+						/>
+						<div class="nombre-apellidos">
+							<label for="nombre" style="display: none;"
+								>Nombre</label
+							>
+							<input
+								type="text"
+								name="nombre"
+								id="nombre"
+								placeholder="Nombre"
+							/>
+
+							<label for="apellidos" style="display: none;"
+								>Apellidos</label
+							>
+							<input
+								type="text"
+								name="apellidos"
+								id="apellidos"
+								placeholder="Apellidos"
+							/>
+						</div>
+
+						<label for="password" style="display: none;"
+							>Contraseña</label
+						>
+						<input
+							type="password"
+							name="password"
+							id="password"
+							placeholder="Contraseña"
+						/>
+
+						<label
+							><input
+								type="checkbox"
+								id="privacidad"
+								value="privacidad"
+							/>Acepto la política de privacidad.</label
+						><br />
+						<div class="boton-final">
+							<button type="submit">Crear cuenta</button>
+							<p>
+								¿Ya estas registrado?
+								<a href="#">Accede aquí</a>
+							</p>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

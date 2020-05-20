@@ -1,0 +1,88 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	color: white;
+}
+
+.caja-fondo {
+	background-color: #333;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.caja-izd {
+	width: 60%;
+	height: 85vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.caja-principal {
+	width: 100%;
+	max-width: 80%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.caja-logo {
+	margin: 0;
+	padding-left: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-left: 2px solid white;
+}
+
+.caja-dcha {
+	width: 40%;
+	display: flex;
+	justify-content: center;
+}
+
+.caja-formulario {
+	height: 70vh;
+	width: 100%;
+	max-width: 80%;
+	background-color: #fff;
+	border-radius: 6px;
+	padding: 20px;
+}
+
+h2 {
+	color: purple;
+}
+
+.caja-formulario p {
+	color: purple;
+}
+
+.caja-formulario input {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.caja-formulario label {
+	color: purple;
+}
+
+.nombre-apellidos {
+	display: flex;
+	justify-content: space-between;
+}
+
+.nombre-apellidos input {
+	width: 45%;
+}
+
+.boton-final {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+}
