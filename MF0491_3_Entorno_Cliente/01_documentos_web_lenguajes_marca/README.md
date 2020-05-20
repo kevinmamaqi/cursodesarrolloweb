@@ -116,3 +116,7 @@ Fundamental para garantizar que nuestros diseños y desarrollos se ven bien desd
 | Crear estructura de cajas y posicionarlas adecuadamente.                                                         | Hasta 3p.  |
 | Crear elementos HTML (formularios, listas, etc...) adecuadamente usando las propiedades necesarias en cada caso. | Hasta 2p.  |
 | Asignar colores, bordes, espacios, estilos, etc... fidedignos a los del documento                                | Hasta 2p.  |
+
+## Atajos EMMET Microsoft VSCode
+
+Link: https://docs.emmet.io/cheat-sheet/
