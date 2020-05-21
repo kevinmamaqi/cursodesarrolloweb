@@ -13,7 +13,66 @@
 	<body>
 		<div class="caja-fondo">
 			<div class="caja-contenedora">
-				<div class="caja-izd"></div>
+				<div class="caja-izd">
+					<div class="caja-contenedora-izd">
+						<h1>Booking</h1>
+						<form action="">
+							<label for="salareuniones">Meeting room</label>
+							<select name="salareuniones" id="salareuniones">
+								<option value="1">1 persona</option>
+								<option value="2">2 persona</option>
+								<option value="3">3 persona</option>
+							</select>
+							<div class="caja-horarios">
+								<div class="cajas-fecha">
+									<label for="fecha">Fecha</label>
+									<input
+										type="date"
+										name="fecha"
+										id="fecha"
+									/>
+								</div>
+
+								<div class="cajas-fecha">
+									<label for="horario">Horario</label>
+									<input
+										type="datetime"
+										name="horario"
+										id="horario"
+									/>
+								</div>
+
+								<div class="cajas-fecha">
+									<label for="horario-hasta"
+										>Hasta que hora</label
+									>
+									<input
+										type="datetime"
+										name="horario-hasta"
+										id="horario-hasta"
+									/>
+								</div>
+							</div>
+							<label for="dia-entero"
+								><input
+									type="checkbox"
+									name="dia-entero"
+									id="dia-entero"
+								/>
+								Día entero</label
+							>
+
+							<label for="nombre">Nombre</label>
+							<input
+								type="text"
+								name="nombre"
+								id="nombre"
+								placeholder="Añadir invitado"
+							/>
+							<button type="submit">Book meeting room</button>
+						</form>
+					</div>
+				</div>
 				<div class="caja-dcha"></div>
 			</div>
 		</div>
