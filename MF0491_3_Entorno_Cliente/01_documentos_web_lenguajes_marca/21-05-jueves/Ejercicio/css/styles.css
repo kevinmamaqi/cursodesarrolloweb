@@ -1,0 +1,28 @@
+.caja-fondo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	background-color: #ccc;
+}
+
+.caja-contenedora {
+	width: 90vw;
+	height: 70vh;
+	background-color: #fff;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+}
+
+.caja-izd {
+	width: 65%;
+	background-color: yellow;
+	height: 100%;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.caja-dcha {
+	width: 35%;
+}
