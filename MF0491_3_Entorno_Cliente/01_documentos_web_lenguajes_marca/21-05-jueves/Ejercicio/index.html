@@ -16,7 +16,7 @@
 				<div class="caja-izd">
 					<div class="caja-contenedora-izd">
 						<h1>Booking</h1>
-						<form action="">
+						<form>
 							<label for="salareuniones">Meeting room</label>
 							<select name="salareuniones" id="salareuniones">
 								<option value="1">1 persona</option>
@@ -43,7 +43,9 @@
 								</div>
 
 								<div class="cajas-fecha">
-									<label for="horario-hasta"
+									<label
+										for="horario-hasta"
+										style="display: none;"
 										>Hasta que hora</label
 									>
 									<input
@@ -53,14 +55,15 @@
 									/>
 								</div>
 							</div>
-							<label for="dia-entero"
-								><input
+							<div class="caja-checkbox">
+								<input
+									class=""
 									type="checkbox"
 									name="dia-entero"
 									id="dia-entero"
 								/>
-								Día entero</label
-							>
+								<label for="dia-entero">Día entero</label>
+							</div>
 
 							<label for="nombre">Nombre</label>
 							<input

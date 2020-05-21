@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
 .caja-fondo {
 	display: flex;
 	justify-content: center;
@@ -21,8 +25,43 @@
 	height: 100%;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
+	display: flex;
+	justify-content: center;
+}
+
+.caja-contenedora-izd {
+	width: 100%;
+	max-width: 80%;
+}
+
+.caja-horarios {
+	display: flex;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.caja-checkbox {
+	display: flex;
+	justify-content: flex-start;
+	margin-bottom: 20px;
+}
+
+.caja-checkbox input {
+	width: auto;
+	margin-right: 10px;
 }
 
 .caja-dcha {
 	width: 35%;
+}
+
+input,
+select,
+button {
+	width: 100%;
+	display: block;
+}
+
+button {
+	margin-top: 20px;
 }
