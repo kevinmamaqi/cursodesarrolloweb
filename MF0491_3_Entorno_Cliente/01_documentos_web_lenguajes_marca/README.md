@@ -117,6 +117,21 @@ Fundamental para garantizar que nuestros diseños y desarrollos se ven bien desd
 | Crear elementos HTML (formularios, listas, etc...) adecuadamente usando las propiedades necesarias en cada caso. | Hasta 2p.  |
 | Asignar colores, bordes, espacios, estilos, etc... fidedignos a los del documento                                | Hasta 2p.  |
 
+## Método de trabajo para el examen
+
+1. Crear carpeta que contendra los archivos de la web.
+2. Crear documento index.html
+3. Crear carpeta css
+4. Crear carpeta img
+5. Crear documento styles.css
+6. Enlazar documento normalize.css (enlace: ) y styles.css en la cabecera.
+7. Dibujar cajas principales sobre papel.
+8. Crear HTML de las cajas principales.
+9. Crear CSS de las cajas principales y comprobar si se ve bien.
+10. Dibujar cajas secundarias sobre papel.
+11. Crear HTML de las cajas secundarias.
+12. Crear CSS de las cajas secundarias y comprobar si se ve bien.
+
 ## Atajos EMMET Microsoft VSCode
 
 Link: https://docs.emmet.io/cheat-sheet/
