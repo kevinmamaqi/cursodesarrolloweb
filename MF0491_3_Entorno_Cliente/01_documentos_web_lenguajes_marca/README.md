@@ -98,6 +98,7 @@ Fundamental para posicionar los elementos que creamos:
 
 1. Modelo de caja: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model
 2. Unidades en CSS: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units
+    - Unidades principales CSS: px (pixeles), em (unidad relativa al elemento padre), rem (unidad relativa al tamaño de letra del documento, si mi documento tiene un tamaño de letra de 16px, 1rem=16px), vh (1% de la altura de navegador del usuario), vw (1% de la anchura de navegador del usuario).
 3. Flexbox: https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox
 
 ### Normalizadores
