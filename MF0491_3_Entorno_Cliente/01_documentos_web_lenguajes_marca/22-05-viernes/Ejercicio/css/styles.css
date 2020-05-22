@@ -19,10 +19,22 @@
 	height: 80vh;
 }
 
+@media (max-width: 800px) {
+	.caja-contenedora {
+		flex-direction: column;
+	}
+}
+
 .caja-izd {
 	width: 50%;
 	height: 100%;
 	background-color: green;
+}
+
+@media (max-width: 800px) {
+	.caja-izd {
+		width: 100%;
+	}
 }
 
 .caja-dcha {
@@ -33,6 +45,12 @@
 	flex-direction: column;
 }
 
+@media (max-width: 800px) {
+	.caja-dcha {
+		width: 100%;
+	}
+}
+
 .caja-texto {
 	width: 100%;
 	padding: 20px;
@@ -41,7 +59,13 @@
 h1 {
 	color: white;
 	text-align: center;
-	font-size: 24px;
+	font-size: 60px;
+}
+
+@media (max-width: 800px) {
+	h1 {
+		font-size: 20px;
+	}
 }
 
 .caja-botones {
