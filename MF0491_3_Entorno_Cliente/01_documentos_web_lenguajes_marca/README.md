@@ -109,23 +109,23 @@ Fundamental para garantizar que nuestros diseños y desarrollos se ven bien desd
 
 ### media queries y diseño web responsive
 
-El diseño web receptivo se trata de crear páginas web que se vean bien en todos los dispositivos. Móviles, ordenadores, tablets. Un diseño web receptivo se ajustará automáticamente para diferentes tamaños de pantalla y ventanas gráficas.
+El diseño web responsive se trata de crear páginas web que se vean bien en todos los dispositivos. Móviles, ordenadores, tablets. Un diseño web responsive se ajustará automáticamente para diferentes tamaños de pantalla y ventanas gráficas.
 
 ```
 // Extra small devices (portrait phones, less than 576px)
 // No media query since this is the default in Bootstrap
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... }
+// Dispositivos pequeños (móviles)
+@media (max-width: 576px) {  }
 
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) { ... }
+// Dispositivos medios (móviles en apaisado)
+@media (min-width: 768px) {  }
 
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) { ... }
+// Dispositivos medio-grandes (tablets)
+@media (max-width: 992px) {  }
 
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... }
+// Portatiles
+@media (max-width: 1200px) {  }
 ```
 
 ## Examen práctico
