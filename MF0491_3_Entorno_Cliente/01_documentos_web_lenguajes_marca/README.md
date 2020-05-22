@@ -107,6 +107,27 @@ Fundamental para garantizar que nuestros diseños y desarrollos se ven bien desd
 
 -   https://necolas.github.io/normalize.css/
 
+### media queries y diseño web responsive
+
+El diseño web receptivo se trata de crear páginas web que se vean bien en todos los dispositivos. Móviles, ordenadores, tablets. Un diseño web receptivo se ajustará automáticamente para diferentes tamaños de pantalla y ventanas gráficas.
+
+```
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+```
+
 ## Examen práctico
 
 | Partes a evaluar del examen práctico                                                                             | Puntuación |
