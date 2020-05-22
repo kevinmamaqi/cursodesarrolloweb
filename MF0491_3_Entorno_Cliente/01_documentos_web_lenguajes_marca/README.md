@@ -109,7 +109,7 @@ Fundamental para garantizar que nuestros diseños y desarrollos se ven bien desd
 
 ### media queries y diseño web responsive
 
-El diseño web responsive se trata de crear páginas web que se vean bien en todos los dispositivos. Móviles, ordenadores, tablets. Un diseño web responsive se ajustará automáticamente para diferentes tamaños de pantalla y ventanas gráficas.
+El diseño web responsive se trata de crear páginas web que se vean bien en todos los dispositivos. Móviles, ordenadores, tablets. Un diseño web responsive se ajustará automáticamente para diferentes tamaños de pantalla y ventanas gráficas. Documentación media-queries en Mozilla: https://developer.mozilla.org/es/docs/CSS/Media_queries
 
 ```
 // Extra small devices (portrait phones, less than 576px)
