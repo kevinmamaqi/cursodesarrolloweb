@@ -1,0 +1,9 @@
+button {
+	width: 60px;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+button.cero {
+	width: 130px;
+}
