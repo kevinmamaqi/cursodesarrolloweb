@@ -2,6 +2,7 @@
 var x = "";
 var y = "";
 var operacion;
+var display = document.getElementById("display");
 
 // Boton de resultado
 var botonResultado = document.getElementById("resultado");
@@ -9,9 +10,33 @@ botonResultado.addEventListener("click", function () {
 	if (x !== "" && y !== "" && operacion !== undefined) {
 		numeroX = parseInt(x);
 		numeroY = parseInt(y);
-		console.log(suma(numeroX, numeroY));
+
+		switch (operacion) {
+			case "+":
+				display.innerHTML = suma(numeroX, numeroY);
+				break;
+			case "-":
+				display.innerHTML = resta(numeroX, numeroY);
+				break;
+			case "/":
+				display.innerHTML = division(numeroX, numeroY);
+				break;
+			case "x":
+				display.innerHTML = multiplicacion(numeroX, numeroY);
+				break;
+			default:
+				break;
+		}
+		limpiarMemoria();
 	}
 });
+
+// Limpiar después de mostrar resultados.
+function limpiarMemoria() {
+	x = "";
+	y = "";
+	operacion = undefined;
+}
 
 // Botones de números
 var botonesNumeros = document.getElementsByClassName("numeros");

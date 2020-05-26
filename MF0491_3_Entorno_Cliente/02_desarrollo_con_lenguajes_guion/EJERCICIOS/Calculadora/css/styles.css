@@ -7,3 +7,27 @@ button {
 button.cero {
 	width: 130px;
 }
+
+#display {
+	width: 270px;
+	border-radius: 6px;
+	background-color: grey;
+	line-height: 30px;
+	font-size: 24px;
+	color: white;
+	display: block;
+	margin-bottom: 10px;
+	padding: 1rem;
+	box-sizing: border-box;
+	text-align: right;
+}
+
+button#resultado {
+	background-color: blue;
+	color: white;
+}
+
+button.operaciones {
+	background-color: orange;
+	color: white;
+}
