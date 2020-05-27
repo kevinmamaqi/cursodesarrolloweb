@@ -14,6 +14,7 @@ botonResultado.addEventListener("click", function () {
 		switch (operacion) {
 			case "+":
 				display.innerHTML = suma(numeroX, numeroY);
+				devolverValorSuma(suma(numeroX, numeroY));
 				break;
 			case "-":
 				display.innerHTML = resta(numeroX, numeroY);
