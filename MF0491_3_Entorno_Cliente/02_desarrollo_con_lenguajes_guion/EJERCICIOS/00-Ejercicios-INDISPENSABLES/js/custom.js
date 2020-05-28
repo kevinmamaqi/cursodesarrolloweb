@@ -12,6 +12,7 @@ var precio producto = 3.45;
 
 // Ejercicio 4
 // ¿Qué resultado sera nuevoNumero en la siguiente expresión?
+// Razona y escribe porque sucede.
 var numero = 4;
 var nuevoNumero = numero++;
 
