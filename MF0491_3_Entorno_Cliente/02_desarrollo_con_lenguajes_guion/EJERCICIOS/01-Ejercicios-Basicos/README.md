@@ -16,10 +16,10 @@
 
 6. Escribe un programa JavaScript para determinar si un año dado es bisiesto en el calendario gregoriano. El calendario gregoriano: https://es.wikipedia.org/wiki/Calendario_gregoriano
 
-7) Escribe un programa de JavaScript para rotar la cadena 'CURSO PROGRAMACIÓN CEINA' en la dirección correcta eliminando periódicamente una letra del final de la cadena y uniéndola al frente.
+7) Escribe un programa de JavaScript en el que el programa tome un número entero aleatorio entre 1 y 10, luego se le solicitará al usuario que ingrese un número. Si la entrada del usuario coincide con el número aproximado, el programa mostrará un mensaje "Buen trabajo"; de lo contrario, mostrará un mensaje "No coincidente".
 
-8. Escribe un programa de JavaScript en el que el programa tome un número entero aleatorio entre 1 y 10, luego se le solicitará al usuario que ingrese un número. Si la entrada del usuario coincide con el número aproximado, el programa mostrará un mensaje "Buen trabajo"; de lo contrario, mostrará un mensaje "No coincidente".
+8) Escribe un programa de JavaScript para calcular los días que faltan hasta la próxima Navidad.
 
-9) Escribe un programa de JavaScript para calcular los días que faltan hasta la próxima Navidad.
+9) Escribe un programa de JavaScript para convertir temperaturas hacia y desde Celsius, Fahrenheit.
 
-10. Escribe un programa de JavaScript para convertir temperaturas hacia y desde Celsius, Fahrenheit.
+10) Escribe un programa de JavaScript para rotar la cadena 'CURSO PROGRAMACIÓN CEINA' en la dirección correcta eliminando periódicamente una letra del final de la cadena y uniéndola al frente.

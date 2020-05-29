@@ -10,6 +10,3 @@
 
 // 7. Mirar todos los unos de enero que coinciden con Domingo.
 // 8. Aquí necesito comparar fechas para ver coincidencias.
-
-var fecha = new Date(1995, 11, 17);
-console.log(fecha.getDay());
