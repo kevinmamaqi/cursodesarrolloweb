@@ -290,24 +290,27 @@ cajaEncima.addEventListener("mouseover", function () {
 // Guardalas en la carpeta /img/
 // Introduce una en el HTML y crea un botón.
 // Haz que al pinchar sobre el botón se cambie una imagen por la otra.
-var botonCambiarImagen = document.getElementById("cambiar-imagen");
-// console.log(botonCambiarImagen);
-var imagenACambiar = document.getElementById("imagen-a-cambiar");
-imagenACambiar.alt = "PERRRRROOOOOOOO";
+var botonCambiarImagen = $("#cambiar-imagen");
+console.log("MOSTRAR BOTON", botonCambiarImagen);
+var imagenACambiar = $("#imagen-a-cambiar");
+
 console.log(imagenACambiar.alt);
 console.log(imagenACambiar.src);
 
-botonCambiarImagen.addEventListener("click", function () {
-	if (imagenACambiar.alt === "Perro 1") {
-		imagenACambiar.src =
-			"http://127.0.0.1:5500/MF0491_3_Entorno_Cliente/02_desarrollo_con_lenguajes_guion/EJERCICIOS/00-Ejercicios-INDISPENSABLES/img/2.jpg";
+var botonCambiarImagen = $("#btn-cambiar-imagen");
+var imagenACambiar = $("#imagen-a-cambiar");
 
-		imagenACambiar.alt = "Perro 2";
+console.log(imagenACambiar.attr("src"));
+
+// imagenACambiar.attr("src", "./img/2.jpg");
+
+botonCambiarImagen.on("click", function () {
+	if (imagenACambiar.attr("alt") === "Perro 1") {
+		imagenACambiar.attr("src", "./img/2.jpg");
+		imagenACambiar.attr("alt", "Perro 2");
 	} else {
-		imagenACambiar.src =
-			"http://127.0.0.1:5500/MF0491_3_Entorno_Cliente/02_desarrollo_con_lenguajes_guion/EJERCICIOS/00-Ejercicios-INDISPENSABLES/img/1.jpg";
-
-		imagenACambiar.alt = "Perro 1";
+		imagenACambiar.attr("src", "./img/perro1.jpg");
+		imagenACambiar.attr("alt", "Perro 1");
 	}
 });
 
