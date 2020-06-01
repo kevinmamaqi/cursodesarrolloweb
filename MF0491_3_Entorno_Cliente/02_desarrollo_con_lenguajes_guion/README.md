@@ -10,6 +10,8 @@
 -   Encontrar elementos HTML por selectores CSS
 -   Encontrar elementos HTML por colecciones de objetos HTML
 
+Atención: El método de documento getElementById() devuelve un **objeto**. Esto quiere decir que se puede acceder a sus propiedades (id, alt, src, etc... usando la notación de objetos de Javascript). No esta disponible en la documentación oficial de Mozilla.
+
 **Escuchar a eventos** que ocurren en el documento. Los eventos podemos considerarlos acciones que realiza el usuario (como pinchar en un botón (hacer "click", o pinchar en la tecla "Enter" o "Esc")).
 
 -   Referencia: https://developer.mozilla.org/es/docs/Web/API/EventTarget/addEventListener

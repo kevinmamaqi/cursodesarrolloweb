@@ -290,6 +290,26 @@ cajaEncima.addEventListener("mouseover", function () {
 // Guardalas en la carpeta /img/
 // Introduce una en el HTML y crea un botón.
 // Haz que al pinchar sobre el botón se cambie una imagen por la otra.
+var botonCambiarImagen = document.getElementById("cambiar-imagen");
+// console.log(botonCambiarImagen);
+var imagenACambiar = document.getElementById("imagen-a-cambiar");
+imagenACambiar.alt = "PERRRRROOOOOOOO";
+console.log(imagenACambiar.alt);
+console.log(imagenACambiar.src);
+
+botonCambiarImagen.addEventListener("click", function () {
+	if (imagenACambiar.alt === "Perro 1") {
+		imagenACambiar.src =
+			"http://127.0.0.1:5500/MF0491_3_Entorno_Cliente/02_desarrollo_con_lenguajes_guion/EJERCICIOS/00-Ejercicios-INDISPENSABLES/img/2.jpg";
+
+		imagenACambiar.alt = "Perro 2";
+	} else {
+		imagenACambiar.src =
+			"http://127.0.0.1:5500/MF0491_3_Entorno_Cliente/02_desarrollo_con_lenguajes_guion/EJERCICIOS/00-Ejercicios-INDISPENSABLES/img/1.jpg";
+
+		imagenACambiar.alt = "Perro 1";
+	}
+});
 
 // Ejericicio 38
 // Crea un parrafo con la clase: "parrafo-negro"
@@ -300,5 +320,5 @@ cajaEncima.addEventListener("mouseover", function () {
 // Muestra en la consola la llave (key) apellidos.
 
 // Ejercicio 40
-// Crea una frase que contenta de 0 a 999 números, separados por comas.
+// Crea una frase que contenga de 0 a 999 números, separados por comas.
 // Imprimelo en la consola.
