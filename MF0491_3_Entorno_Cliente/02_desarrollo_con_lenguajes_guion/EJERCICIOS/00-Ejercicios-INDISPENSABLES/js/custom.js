@@ -270,7 +270,8 @@ while (numeroContador > -1) {
 // Crea una caja de 200px por 200px en HTML
 // Identifica con JS cuando el usuario pasa el ratón por encima muestre el
 // mensaje ESTOY ENCIMA en la consola.
-var cajaEncima = document.getElementById("caja-encima");
+
+var cajaEncima = $("#caja-encima");
 cajaEncima.addEventListener("mouseover", function () {
 	console.log("Ejercicio 34: ESTOY ENCIMA");
 });
@@ -290,6 +291,7 @@ cajaEncima.addEventListener("mouseover", function () {
 // Guardalas en la carpeta /img/
 // Introduce una en el HTML y crea un botón.
 // Haz que al pinchar sobre el botón se cambie una imagen por la otra.
+
 var botonCambiarImagen = $("#cambiar-imagen");
 console.log("MOSTRAR BOTON", botonCambiarImagen);
 var imagenACambiar = $("#imagen-a-cambiar");
@@ -297,19 +299,21 @@ var imagenACambiar = $("#imagen-a-cambiar");
 console.log(imagenACambiar.alt);
 console.log(imagenACambiar.src);
 
-var botonCambiarImagen = $("#btn-cambiar-imagen");
+var botonCambiarImagen = $("#cambiar-imagen");
 var imagenACambiar = $("#imagen-a-cambiar");
 
-console.log(imagenACambiar.attr("src"));
+console.log(imagenACambiar.attr("alt"));
 
 // imagenACambiar.attr("src", "./img/2.jpg");
-
 botonCambiarImagen.on("click", function () {
+	console.log("He hecho click");
 	if (imagenACambiar.attr("alt") === "Perro 1") {
+		var imagenACambiar = document.getElementsByName("miimagen");
 		imagenACambiar.attr("src", "./img/2.jpg");
+
 		imagenACambiar.attr("alt", "Perro 2");
 	} else {
-		imagenACambiar.attr("src", "./img/perro1.jpg");
+		imagenACambiar.attr("src", "./img/1.jpg");
 		imagenACambiar.attr("alt", "Perro 1");
 	}
 });

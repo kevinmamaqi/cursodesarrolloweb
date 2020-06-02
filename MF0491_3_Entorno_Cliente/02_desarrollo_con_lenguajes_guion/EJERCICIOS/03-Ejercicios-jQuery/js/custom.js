@@ -1,4 +1,10 @@
 // 1. Prueba si jQuery está cargado y listo para usarse.
+if (typeof jQuery == "undefined") {
+	// Esto significa que jQuery no esta cargado, hacer algo aquí.
+	console.log("jQuery no ha cargado correctamente.");
+} else {
+	console.log("jQuery ha cargado correctamente");
+}
 
 // 2. Desplazate hasta la parte superior de la página con jQuery. Usar scroll.
 // Para realizar este ejercicio crea una caja vacia de 1000 pixeles de alto, o más.
@@ -31,5 +37,27 @@
 
 // 12. Muestra los valores de la API https://jsonplaceholder.typicode.com/
 // https://jsonplaceholder.typicode.com/ es una web que ofrece datos para prácticar.
+var respuesta;
+
+fetch("https://jsonplaceholder.typicode.com/posts")
+	.then((res) => res.json())
+	.then((json) => {
+		respuesta = json;
+		console.log("Ya estoy listo para usarse.");
+	});
+
+var boton = $("#mostrar-articulos");
+var lugarDeInsercion = $("#insertar-articulos");
+
+boton.on("click", function () {
+	for (let i = 0; i < 3; i++) {
+		const element = respuesta[i];
+		const titulo = element.title;
+		const cuerpo = element.body;
+		console.log(titulo);
+		lugarDeInsercion.append("<h1>" + titulo + "</h1>");
+		lugarDeInsercion.append("<p>" + cuerpo + "</p>");
+	}
+});
 
 // 13. Crea una lista desordenada de números aleatorios con jQuery.
