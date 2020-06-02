@@ -21,12 +21,23 @@ if (typeof jQuery == "undefined") {
 
 // 6. Crea texto parpadeante usando jQuery. (blink)
 
-// 7. Modifica los estilos de una tabla HTML para que cada segunda fila tenga un color distinto
+// 7. Modifica los estilos de una tabla HTML
+// para que cada segunda fila tenga un color distinto
+var filasPares = $("#tabla-examen tbody tr:odd");
+filasPares.css("backgroundColor", "#FF0000");
 
 // 8. Imprime una página usando jQuery.
 
-// 9. Limita la entrada de caracteres en un área de texto.
+// 9. Limita la entrada de caracteres en un área de texto a 50.
 // Muestra conforme el usuario escribe cuantos caracteres quedan para llegar al límite.
+var areaDeTexto = $("#area-de-texto");
+var caracteresQueQuedan = $("#caracteres-que-quedan");
+var diferencia = 50;
+
+areaDeTexto.on("keyup", function () {
+	var longitudTexto = areaDeTexto.val().length;
+	caracteresQueQuedan.text(diferencia - longitudTexto);
+});
 
 // 10. Crea un div usando jQuery con la etiqueta de estilo caja-roja.
 // Introduce el div en la página
@@ -39,12 +50,19 @@ if (typeof jQuery == "undefined") {
 // https://jsonplaceholder.typicode.com/ es una web que ofrece datos para prácticar.
 var respuesta;
 
-fetch("https://jsonplaceholder.typicode.com/posts")
-	.then((res) => res.json())
-	.then((json) => {
-		respuesta = json;
-		console.log("Ya estoy listo para usarse.");
-	});
+// JAVAVSCRIPT FETCH API
+// fetch("https://jsonplaceholder.typicode.com/posts")
+// 	.then((res) => res.json())
+// 	.then((json) => {
+// 		respuesta = json;
+// 		console.log("Ya estoy listo para usarse.");
+//     });
+
+// JQUERY GET API
+$.get("https://jsonplaceholder.typicode.com/posts", function (data) {
+	respuesta = data;
+	console.log("Respuesta", data);
+});
 
 var boton = $("#mostrar-articulos");
 var lugarDeInsercion = $("#insertar-articulos");
