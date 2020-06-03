@@ -79,3 +79,26 @@ boton.on("click", function () {
 });
 
 // 13. Crea una lista desordenada de números aleatorios con jQuery.
+
+// 14. Crea una caja conteniendo 5 parrafos.
+// Añade la clase "curso-ceina" al último parrafo
+
+// 15. Coloca una caja en la pantalla con una altura de 100px y anchura de 100px.
+// Dale color de fondo rojo.
+// Dale margen a la izquierda 20px y arriba 50px.
+// Encuentra la posición absoluta de esta caja, respecto del document usando jQuery.
+
+// 16. Crea un botón llamado "Iniciar sesión".
+// Al pinchar haz que cambie el texto a "Estamos identificandote"
+// Tres segundos despues, haz que cambie el texto a "Bienvenido" y que el color
+// de fondo sea verde.
+
+// 17. Crea un input y limita solo a numeros, incluidos los decimales.
+
+// 18. Crea un formulario con nombre, apellidos, telefeno y mensaje
+// Accede a sus datos usando jQuery
+
+// 19. Investiga el evento BLUR de jQuery y crea un caso práctico para el mismo.
+
+// 20. Investiga la función delegate y el evento focus en jQuery
+// Crea un ejemplo práctico
