@@ -41,7 +41,10 @@ areaDeTexto.on("keyup", function () {
 
 // 10. Crea un div usando jQuery con la etiqueta de estilo caja-roja.
 // Introduce el div en la página
-
+var divCajaRoja =
+	'<div class="caja-roja" style="width: 100px; height: 100px; background-color: red;"></div>';
+var cuerpoDocumento = $("body");
+cuerpoDocumento.append(divCajaRoja);
 // 11. Crea dos cajas del mismo ancho y alto, y distinto color de fondo.
 // Introduce en la caja de la izquierda tres botones.
 // Haz que al pinchar sobre un botón, este se cambie de caja.
@@ -78,7 +81,7 @@ boton.on("click", function () {
 	}
 });
 
-// 13. Crea una lista desordenada de números aleatorios con jQuery.
+// 13. Crea una lista desordenada, de números aleatorios, con jQuery.
 
 // 14. Crea una caja conteniendo 5 parrafos.
 // Añade la clase "curso-ceina" al último parrafo
