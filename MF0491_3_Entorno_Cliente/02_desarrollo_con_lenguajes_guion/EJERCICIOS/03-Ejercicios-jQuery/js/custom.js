@@ -45,6 +45,7 @@ var divCajaRoja =
 	'<div class="caja-roja" style="width: 100px; height: 100px; background-color: red;"></div>';
 var cuerpoDocumento = $("body");
 cuerpoDocumento.append(divCajaRoja);
+
 // 11. Crea dos cajas del mismo ancho y alto, y distinto color de fondo.
 // Introduce en la caja de la izquierda tres botones.
 // Haz que al pinchar sobre un botón, este se cambie de caja.
@@ -70,7 +71,7 @@ $.get("https://jsonplaceholder.typicode.com/posts", function (data) {
 var boton = $("#mostrar-articulos");
 var lugarDeInsercion = $("#insertar-articulos");
 
-boton.on("click", function () {
+boton.on("click change", function () {
 	for (let i = 0; i < 3; i++) {
 		const element = respuesta[i];
 		const titulo = element.title;
@@ -82,8 +83,15 @@ boton.on("click", function () {
 });
 
 // 13. Crea una lista desordenada, de números aleatorios, con jQuery.
+var listaDesordenada = "<ul>";
+var numeroElementos = Math.round(Math.random() * (10 - 3) + 3);
+for (let i = 0; i < numeroElementos; i++) {
+	listaDesordenada += "<li>" + (Math.random() * (1000 - 250) + 250) + "</li>";
+}
+listaDesordenada += "</ul>";
+$("body").append(listaDesordenada);
 
-// 14. Crea una caja conteniendo 5 parrafos.
+// 14. Crea una caja (div) conteniendo 5 parrafos.
 // Añade la clase "curso-ceina" al último parrafo
 
 // 15. Coloca una caja en la pantalla con una altura de 100px y anchura de 100px.
@@ -96,8 +104,21 @@ boton.on("click", function () {
 // Tres segundos despues, haz que cambie el texto a "Bienvenido" y que el color
 // de fondo sea verde.
 
-// 17. Crea un input y limita solo a numeros, incluidos los decimales.
+// 17. Crea un input y limita solo a numeros, incluidos los decimales (',' o '.').
+// METODO CON REGEXP + REFERENCIA THIS.
+// $("#filtrar-numeros").on("keyup", function () {
+// 	this.value = this.value.replace(/[^0-9\.\,]/g, "");
+// });
 
+// METODO RAUL
+$("#filtrar-numeros").on("keypress", function (tecla) {
+	if (tecla.charCode < 48 || tecla.charCode > 57) {
+		if (tecla.charCode == 44 || tecla.charCode == 46) {
+			return true;
+		}
+		return false;
+	}
+});
 // 18. Crea un formulario con nombre, apellidos, telefeno y mensaje
 // Accede a sus datos usando jQuery
 

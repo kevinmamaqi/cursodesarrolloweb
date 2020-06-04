@@ -25,3 +25,13 @@ _IMPORTANTE_ - Se exige saber que son los eventos, como utilizarlos y saber defi
 
 -   innerHTML: Devuelve el contenido del elemento seleccionado. Si dentro tiene HTML, lo devuelve también. También se puede usar para asignar.
 -   innerTEXT: Devuelve el texto del contenido seleccionado. Si dentro tiene HTML, lo elimina. También se puede usar para asignar.
+
+# Expresiones Regulares (RegExp)
+
+Es una secuencia de caracteres que conforma un patrón de búsqueda. La usamos para encontrar patrones en un texto y generalmente realizar sustituciones.
+
+**Referencia**: https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions
+
+**Definición**: Las expresiones regulares son patrones utilizados para encontrar una determinada combinación de caracteres dentro de una cadena de texto. En JavaScript, las expresiones regulares también son objetos. Estos patrones se utilizan en los métodos exec y test de RegExp, así como los métodos `match`, `replace`, `search` y `split` de String. En este capítulo se describe el uso y funcionamiento de las expresiones regulares en JavaScript.
+
+**Herramienta online**: https://regex101.com/
