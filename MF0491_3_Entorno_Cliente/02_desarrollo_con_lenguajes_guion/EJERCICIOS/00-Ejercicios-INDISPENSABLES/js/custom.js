@@ -333,5 +333,18 @@ var persona = {
 console.log("Ejercicio 39", Object.keys(persona)[1]);
 
 // Ejercicio 40
-// Crea una frase que contenga de 0 a 999 números, separados por comas.
+// Crea una frase que contenga de 0 a 999 números,
+// separados por comas.
 // Imprimelo en la consola.
+
+var fraseDeNumeros = "";
+
+for (let i = 0; i < 1000; i++) {
+	if (i < 999) {
+		fraseDeNumeros += i + ", ";
+	} else {
+		fraseDeNumeros += i;
+	}
+}
+
+console.log(fraseDeNumeros);

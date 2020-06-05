@@ -6,9 +6,17 @@ if (typeof jQuery == "undefined") {
 	console.log("jQuery ha cargado correctamente");
 }
 
-// 2. Desplazate hasta la parte superior de la página con jQuery. Usar scroll.
-// Para realizar este ejercicio crea una caja vacia de 1000 pixeles de alto, o más.
-// Crea un botón que se mantenga flotante en la parte inferior derecha de la página, este botón debe ser una flecha hacia arriba.
+// 2. Desplazate hasta la parte superior de la página con jQuery.
+// Usar scroll. Para realizar este ejercicio crea una caja
+// vacia de 1000 pixeles de alto, o más.
+// Crea un botón que se mantenga flotante en la parte inferior
+// derecha de la página, este botón debe ser una flecha hacia arriba.
+var botonSubir = $("#ir-arriba");
+console.log(botonSubir);
+
+botonSubir.on("click", function () {
+	$("html, body").animate({ scrollTop: 0 }, 500);
+});
 
 // 3. Deshabilita el menú del botón derecho en la página html usando jquery.
 
@@ -103,6 +111,18 @@ $("body").append(listaDesordenada);
 // Al pinchar haz que cambie el texto a "Estamos identificandote"
 // Tres segundos despues, haz que cambie el texto a "Bienvenido" y que el color
 // de fondo sea verde.
+var loading = "Estamos identificandote";
+var bienvenido = "Bienvenido";
+var botonIniciarSesion = $("#iniciar-sesion");
+
+botonIniciarSesion.click(function (e) {
+	e.preventDefault();
+	$(this).text(loading).delay(3000, $(this).text(bienvenido));
+
+	setTimeout(function () {
+		$(this).text(bienvenido);
+	}, 3000);
+});
 
 // 17. Crea un input y limita solo a numeros, incluidos los decimales (',' o '.').
 // METODO CON REGEXP + REFERENCIA THIS.
@@ -110,18 +130,24 @@ $("body").append(listaDesordenada);
 // 	this.value = this.value.replace(/[^0-9\.\,]/g, "");
 // });
 
-// METODO RAUL
-$("#filtrar-numeros").on("keypress", function (tecla) {
-	if (tecla.charCode < 48 || tecla.charCode > 57) {
-		if (tecla.charCode == 44 || tecla.charCode == 46) {
-			return true;
-		}
-		return false;
-	}
-});
-// 18. Crea un formulario con nombre, apellidos, telefeno y mensaje
-// Accede a sus datos usando jQuery
+// MÉTODO RAUL
+// $("#filtrar-numeros").on("keypress", function (tecla) {
+// 	if (tecla.charCode < 48 || tecla.charCode > 57) {
+// 		if (tecla.charCode == 44 || tecla.charCode == 46) {
+// 			return true;
+// 		}
+// 		return false;
+// 	}
+// });
 
+// 18. Crea un formulario con nombre, apellidos, telefeno y mensaje
+// Acceder (capturar) a sus datos usando jQuery
+var formulario18 = $("#form_18");
+formulario18.on("submit", function (e) {
+	e.preventDefault();
+	console.log($(this).serialize());
+	console.log($(this).serializeArray());
+});
 // 19. Investiga el evento BLUR de jQuery y crea un caso práctico para el mismo.
 
 // 20. Investiga la función delegate y el evento focus en jQuery
