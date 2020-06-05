@@ -35,3 +35,23 @@ Es una secuencia de caracteres que conforma un patrón de búsqueda. La usamos p
 **Definición**: Las expresiones regulares son patrones utilizados para encontrar una determinada combinación de caracteres dentro de una cadena de texto. En JavaScript, las expresiones regulares también son objetos. Estos patrones se utilizan en los métodos exec y test de RegExp, así como los métodos `match`, `replace`, `search` y `split` de String. En este capítulo se describe el uso y funcionamiento de las expresiones regulares en JavaScript.
 
 **Herramienta online**: https://regex101.com/
+
+# SHALLOW COPY Y DEEP COPY EN JS
+
+var y = [
+[13, 13, { nombre: "shallowCopy", definition: "¿Qué es eso?" }],
+[15, 15, { nombre: "shallowCopy", definition: "¿Qué es eso?" }],
+[19, 19, { nombre: "shallowCopy", definition: "¿Qué es eso?" }],
+];
+
+// Shallow copy -> Copia superficial, guarda referencias.
+var x = y;
+
+// Tenemos que hacer un DEEP COPY. Copia profunda, que no guarde referencias.
+var z = JSON.parse(JSON.stringify(y));
+// x[0][2].nombre = "Pedro";
+z[0][2].nombre = "Pedro";
+
+console.log("x", x);
+console.log("y", y);
+console.log("z", z);
