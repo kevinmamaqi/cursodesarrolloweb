@@ -1,0 +1,33 @@
+body {
+	max-width: 90%;
+}
+
+.tarea-nueva {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.tarea-nueva input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+}
+
+.tarea-nueva span {
+	font-size: 20px;
+}
+
+.tarea-nueva button {
+	text-transform: uppercase;
+	font-size: 10px;
+	color: white;
+	background-color: red;
+}
+
+#tareas-hechas {
+	padding: 1rem;
+}
+
+#tareas-hechas span {
+	text-decoration: line-through;
+}

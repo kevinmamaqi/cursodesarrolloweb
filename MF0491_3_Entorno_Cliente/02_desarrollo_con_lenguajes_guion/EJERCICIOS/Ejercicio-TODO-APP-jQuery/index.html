@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css"
+		/>
+		<link rel="stylesheet" href="./css/styles.css" />
+		<title>TODO APP</title>
+	</head>
+	<body>
+		<h1 style="text-align: center; margin-top: 100px;">Lista de Tareas</h1>
+		<div
+			class="anadir-tarea"
+			style="display: flex; justify-content: center; align-items: center;"
+		>
+			<input
+				type="text"
+				placeholder="Añadir tarea"
+				id="nombre-tarea"
+				style="
+					width: 400px;
+					border: 1px solid #ddd;
+					background-color: #fff;
+				"
+			/>
+			<button
+				id="anadir-tarea"
+				style="background-color: blue; color: white;"
+			>
+				Añadir Tarea
+			</button>
+		</div>
+		<div
+			class="vista-tareas"
+			style="display: flex; justify-content: center; margin-top: 100px;"
+		>
+			<div
+				id="tareas-nuevas"
+				style="
+					width: 50%;
+					margin-right: 3%;
+					background-color: #f2f2f2;
+					min-height: 200px;
+					padding: 1rem;
+				"
+			></div>
+			<div
+				id="tareas-hechas"
+				style="
+					width: 50%;
+					margin-left: 3%;
+					background-color: #f2f2f2;
+					min-height: 200px;
+				"
+			></div>
+		</div>
+		<script src="./js/custom.js"></script>
+	</body>
+</html>
