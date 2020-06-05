@@ -23,3 +23,11 @@ body {
 	color: white;
 	background-color: red;
 }
+
+#tareas-hechas {
+	padding: 1rem;
+}
+
+#tareas-hechas span {
+	text-decoration: line-through;
+}
