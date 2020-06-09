@@ -37,7 +37,13 @@ function crearNuevaTarea(NOMBRE_TAREA) {
 
 	// Añadir EVENTO al checkbox de la nueva tarea
 	var checkboxMarcarTarea = nuevaTarea.getElementsByTagName("input");
+
 	checkboxMarcarTarea[0].addEventListener("change", function () {
+		// this es la referencia a si mismo.
+		console.log(this);
+		console.log(this.checked);
+
+		// Si esta marcado lo envio a la lista de tareas completas
 		if (this.checked) {
 			TAREAS_HECHAS_CAJA.appendChild(this.parentElement);
 		} else {

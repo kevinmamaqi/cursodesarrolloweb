@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css"
+		/>
+		<!-- <link rel="stylesheet" href="./css/styles.css" /> -->
+		<title>Audio y Video en JS</title>
+	</head>
+	<body>
+		<h1>Audio y Video en Javascript</h1>
+		<hr />
+		<video
+			id="mi-video"
+			muted
+			controls
+			width="400"
+			poster="./img/chimpance.jpg"
+		>
+			<source src="./video/video-bcn.mp4" type="video/mp4" />
+			<!-- <source src="assets/video-bcn.webm" type="video/mp4" /> -->
+			<p>
+				Tu navegador no soporta HTML5.
+				<a href="./video/video-bcn.mp4">visita el enlace</a> para poder
+				acceder.
+			</p>
+		</video>
+		<hr />
+		<audio controls>
+			<source src="./music/musica.mp3" type="audio/mp3" />
+			<!-- <source src="viper.ogg" type="audio/ogg" /> -->
+			<p>
+				Your browser doesn't support HTML5 audio. Here is a
+				<a href="./music/musica.mp3">link to the audio</a> instead.
+			</p>
+		</audio>
+	</body>
+</html>
