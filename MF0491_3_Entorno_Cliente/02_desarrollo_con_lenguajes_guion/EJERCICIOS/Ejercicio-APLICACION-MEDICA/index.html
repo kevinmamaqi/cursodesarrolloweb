@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css"
+		/>
+		<link rel="stylesheet" href="./css/styles.css" />
+		<title>Aplicación médica IMC</title>
+	</head>
+	<body>
+		<h1>Índice de masa corporal</h1>
+		<hr />
+		<p>El índice de masa corporal...</p>
+		<div class="contenedor">
+			<div class="izd">
+				<form id="formulario">
+					<label for="nombre">Nombre</label>
+					<input
+						type="text"
+						name="nombre"
+						id="nombre"
+						placeholder="Nombre"
+						required
+					/>
+					<label for="nombre">Apellidos</label>
+					<input
+						type="text"
+						name="apellidos"
+						id="apellidos"
+						placeholder="Apellidos"
+						required
+					/>
+					<label for="nombre">Peso (Kg)</label>
+					<input
+						type="number"
+						name="peso"
+						id="peso"
+						placeholder="Peso (Kg)"
+						required
+					/>
+					<label for="nombre">Altura (cm)</label>
+					<input
+						type="number"
+						name="altura"
+						id="altura"
+						placeholder="Altura (cm)"
+						required
+					/>
+					<button type="submit">Calcular IMC</button>
+				</form>
+			</div>
+			<div class="dcha">
+				<h2>Resultado</h2>
+				<div id="caja-resultado">
+					<p>
+						Su resultad se mostrara una vez haya introducido todos
+						los campos y pinche en el botón
+						<strong>Calcular IMC</strong>.
+					</p>
+				</div>
+			</div>
+		</div>
+		<script src="./js/custom.js"></script>
+	</body>
+</html>
