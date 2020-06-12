@@ -1,11 +1,11 @@
 // Variables globales
-var NOMBRE_TAREA = document.getElementById("nombre-tarea");
-var ANADIR_TAREA = document.getElementById("anadir-tarea");
-var TAREAS_NO_HECHAS_CAJA = document.getElementById("tareas-nuevas");
-var TAREAS_HECHAS_CAJA = document.getElementById("tareas-hechas");
+var NOMBRE_TAREA = $("#nombre-tarea");
+var ANADIR_TAREA = $("#anadir-tarea");
+var TAREAS_NO_HECHAS_CAJA = $("#tareas-nuevas");
+var TAREAS_HECHAS_CAJA = $("#tareas-hechas");
 
 function crearNuevaTarea(NOMBRE_TAREA) {
-	if (NOMBRE_TAREA.value === "") {
+	if (NOMBRE_TAREA.val() === "") {
 		alert("Tienes que añadir un nombre a la Tarea");
 		return;
 	}
@@ -21,7 +21,7 @@ function crearNuevaTarea(NOMBRE_TAREA) {
 
 	// Crear SPAN contenedor del nombre
 	var nombreTareaSpan = document.createElement("span");
-	nombreTareaSpan.innerHTML = NOMBRE_TAREA.value;
+	nombreTareaSpan.innerHTML = NOMBRE_TAREA.val();
 	nuevaTarea.appendChild(nombreTareaSpan);
 
 	// Crear BOTON eliminar tarea
@@ -29,29 +29,27 @@ function crearNuevaTarea(NOMBRE_TAREA) {
 	botonEliminarTarea.innerText = "Eliminar";
 	nuevaTarea.appendChild(botonEliminarTarea);
 
-	// Añadir EVENTO al botón de la nueva tarea
-	var botonEliminar = nuevaTarea.getElementsByTagName("button");
-	botonEliminar[0].addEventListener("click", function () {
-		this.parentElement.remove();
-	});
-
-	// Añadir EVENTO al checkbox de la nueva tarea
-	var checkboxMarcarTarea = nuevaTarea.getElementsByTagName("input");
-	checkboxMarcarTarea[0].addEventListener("change", function () {
-		if (this.checked) {
-			TAREAS_HECHAS_CAJA.appendChild(this.parentElement);
-		} else {
-			TAREAS_NO_HECHAS_CAJA.appendChild(this.parentElement);
-		}
-	});
-
 	// Añadir la tarea a la caja de Nuevas Tareas
-	TAREAS_NO_HECHAS_CAJA.appendChild(nuevaTarea);
+	TAREAS_NO_HECHAS_CAJA.append(nuevaTarea);
 
 	// Limpio la tarea
-	NOMBRE_TAREA.value = "";
+	NOMBRE_TAREA.val("");
 }
 
-ANADIR_TAREA.addEventListener("click", function () {
+ANADIR_TAREA.on("click", function () {
 	crearNuevaTarea(NOMBRE_TAREA);
+});
+
+// Añadir EVENTO al botón de la nueva tarea
+$("#tareas-nuevas, #tareas-hechas").on("click", "button", function () {
+	$(this).parent().remove();
+});
+
+// Añadir EVENTO al checkbox de la nueva tarea
+$("#tareas-nuevas, #tareas-hechas").on("click", "input", function () {
+	if ($(this).prop("checked")) {
+		TAREAS_HECHAS_CAJA.append($(this).parent());
+	} else {
+		TAREAS_NO_HECHAS_CAJA.append($(this).parent());
+	}
 });
