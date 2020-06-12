@@ -38,6 +38,7 @@ Es una secuencia de caracteres que conforma un patrón de búsqueda. La usamos p
 
 # SHALLOW COPY Y DEEP COPY EN JS
 
+`
 var y = [
 [13, 13, { nombre: "shallowCopy", definition: "¿Qué es eso?" }],
 [15, 15, { nombre: "shallowCopy", definition: "¿Qué es eso?" }],
@@ -55,3 +56,10 @@ z[0][2].nombre = "Pedro";
 console.log("x", x);
 console.log("y", y);
 console.log("z", z);
+`
+
+# Audio y video en la web.
+
+1. Usar siempre etiquetas HTML5 nativas con soporte (frase) para navegadores que no soporten la original.
+2. Introducimos controles personalizados, si fuesen necesario.
+3. Utilizamos librerias existentes.
