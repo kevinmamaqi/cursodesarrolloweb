@@ -1,3 +1,5 @@
+// JAVASCRIPT
+
 // Variables globales
 var NOMBRE_TAREA = document.getElementById("nombre-tarea");
 var ANADIR_TAREA = document.getElementById("anadir-tarea");

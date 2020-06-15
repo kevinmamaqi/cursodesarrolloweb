@@ -57,6 +57,16 @@ cuerpoDocumento.append(divCajaRoja);
 // 11. Crea dos cajas del mismo ancho y alto, y distinto color de fondo.
 // Introduce en la caja de la izquierda tres botones.
 // Haz que al pinchar sobre un botón, este se cambie de caja.
+var cajaIZD = $("#caja-izd");
+var cajaDCHA = $("#caja-dcha");
+
+cajaIZD.on("click", "button", function () {
+	cajaDCHA.append($(this));
+});
+
+cajaDCHA.on("click", "button", function () {
+	cajaIZD.append($(this));
+});
 
 // 12. Muestra los valores de la API https://jsonplaceholder.typicode.com/
 // https://jsonplaceholder.typicode.com/ es una web que ofrece datos para prácticar.

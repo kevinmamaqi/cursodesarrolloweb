@@ -1,3 +1,5 @@
+// jQUERY
+
 // Variables globales
 var NOMBRE_TAREA = $("#nombre-tarea");
 var ANADIR_TAREA = $("#anadir-tarea");

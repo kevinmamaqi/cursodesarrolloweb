@@ -1,0 +1,121 @@
+* {
+	box-sizing: border-box;
+}
+
+.fila1 {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.fila1 img {
+	max-width: 60px;
+	width: 60px;
+	height: 60px;
+	display: block;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.fila2 {
+	display: flex;
+}
+
+.izd {
+	width: 70%;
+	margin-right: 30px;
+}
+
+.fila-inputs {
+	display: flex;
+}
+
+.fila-inputs .grupo {
+	width: 100%;
+}
+
+.fila-inputs-2 {
+	display: flex;
+}
+
+.fila-inputs-2 .grupo:first-child,
+.fila-inputs-2 .grupo:nth-child(2) {
+	width: 50%;
+}
+.fila-inputs-2 .grupo:last-child {
+	width: 20%;
+}
+
+.grupo {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1rem;
+}
+
+.dcha {
+	width: 30%;
+	position: relative;
+}
+
+.cantidad-productos {
+	position: absolute;
+	top: 20px;
+	right: 0;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	color: white;
+	font-weight: bold;
+	background-color: grey;
+	border-radius: 50%;
+	font-size: 12px;
+}
+
+.caja-productos {
+	display: flex;
+	flex-direction: column;
+}
+
+.caja-producto {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 14px;
+	padding: 0.5rem;
+	border: 1px solid #ccc;
+	border-bottom: 0;
+}
+
+.caja-producto:last-child {
+	border-bottom: 1px solid #ccc;
+}
+
+#descuentos,
+#total {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 14px;
+	padding: 1rem 0.5rem;
+	border: 1px solid #ccc;
+	border-bottom: 0;
+}
+
+#total {
+	border-bottom: 1px solid #ccc;
+}
+
+#formulario-descuentos {
+	margin-top: 1rem;
+	display: flex;
+}
+
+#formulario-descuentos label {
+	display: none;
+}

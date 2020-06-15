@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css"
+		/>
+		<link rel="stylesheet" href="./css/styles.css" />
+		<title>Formulario checkout</title>
+	</head>
+	<body>
+		<div class="fila1">
+			<img src="./img/logo.svg" alt="Logotipo" />
+			<h1>Checkout form</h1>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+				voluptatibus accusantium quae, numquam molestias minima quo iure
+				perspiciatis saepe harum esse obcaecati beatae facilis id
+				suscipit temporibus, a quia sunt.
+			</p>
+		</div>
+		<div class="fila2">
+			<div class="izd">
+				<h2>Billing address</h2>
+				<form>
+					<div class="fila-inputs">
+						<div class="grupo">
+							<label for="nombre">Nombre</label>
+							<input type="text" name="nombre" />
+						</div>
+						<div class="grupo">
+							<label for="apellidos">Apellidos</label>
+							<input type="text" name="apellidos" />
+						</div>
+					</div>
+					<div class="grupo">
+						<label for="username">Username</label>
+						<input type="text" name="username" />
+					</div>
+					<div class="grupo">
+						<label for="email">Email (opcional)</label>
+						<input type="text" name="email" />
+					</div>
+					<div class="grupo">
+						<label for="direccion">Dirección</label>
+						<input type="text" name="direccion" />
+					</div>
+					<div class="grupo">
+						<label for="direccion-2">Dirección 2</label>
+						<input type="text" name="direccion-2" />
+					</div>
+
+					<div class="fila-inputs-2">
+						<div class="grupo">
+							<label for="pais">País</label>
+							<select name="pais" id="pais">
+								<option value="portugal">portugal</option>
+								<option value="italia">Italia</option>
+								<option value="espana">España</option>
+							</select>
+						</div>
+						<div class="grupo">
+							<label for="localidad">Localidad</label>
+							<select name="localidad" id="localidad">
+								<option value="barcelona">barcelona</option>
+								<option value="igualada">Igualada</option>
+								<option value="zaragoza">Zaragoza</option>
+							</select>
+						</div>
+						<div class="grupo">
+							<label for="zip">Zip</label
+							><input type="text" name="zip" />
+						</div>
+					</div>
+				</form>
+				<hr />
+				<label for="enviar-otro-sitio"
+					><input
+						type="checkbox"
+						name="enviar-otro-sitio"
+						id="enviar-otro-sitio"
+					/>Enviar a otra dirección</label
+				>
+				<hr />
+
+				<form id="otra-direccion">
+					<div class="fila-inputs">
+						<div class="grupo">
+							<label for="nombre-otro">Nombre</label>
+							<input type="text" name="nombre-otro" />
+						</div>
+						<div class="grupo">
+							<label for="apellidos-otro">Apellidos</label>
+							<input type="text" name="apellidos-otro" />
+						</div>
+					</div>
+					<div class="grupo">
+						<label for="direccion-otro">Dirección</label>
+						<input type="text" name="direccion-otro" />
+					</div>
+					<div class="grupo">
+						<label for="direccion-2">Dirección 2</label>
+						<input type="text" name="direccion-2" />
+					</div>
+
+					<div class="fila-inputs-2">
+						<div class="grupo">
+							<label for="pais-otro">País</label>
+							<select name="pais-otro" id="pais-otro">
+								<option value="portugal-otro">portugal</option>
+								<option value="italia-otro">Italia</option>
+								<option value="espana-otro">España</option>
+							</select>
+						</div>
+						<div class="grupo">
+							<label for="localidad-otro">Localidad</label>
+							<select name="localidad-otro" id="localidad-otro">
+								<option value="barcelona-otro"
+									>barcelona</option
+								>
+								<option value="igualada-otro">Igualada</option>
+								<option value="zaragoza-otro">Zaragoza</option>
+							</select>
+						</div>
+						<div class="grupo">
+							<label for="zip-otro">Zip</label
+							><input type="text-otro" name="zip-otro" />
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div class="dcha">
+				<h2>Carrito</h2>
+				<div class="cantidad-productos">3</div>
+				<div class="caja-productos">
+					<div class="caja-producto">
+						<div class="producto">Nombre<br />Descripción</div>
+						<div class="precio">5€</div>
+					</div>
+					<div class="caja-producto">
+						<div class="producto">Nombre<br />Descripción</div>
+						<div class="precio">12€</div>
+					</div>
+					<div class="caja-producto">
+						<div class="producto">Nombre<br />Descripción</div>
+						<div class="precio">12€</div>
+					</div>
+					<div id="descuentos">
+						<div class="producto">Nombre</div>
+						<div class="precio">12€</div>
+					</div>
+					<div id="total">
+						<div class="producto">Nombre</div>
+						<div class="precio">12€</div>
+					</div>
+
+					<form id="formulario-descuentos">
+						<label for="codigo-descuento"
+							>Introduce tu código de descuento</label
+						>
+						<input
+							name="codigo-descuento"
+							type="text"
+							placeholder="Código de descuento"
+						/><button id="procesar-descuento" type="submit">
+							Enviar
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script src="./js/custom.js"></script>
+	</body>
+</html>
