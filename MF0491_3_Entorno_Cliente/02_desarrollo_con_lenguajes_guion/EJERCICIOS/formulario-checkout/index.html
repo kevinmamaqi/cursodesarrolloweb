@@ -35,18 +35,22 @@
 							<input type="text" name="apellidos" />
 						</div>
 					</div>
+
 					<div class="grupo">
 						<label for="username">Username</label>
 						<input type="text" name="username" />
 					</div>
+
 					<div class="grupo">
 						<label for="email">Email (opcional)</label>
 						<input type="text" name="email" />
 					</div>
+
 					<div class="grupo">
 						<label for="direccion">Dirección</label>
 						<input type="text" name="direccion" />
 					</div>
+
 					<div class="grupo">
 						<label for="direccion-2">Dirección 2</label>
 						<input type="text" name="direccion-2" />
@@ -85,6 +89,7 @@
 				>
 				<hr />
 
+				<!-- Formulario otra dirección -->
 				<form id="otra-direccion">
 					<div class="fila-inputs">
 						<div class="grupo">
@@ -130,6 +135,71 @@
 						</div>
 					</div>
 				</form>
+
+				<!-- Formulario método de pago -->
+				<h2>Método de pago</h2>
+				<label class="label-radio" for="metodo-de-pago-tarjeta"
+					><input
+						type="radio"
+						name="metodo-de-pago"
+						id="metodo-de-pago-tarjeta"
+						value="tarjeta"
+						checked
+					/>Tarjeta de crédito</label
+				>
+				<label class="label-radio" for="metodo-de-pago-transferencia"
+					><input
+						type="radio"
+						name="metodo-de-pago"
+						id="metodo-de-pago-transferencia"
+						value="transferencia"
+					/>Transferencia bancaria</label
+				>
+				<label class="label-radio" for="metodo-de-pago-paypal"
+					><input
+						type="radio"
+						name="metodo-de-pago"
+						id="metodo-de-pago-paypal"
+						value="paypal"
+					/>Paypal</label
+				>
+
+				<form id="formulario-tarjeta">
+					<div id="datos-tarjeta">
+						<div class="fila-inputs">
+							<div class="grupo">
+								<label for="nombre-tarjeta">Nombre</label>
+								<input type="text" name="nombre-tarjeta" />
+							</div>
+							<div class="grupo">
+								<label for="numero-tarjeta"
+									>Número tarjeta</label
+								>
+								<input type="text" name="numero-tarjeta" />
+							</div>
+						</div>
+						<div class="fila-inputs mitad">
+							<div class="grupo">
+								<label for="caducidad">Caducidad</label>
+								<input type="text" name="caducidad" />
+							</div>
+							<div class="grupo">
+								<label for="cvv">CVV</label>
+								<input type="text" name="cvv" />
+							</div>
+						</div>
+					</div>
+					<div id="datos-transferencia">
+						<div class="grupo">
+							<label for="cuenta-bancaria">Cuenta bancaria</label>
+							<input type="text" name="cuenta-bancaria" />
+						</div>
+					</div>
+					<hr />
+					<button id="continuar-compra" type="submit">
+						Continuar con la compra
+					</button>
+				</form>
 			</div>
 
 			<div class="dcha">
@@ -149,11 +219,11 @@
 						<div class="precio">12€</div>
 					</div>
 					<div id="descuentos">
-						<div class="producto">Nombre</div>
+						<div class="producto">Descuento</div>
 						<div class="precio">12€</div>
 					</div>
 					<div id="total">
-						<div class="producto">Nombre</div>
+						<div class="producto">Total</div>
 						<div class="precio">12€</div>
 					</div>
 

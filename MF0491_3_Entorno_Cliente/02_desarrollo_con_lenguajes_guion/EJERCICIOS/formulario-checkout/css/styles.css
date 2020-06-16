@@ -2,6 +2,10 @@
 	box-sizing: border-box;
 }
 
+body {
+	padding-bottom: 5rem;
+}
+
 .fila1 {
 	display: flex;
 	justify-content: center;
@@ -118,4 +122,75 @@
 
 #formulario-descuentos label {
 	display: none;
+}
+
+#otra-direccion {
+	display: none;
+}
+
+.label-radio {
+	display: block;
+}
+
+#formulario-tarjeta {
+	margin-top: 2rem;
+}
+
+.fila-inputs.mitad {
+	max-width: 50%;
+}
+
+.fila-inputs.mitad .grupo {
+	width: 50%;
+}
+
+#continuar-compra {
+	display: block;
+	width: 100%;
+	background-color: blue;
+	color: white;
+	margin-top: 1rem;
+}
+
+#datos-transferencia {
+	display: none;
+}
+
+#descuentos {
+	color: green;
+	display: none;
+}
+
+#total .precio {
+	font-weight: bold;
+}
+
+#formulario-descuentos {
+	max-width: 100%;
+	padding: 0.5rem;
+	border: 1px solid #ccc;
+}
+
+#formulario-descuentos input {
+	max-width: 65%;
+	margin: 0;
+	height: 42px;
+	font-size: 12px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	background-color: white;
+	border: 1px solid #ccc;
+}
+
+#formulario-descuentos button {
+	width: 35%;
+	max-width: 35%;
+	font-size: 12px;
+	margin: 0;
+	height: 42px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	background-color: grey;
+	color: white;
+	padding: 0;
 }
