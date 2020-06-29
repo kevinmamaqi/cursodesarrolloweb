@@ -2,7 +2,7 @@
 
 ## 1. Definición de accesibilidad
 
-**Oficial**: La accesibilidad web es la _práctica_ inclusiva de garantizar que los sitios web, las herramientas y las tecnologías estén diseñados y desarrollados para que las _todas las personas puedan usarlas_. Más específicamente, que todos aquellos usuarios puedan _percibir, comprender, navegar, interactuar y contribuir con la Web_.
+**Oficial**: La accesibilidad web es la _práctica_ inclusiva de garantizar que los sitios web, las herramientas y las tecnologías estén diseñados y desarrollados para que _todas las personas puedan usarlas_. Más específicamente, que todos aquellos usuarios puedan _percibir, comprender, navegar, interactuar y contribuir con la Web_.
 
 Evaluando una web:
 
@@ -28,7 +28,7 @@ Evaluando una web:
     - Acceso a contratos de administraciones publicas de la UE.
     - Es obligatorio.
 
-4. Técnicos:
+4. Técnicas:
     - Facilita la distribución de contenidos en distintas plataformas.
     - Reduce el tiempo requerido de mantenimiento.
     - Reducción en la carga de trabajo de los servidores. (Medioambientales)
@@ -52,6 +52,15 @@ _3. ¿Quien lo elabora?_ - Proceso de W3C (dentro de WAI). Se elabora entre indi
 _4. ¿Estoy obligado a cumplirlo?_ - Si, si trabajas para entidades publicas Europeas.
 
 -   Herramientas para comprobar que se cumplen los estandartes WCAG: https://www.w3.org/WAI/ER/tools/
+
+-   El estándar que define las pautas de accesibilidad centrandose en la creación de herramientas de autor de accesiblidad web es: ATAG - https://www.w3.org/WAI/standards-guidelines/atag/
+
+## 5. Niveles de Accesibilidad
+
+-   Criterios de accesibilidad: https://www.w3.org/TR/WCAG21/#language-of-page
+-   Según ley: https://administracionelectronica.gob.es/pae_Home/pae_Estrategias/pae_Accesibilidad/pae_documentacion/pae_eInclusion_Preguntas_Frecuentes/pae_eInclusion_WCAG_2_1.html
+-   **Principios de accesibilidad según la norma**: PERCEPTIBLE, OPERABLE, COMPRENSIBLE, ROBUSTO. Criterios de exito.
+-   **Niveles de conformidad**: Los niveles de conformidad (A, AA, AAA). A = ESENCIAL. Si A no se cumple, no se puede usar tecnología de asistencia (tecnología asistencial) para hacer la web accesible. Por ejemplo, un caso de nivel de conformidad A que no cumpla seria una web sin texto. El nivel A tenemos que cumplirlo. AA = ESENCIAL MEDIO, significa que si una web cumple con niveles AA, cumple con los niveles A y es más accesible. Los niveles AA no son todos de obligado cumplimiento. AAA = ESENCIAL ALTO. Si una web cumple con la conformidad AAA es muy accesible, es casi imposible cumplir con todos los criterios de exito en nivel AAA y no es obligatorio por ley.
 
 # Parte 2 - TEORIA USABILIDAD
 
@@ -106,3 +115,26 @@ Basado en Dix et al., hay tres principios de diseño que conforman la usabilidad
 Es una representación limitada de la interfaz de la aplicación (web, móvil, etc...). El objetivo del prototipo (en la web), y en el apartado de usabilidad, seria el poder evaluar su uso en situaciones de prueba e incluso reales, compartir información entre los miembros del equipo y discutir ideas entre diseñadores, programadores y clientes.
 
 Un prototipo puede ser muy sencillo (baja fidelidad) o muy real (alta fidelidad).
+
+## 6. Evaluación de la usabilidad
+
+1. Planificación: Depende de que queremos evaluar y el prototipo de testeo a usar, pero independientemente de el qué evaluemos o el objeto de evaluación (prototipo), es recomendable seguir las siguientes pautas:
+
+-   Garantizar suficientes participantes, lugar adecuado, permisos de privacidad necesarios.
+-   Lista de aspectos de usabilidad a evaluar, por ejemplo Flexibilidad de los menús.
+-   Método de evaluación a usar.
+-   Tareas que los participantes deberan ejecutar por escrito.
+-   Antes de comenzar, un método de análisis de resultados (relacionado con el método de evaluación).
+
+2. Documentación: documentar en detalle los elementos de la planificación.
+
+-   Quienes son los usuarios.
+-   Cuando y como se ha realizado el test.
+-   Tareas que han realizado y sus resultados.
+-   Protocolos, procedimientos, etc...
+-   Análisis de resultados.
+
+3. Métodos de evaluación:
+
+-   Análiticos: Realizados por expertos y que analizan la interfaz sin intervención de los usuarios. Busca por ejemplo el cumplimiento de normativas.
+-   Empíricos: Basados en la observación del comportamiento del usuario.
