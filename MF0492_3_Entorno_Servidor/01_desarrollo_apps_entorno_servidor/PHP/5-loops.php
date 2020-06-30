@@ -12,51 +12,48 @@
 // Que significa ++
 // Incrementa en una unidad por cada ciclo.
 
-// for (condicionInicial = 0; condicionInicial < 5; condicionInicial++) {
-// console.log("Hola " + condicionInicial + " veces.");
+// for ($i = 0; $i < 5; $i++) {
+//     echo $i . PHP_EOL;
 // }
 
-var listaDeClase = [
-	"Raul",
-	"Cristina",
-	["Kevin", "Maria"],
-	["Marcos", "Pedro"],
-];
+// $listaDeClase = [
+//     "Raul",
+//     "Cristina",
+//     ["Kevin", "Maria"],
+//     ["Marcos", "Pedro"],
+// ];
 
-// Length nos devuelve el número de elementos del ARRAY.
-// for (i = 0; i < listaDeClase.length; i++) {
-// 	var nombre = listaDeClase[i];
-
-// 	if (typeof listaDeClase[i] === "object") {
-// 		var subLista = listaDeClase[i];
-
-// 		for (a = 0; a < subLista.length; a++) {
-// 			nombre = subLista[a];
-// 			console.log(nombre);
-// 		}
-// 	} else {
-// 		console.log(nombre);
-// 	}
+// // Length nos devuelve el número de elementos del ARRAY.
+// for ($i = 0; $i < count($listaDeClase); $i++) {
+//     if (gettype($listaDeClase[$i]) === "array") {
+        
+//         $subLista = $listaDeClase[$i];
+        
+//         for ($a = 0; $a < count($subLista); $a++) {
+//             $nombre = $subLista[$a];
+//             echo $nombre . PHP_EOL;
+//         }
+//     } else {
+//         echo $listaDeClase[$i] . PHP_EOL;
+//     }
 // }
 
 // BUCLE WHILE (MIENTRAS)
-var i = 0;
-while (i < 10) {
-	console.log("Hola " + i + " veces");
-	i++;
-}
+// $i = 0;
+// while ($i < 10) {
+//     echo "Hola " . $i . " veces" . PHP_EOL;
+//     $i++;
+// }
 
-// DO WHILE (HAZ MIENTRAS)
-var x = 0;
-do {
-	console.log("Hola " + x + " veces");
-	x++;
-} while (x < 10);
+// // DO WHILE (HAZ MIENTRAS)
+// $x = 0;
+// do {
+//     echo "Hola " . $x . " veces" . PHP_EOL;
+//     $x++;
+// } while ($x < 10);
 
-var x = 0;
-console.log("Hola " + x + " veces");
-x++;
-while (x < 10) {
-	console.log("Hola " + x + " veces");
-	x++;
+$x = 0;
+while ($x < 10) {
+    echo "Hola " . $x . " veces" . PHP_EOL;
+    $x++;
 }

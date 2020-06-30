@@ -7,24 +7,33 @@
 // Si son antes de las 9, el colegio esta cerrado.
 // Si son después de las 9, el colegio esta abierto.
 
-function comprobarColegioAbierto(consulta) {
-	// if (consulta < 9) {
-	// 	console.log("El colegio esta cerrado.");
-	// } else if (consulta > 17) {
-	// 	console.log("El colegio esta cerrado.");
-	// } else {
-	// 	console.log("El colegio esta abierto.");
-	// }
-
-	switch (consulta) {
-		case "Sabado":
-			console.log("El colegio esta cerrado.");
-			break;
-
-		case "Domingo":
-			console.log("El colegio esta cerrado.");
-			break;
-	}
+function comprobarColegioAbierto($consulta)
+{
+    if ($consulta < 9) {
+        echo "El colegio esta cerrado." . PHP_EOL;
+    } else if ($consulta > 17) {
+        echo "El colegio esta cerrado" . PHP_EOL;
+    } else {
+        echo "El colegio esta abierto" . PHP_EOL;
+    }
 }
 
-console.log(comprobarColegioAbierto("Sabado"));
+comprobarColegioAbierto(23);
+
+function switchPrueba($consulta)
+{
+    switch ($consulta) {
+        case "Sabado":
+            echo "El colegio esta cerrado." . PHP_EOL;
+            break;
+
+        case "Domingo":
+            echo "El colegio esta cerrado." . PHP_EOL;
+            break;
+
+        default:
+            echo "NO existe" . PHP_EOL;
+    }
+}
+
+switchPrueba("Sasdfsdgsdfgsbado");

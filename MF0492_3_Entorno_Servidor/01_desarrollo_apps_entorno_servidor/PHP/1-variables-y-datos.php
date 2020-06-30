@@ -34,7 +34,6 @@ $z = $x + $y;
 // const nombre = "Kevin";
 
 define("barcelona", "Barcelona");
-
 echo barcelona . PHP_EOL;
 
 // Array (lista, o matriz)
