@@ -15,13 +15,27 @@ class CalcularIMC
     {
         $this->nombre = $nombre;
         $this->apellidos = $apellidos;
-        $this->peso = $peso;
-        $this->altura = $altura;
+        $this->peso = $this->comprobarNumero($peso);
+        $this->altura = floatval($altura);
     }
 
     private function calcularIMCPaciente()
     {
         return 100 * $this->peso / $this->altura;
+    }
+
+    private function comprobarNumero($peso)
+    {
+        if (is_int($peso)) {
+            return $peso;
+        } else {
+            $nuevopeso = intval($peso);
+            if (!is_int($nuevopeso) || $nuevopeso === 0) {
+                throw new Exception("No es peso, error");
+            } else {
+                return $nuevopeso;
+            }
+        }
     }
 
     public function devolverCalculoIMC()
@@ -38,5 +52,5 @@ class CalcularIMC
     }
 }
 
-$paciente = new CalcularIMC("Kevin", "Mamaqi", "80", "1.72");
+$paciente = new CalcularIMC("Kevin", "Mamaqi", "A", "1.72");
 var_dump($paciente);
