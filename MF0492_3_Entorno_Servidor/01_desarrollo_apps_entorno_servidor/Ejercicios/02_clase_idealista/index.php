@@ -6,6 +6,14 @@
 // Definir los MODIFICADORES DE ACCESO
 // Crear métodos que saniticen los parametros
 
+$tipos_inmueble_validos = array(
+    "oficina"      => "Oficina",
+    "piso"         => "Piso",
+    "azotea"       => "Azotea",
+    "garaje"       => "Garaje",
+    "garaje_motos" => "Garaje para motocicletas"
+);
+
 class EnvioPropiedad {
     public $errores;
     public $tipo_inmueble; // Arrays
@@ -366,10 +374,42 @@ $miPiso = new EnvioPropiedad(
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
     <title>Formulario Idealista</title>
 </head>
 <body>
     <h1>Formulario publicar propiedad</h1>
     <hr>
+    <form action="" class="mi-formulario">
+         
+        <div class="grupo">
+            <label for="tipo_inmueble">Elige el timpo de inmueble:</label>
+            <select name="tipo_inmueble" id="tipo_inmueble">
+                <option value="" selected disabled>--Por favor escoge una opción--</option>
+                
+                <?php foreach ($tipos_inmueble_validos as $key => $value) : ?>
+                     <option value="<?php echo $key; ?>"><?php echo $value ?></option>
+                <?php endforeach; ?>
+
+            </select>
+        </div>
+
+        <div class="grupo">
+            <label for="tipo_inmueble">Elige el timpo de inmueble:</label>
+            <select name="tipo_inmueble" id="tipo_inmueble">
+                <option value="" selected disabled>--Por favor escoge una opción--</option>
+                
+                <?php foreach ($tipos_inmueble_validos as $key => $value) : ?>
+                     <option value="<?php echo $key; ?>"><?php echo $value ?></option>
+                <?php endforeach; ?>
+
+            </select>
+        </div>
+    </form>
+    
 </body>
 </html>
