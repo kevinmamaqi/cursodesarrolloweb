@@ -38,15 +38,27 @@ $provincias_validos = array(
 );
 
 $planta_validos = array(
-    'primera_planta'    => "Primera Planta",
+    'primera_planta' => "Primera Planta",
     'segunda_planta' => "Segunda Planta",
-    'tercera_planta'    => "Tercera Planta",
+    'tercera_planta' => "Tercera Planta",
 );
 
 $metodo_contacto_validos = array(
-    'telefono_y_mail_y_chat'    => "Teléfono, email y mensajes de chat (recomendado)",
-    'solo_telefono' => "Solamente por teléfono",
-    'solo_por_mail_y_chat'    => "Solamente por email y mensajes de chat",
+    'telefono_y_mail_y_chat' => "Teléfono, email y mensajes de chat (recomendado)",
+    'solo_telefono'          => "Solamente por teléfono",
+    'solo_por_mail_y_chat'   => "Solamente por email y mensajes de chat",
+);
+
+$distribucion_validos = array(
+    'diafana'      => "Diáfana",
+    'div_mamparas' => "Dividida con mamparas",
+    'div_tabiques' => "Dividida con tabiques",
+);
+
+$tipos_banos_validos = array(
+    'aseos'     => "Aseos",
+    'banos'     => "Baños",
+    'dos_tipos' => "De los dos tipos",
 );
 
 class EnvioPropiedad {
@@ -549,7 +561,101 @@ $miPiso = new EnvioPropiedad(
             <?php endforeach; ?>
         </div>
 
+        <!-- Estado, radio -->
+        <div class="grupo">
+            <p>Estado</p>
+            <div class="grupo grupo-radio">
+                <input type="radio" id="estado_a_reformar" value="estado_a_reformar" name="estado">
+                <label for="estado_a_reformar">A reformar</label>
+            </div>
+            <div class="grupo grupo-radio">
+                <input type="radio" id="estado_buen_estado" value="estado_buen_estado" name="estado">
+                <label for="estado_buen_estado">Buen estado</label>
+            </div>
+        </div>
 
+        <!-- m2 construidos, input -->
+        <div class="grupo">
+            <label for="m2_construidos">m2 construidos</label>
+            <input type="number" id="m2_construidos" name="m2_construidos" required>
+        </div>
+
+        <!-- m2 utiles, input -->
+        <div class="grupo">
+            <label for="m2_utiles">m2 utiles (opcional)</label>
+            <input type="number" id="m2_utiles" name="m2_utiles">
+        </div>
+
+        <!-- m2 superficie minima, input -->
+        <div class="grupo">
+            <label for="m2_superficie_minima">m2 superficie mínima (opcional)</label>
+            <input type="number" id="m2_superficie_minima" name="m2_superficie_minima">
+        </div>
+
+        <!-- Fachada del inmueble, radio -->
+        <div class="grupo">
+            <p>Fachada del inmueble</p>
+            <div class="grupo grupo-radio">
+                <input type="radio" id="fachada_exterior" value="fachada_exterior" name="fachada_inmueble">
+                <label for="fachada_exterior">Exterior</label>
+            </div>
+            <div class="grupo grupo-radio">
+                <input type="radio" id="fachada_interior" value="fachada_interior" name="fachada_inmueble">
+                <label for="fachada_interior">Interior</label>
+            </div>
+        </div>
+
+        <!-- Distribución, radio -->
+        <div class="grupo">
+            <p>Distribución</p>
+            <?php foreach ($distribucion_validos as $key => $value) : ?>
+                <div class="grupo grupo-radio">
+                    <input type="radio" id="<?php echo $key; ?>" value="<?php echo $key; ?>" name="distribucion">
+                    <label for="<?php echo $key; ?>"><?php echo $value; ?></label>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+        <!-- Uso exclusivo oficinas, radio -->
+        <div class="grupo">
+            <p>Uso exclusivo oficinas</p>
+            <div class="grupo grupo-radio">
+                <input type="radio" id="uso_exclusivo_si" value="si" name="uso_exclusivo_oficinas">
+                <label for="uso_exclusivo_si">Si</label>
+            </div>
+            <div class="grupo grupo-radio">
+                <input type="radio" id="uso_exclusivo_no" value="no" name="uso_exclusivo_oficinas">
+                <label for="uso_exclusivo_no">No</label>
+            </div>
+        </div>
+
+
+        <!-- Numero de baños y aseos, input number -->
+        <div class="grupo">
+            <label for="n_banos_aseos">Número de baños y aseos</label>
+            <input type="number" id="n_banos_aseos" name="n_banos_aseos">
+        </div>
+
+        <!-- Tipo de baños (opcional), radio -->
+        <div class="grupo">
+            <p>Tipos de baños (opcional)</p>
+            <?php foreach ($tipos_banos_validos as $key => $value) : ?>
+                <div class="grupo grupo-radio">
+                    <input type="radio" id="<?php echo $key; ?>" value="<?php echo $key; ?>" name="tipo_de_banos">
+                    <label for="<?php echo $key; ?>"><?php echo $value; ?></label>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+        <!-- Ubicación de los baños (opcional), radio -->
+        <!-- Ascensores, input number -->
+        <!-- Certificación energetica, select -->
+        <!-- Aire acondicionado, radio -->
+        <!-- Seguridad de la oficina, checkboxes -->
+
+
+        
+        <!-- Características de tu oficina -->
         <div class="grupo">
             <p>Características de tu oficina</p>
             <?php foreach ($caracteristicas_oficina_validos as $key => $value) : ?>
