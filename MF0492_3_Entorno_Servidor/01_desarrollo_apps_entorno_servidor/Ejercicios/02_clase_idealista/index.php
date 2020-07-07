@@ -14,6 +14,21 @@ $tipos_inmueble_validos = array(
     "garaje_motos" => "Garaje para motocicletas"
 );
 
+$operacion_validos = array(
+    'venta'       => "Venta",
+    "alquiler"    => "Alquiler",
+    "intercambio" => "Intercambio",
+    "regalo"      => "Regalo"
+);
+
+$caracteristicas_oficina_validos = array(
+    'agua_caliente'         => "Agua caliente",
+    'calefaccion'           => "Calefacción",
+    'cocina_office'         => "Cocina/office",
+    'almacen'               => "Almacén",
+    'doble_acristalamiento' => "Doble acristalamiento",
+);
+
 class EnvioPropiedad {
     public $errores;
     public $tipo_inmueble; // Arrays
@@ -385,31 +400,36 @@ $miPiso = new EnvioPropiedad(
     <h1>Formulario publicar propiedad</h1>
     <hr>
     <form action="" class="mi-formulario">
-         
+
         <div class="grupo">
             <label for="tipo_inmueble">Elige el timpo de inmueble:</label>
             <select name="tipo_inmueble" id="tipo_inmueble">
                 <option value="" selected disabled>--Por favor escoge una opción--</option>
-                
                 <?php foreach ($tipos_inmueble_validos as $key => $value) : ?>
                      <option value="<?php echo $key; ?>"><?php echo $value ?></option>
                 <?php endforeach; ?>
-
             </select>
         </div>
 
         <div class="grupo">
-            <label for="tipo_inmueble">Elige el timpo de inmueble:</label>
-            <select name="tipo_inmueble" id="tipo_inmueble">
-                <option value="" selected disabled>--Por favor escoge una opción--</option>
-                
-                <?php foreach ($tipos_inmueble_validos as $key => $value) : ?>
-                     <option value="<?php echo $key; ?>"><?php echo $value ?></option>
-                <?php endforeach; ?>
+            <p>Operación</p>
+            <?php foreach ($operacion_validos as $key => $value) : ?>
+                <div class="grupo grupo-radio">
+                    <input type="radio" id="<?php echo $key; ?>" value="<?php echo $key; ?>" name="operacion">
+                    <label for="<?php echo $key; ?>"><?php echo $value; ?></label>
+                </div>
+            <?php endforeach; ?>
+        </div>
 
-            </select>
+        <div class="grupo">
+            <p>Características de tu oficina</p>
+            <?php foreach ($caracteristicas_oficina_validos as $key => $value) : ?>
+                <div class="grupo grupo-checkboxes">
+                    <input type="checkbox" id="<?php echo $key; ?>" name="<?php echo $key; ?>">
+                    <label for="<?php echo $key; ?>"><?php echo $value; ?></label>
+                </div>
+            <?php endforeach; ?>
         </div>
     </form>
-    
 </body>
 </html>

@@ -1,0 +1,42 @@
+.mi-formulario {
+	display: flex;
+	flex-direction: column;
+}
+
+.grupo {
+	margin-bottom: 1rem;
+	width: 100%;
+}
+
+.grupo input,
+.grupo select {
+	background-color: white;
+	border: 1px solid #ccc;
+	width: 100%;
+}
+
+.grupo.grupo-radio {
+	display: flex;
+	align-items: center;
+}
+
+.grupo.grupo-radio input {
+	width: auto;
+	margin: 0;
+	margin-right: 15px;
+}
+
+.grupo.grupo-checkboxes {
+	display: flex;
+	align-items: center;
+}
+
+.grupo.grupo-checkboxes input {
+	width: auto;
+	margin: 0;
+	margin-right: 15px;
+}
+
+.grupo:last-child {
+	margin-bottom: 0;
+}
