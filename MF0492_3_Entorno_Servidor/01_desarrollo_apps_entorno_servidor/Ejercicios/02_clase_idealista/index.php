@@ -61,6 +61,32 @@ $tipos_banos_validos = array(
     'dos_tipos' => "De los dos tipos",
 );
 
+$array_certificaciones = array(
+    'cer1' => 'Cer 1',
+    'cer2' => 'Cer 2',
+    'cer3' => 'Cer 3',
+    'cer4' => 'Cer 4',
+    'cer5' => 'Cer 5',
+    'cer6' => 'Cer 6',
+);
+
+$array_aire_acondicionado = array(
+    'no_disponible' => 'No disponible',
+    'frio' => 'Frío',
+    'frio_calor' => 'Frío / calor',
+    'preinstalacion' => 'Preinstalación',
+);
+
+$array_seguridad_oficina = array(
+    'puerta_seguridad' => 'Puerta de seguridad',
+    'sistemas_alarma_cerrado' => 'Sistema de alarma/circuito cerrado de seguridad',
+    'control_accesos' => 'Control de accesos',
+    'extintores' => 'Extintores',
+);
+
+
+
+
 class EnvioPropiedad {
     public $errores;
     public $tipo_inmueble; // Arrays
@@ -79,7 +105,6 @@ class EnvioPropiedad {
     public $telefono_extranjero; // bool
     public $nombre_usuario; // string
     public $preferencia_contacto; // string, comprobar con
-
     public $estado; // Arrays
     public $m2_construidos; // int
     public $m2_utiles; // int
@@ -283,7 +308,6 @@ class EnvioPropiedad {
             "El tipo de fianza no es valida o no existe."
         );
         $this->descripcion_anuncio = $this->validarString($descripcion_anuncio, "descripcion_anuncio");
-
     }
 
     // Validar array
@@ -431,13 +455,16 @@ $miPiso = new EnvioPropiedad(
 <body>
     <h1>Formulario publicar propiedad</h1>
     <hr>
+
+    <?php $enviarProp = new EnvioPropiedad(); ?>
+
     <form action="" class="mi-formulario">
         <!-- Tipo inmueble -->
         <div class="grupo">
             <label for="tipo_inmueble">Elige el timpo de inmueble:</label>
             <select name="tipo_inmueble" id="tipo_inmueble">
                 <option value="" selected disabled>--Por favor escoge una opción--</option>
-                <?php foreach ($tipos_inmueble_validos as $key => $value) : ?>
+                <?php foreach ($enviarProp->tipos_inmueble_validos as $key => $value) : ?>
                      <option value="<?php echo $key; ?>"><?php echo $value ?></option>
                 <?php endforeach; ?>
             </select>
@@ -446,7 +473,7 @@ $miPiso = new EnvioPropiedad(
         <!-- Operación -->
         <div class="grupo">
             <p>Operación</p>
-            <?php foreach ($operacion_validos as $key => $value) : ?>
+            <?php foreach ($enviarProp->operaciones_validas as $key => $value) : ?>
                 <div class="grupo grupo-radio">
                     <input type="radio" id="<?php echo $key; ?>" value="<?php echo $key; ?>" name="operacion">
                     <label for="<?php echo $key; ?>"><?php echo $value; ?></label>
@@ -648,12 +675,56 @@ $miPiso = new EnvioPropiedad(
         </div>
 
         <!-- Ubicación de los baños (opcional), radio -->
+         <div class="grupo">
+            <p>Ubicación de los baños (opcional)</p>
+            <div class="grupo grupo-radio">
+                <input type="radio" id="dentro_oficina" value="dentro_oficina" name="ubicacion_banos">
+                <label for="dentro_oficina">Dentro de la oficina</label>
+            </div>
+            <div class="grupo grupo-radio">
+                <input type="radio" id="fuera_oficina" value="fuera_oficina" name="ubicacion_banos">
+                <label for="fuera_oficina">Fuera de la oficina</label>
+            </div>
+        </div>
+
         <!-- Ascensores, input number -->
+        <div class="grupo">
+            <label for="n_ascensores">Ascensores</label>
+            <input type="number" id="n_ascensores" name="n_ascensores">
+        </div>
+
         <!-- Certificación energetica, select -->
+        <div class="grupo">
+            <label for="certificacion-energetica">Certificación energética:</label>
+            <select name="certificacion-energetica" id="certificacion-energetica">
+                <option value="">--Selecciona--</option>
+                <?php foreach ($array_certificaciones as $key => $value) : ?>
+                    <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
         <!-- Aire acondicionado, radio -->
+        <div class="grupo">
+            <p>Aire acondicionado</p>
+            <?php foreach ($array_aire_acondicionado as $key => $value) : ?>
+                <div class="grupo grupo-radio">
+                    <input type="radio" id="<?php echo $key; ?>" value="<?php echo $key; ?>" name="aire_acondicionado">
+                    <label for="<?php echo $key; ?>"><?php echo $value; ?></label>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
         <!-- Seguridad de la oficina, checkboxes -->
-
-
+        <div class="grupo">
+            <p>Seguridad de la oficina</p>
+            <?php foreach ($array_seguridad_oficina as $key => $value) : ?>
+                <div class="grupo grupo-checkboxes">
+                    <input type="checkbox" id="<?php echo $key; ?>" name="<?php echo $key; ?>">
+                    <label for="<?php echo $key; ?>"><?php echo $value; ?></label>
+                </div>
+            <?php endforeach; ?>
+        </div>
         
         <!-- Características de tu oficina -->
         <div class="grupo">
@@ -665,6 +736,9 @@ $miPiso = new EnvioPropiedad(
                 </div>
             <?php endforeach; ?>
         </div>
+
+        <!-- ENVIAAAAAA -->
+        <button type="submit">Enviar</button>
     </form>
 </body>
 </html>

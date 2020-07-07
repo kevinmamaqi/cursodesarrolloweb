@@ -15,11 +15,11 @@ $z = $x + $y;
 // echo $exponencial . PHP_EOL;
 
 // // Cadenas (frases, caracteres)
-// $dia = "Buenos días ";
-// $noche = "Buenas noches ";
-// $nombre = "Kevin";
-// echo $dia . $nombre . PHP_EOL; // Concatenación de frases
-// echo $noche . $nombre . PHP_EOL; // Concatenación de frases
+$dia = "Buenos días ";
+$noche = "Buenas noches ";
+$nombre = "Kevin";
+echo $dia . $nombre . PHP_EOL; // Concatenación de frases
+echo $noche . $nombre . PHP_EOL; // Concatenación de frases
 
 // // // Probar a unir números y frases
 // echo $dia . $x . PHP_EOL;
@@ -37,19 +37,18 @@ define("barcelona", "Barcelona");
 echo barcelona . PHP_EOL;
 
 // Array (lista, o matriz)
-// $listaDeClase = [
-//     ["Raul", "Pedro"],
-//     "Guillermo",
-//     "Madalina",
-//     "Laura",
-//     "Albert"
-// ];
-// print_r($listaDeClase[0][1]);
+$listaDeClase = [
+    "Cer 1",
+    "Cer 2",
+    "Cer 3",
+    "Cer 4"
+];
+print_r($listaDeClase[0][1]);
 
 // Objetos de javascript son arrays asociativos en PHP.
 $alumno = [
-    "nombre" => "Raul",
-    "apellidos" => "Mendoza"
+    "cer1" => "Cer 1",
+    "cer2" => "Cer 2"
 ];
 print_r($alumno["apellidos"]);
 
