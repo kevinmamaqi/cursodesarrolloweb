@@ -15,7 +15,11 @@
 </head>
 <body>
     <form action="resultados.php" method="post">
-        
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+        <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
+        <input type="number" name="peso" id="peso" placeholder="Peso">
+        <input type="number" name="altura" id="altura" placeholder="Altura">
+        <button type="submit">Calcular IMC</button>
     </form>
 </body>
 </html>
