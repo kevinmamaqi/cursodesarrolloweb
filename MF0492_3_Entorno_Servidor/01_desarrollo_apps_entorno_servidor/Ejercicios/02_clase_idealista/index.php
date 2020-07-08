@@ -6,197 +6,199 @@
 // Definir los MODIFICADORES DE ACCESO
 // Crear métodos que saniticen los parametros
 
-$tipos_inmueble_validos = array(
-    "oficina"      => "Oficina",
-    "piso"         => "Piso",
-    "azotea"       => "Azotea",
-    "garaje"       => "Garaje",
-    "garaje_motos" => "Garaje para motocicletas"
-);
-
-$operacion_validos = array(
-    'venta'       => "Venta",
-    "alquiler"    => "Alquiler",
-    "intercambio" => "Intercambio",
-    "regalo"      => "Regalo"
-);
-
-$caracteristicas_oficina_validos = array(
-    'agua_caliente'         => "Agua caliente",
-    'calefaccion'           => "Calefacción",
-    'cocina_office'         => "Cocina/office",
-    'almacen'               => "Almacén",
-    'doble_acristalamiento' => "Doble acristalamiento",
-);
-
-$provincias_validos = array(
-    'lleida'    => "Lleida",
-    'barcelona' => "Barcelona",
-    'madrid'    => "Madrid",
-    'cadiz'     => "Cadiz",
-    'caceres'   => "Caceres",
-);
-
-$planta_validos = array(
-    'primera_planta' => "Primera Planta",
-    'segunda_planta' => "Segunda Planta",
-    'tercera_planta' => "Tercera Planta",
-);
-
-$metodo_contacto_validos = array(
-    'telefono_y_mail_y_chat' => "Teléfono, email y mensajes de chat (recomendado)",
-    'solo_telefono'          => "Solamente por teléfono",
-    'solo_por_mail_y_chat'   => "Solamente por email y mensajes de chat",
-);
-
-$distribucion_validos = array(
-    'diafana'      => "Diáfana",
-    'div_mamparas' => "Dividida con mamparas",
-    'div_tabiques' => "Dividida con tabiques",
-);
-
-$tipos_banos_validos = array(
-    'aseos'     => "Aseos",
-    'banos'     => "Baños",
-    'dos_tipos' => "De los dos tipos",
-);
-
-$array_certificaciones = array(
-    'cer1' => 'Cer 1',
-    'cer2' => 'Cer 2',
-    'cer3' => 'Cer 3',
-    'cer4' => 'Cer 4',
-    'cer5' => 'Cer 5',
-    'cer6' => 'Cer 6',
-);
-
-$array_aire_acondicionado = array(
-    'no_disponible' => 'No disponible',
-    'frio' => 'Frío',
-    'frio_calor' => 'Frío / calor',
-    'preinstalacion' => 'Preinstalación',
-);
-
-$array_seguridad_oficina = array(
-    'puerta_seguridad' => 'Puerta de seguridad',
-    'sistemas_alarma_cerrado' => 'Sistema de alarma/circuito cerrado de seguridad',
-    'control_accesos' => 'Control de accesos',
-    'extintores' => 'Extintores',
-);
-
-
-
-
 class EnvioPropiedad {
+
+    // Propiedades que envia el usuario
+    // Que recibimos del formulario del usuario
+    public $tipo_inmueble;
+    public $operacion;
+    public $direccion;
+    public $provincia;
+    public $codigo_postal;
+    public $ocultar_calle;
+    public $planta;
+    public $puerta;
+    public $bloque_portal;
+    public $bloque_portal_true;
+    public $urbanizacion;
+    public $email;
+    public $telefono;
+    public $telefono_extranjero;
+    public $nombre_usuario;
+    public $preferencia_contacto;
+    public $estado;
+    public $m2_construidos;
+    public $m2_utiles;
+    public $m2_superficie_m;
+    public $fachada_exterior;
+    public $distribucion;
+    public $uso_exclusivo_of;
+    public $numero_banos_as;
+    public $tipo_de_banos;
+    public $ubicacion_banos;
+    public $ascensores;
+    public $certificacion_energetica;
+    public $plazas_garaje_ip;
+    public $aire_acondicionado;
+    public $seguridad_oficina;
+    public $caracteristicas_oficina;
+    public $mobilidad_reducida;
+    public $precio_mes;
+    public $fianza;
+    public $descripcion_anuncio;
+
+    // Propiedades que usamos para generar y validar el formulario
+    // que envia el usuario.
     public $errores;
-    public $tipo_inmueble; // Arrays
-    public $operacion; // Arrays
-    public $direccion; // String
-    public $provincia; // Arrays
-    public $codigo_postal; // Arrays
-    public $ocultar_calle; // bool
-    public $planta; // int
-    public $puerta; // string
-    public $bloque_portal; // bool
-    public $bloque_portal_true; // string
-    public $urbanizacion; // string
-    public $email; // string (email)
-    public $telefono; // string (telefono)
-    public $telefono_extranjero; // bool
-    public $nombre_usuario; // string
-    public $preferencia_contacto; // string, comprobar con
-    public $estado; // Arrays
-    public $m2_construidos; // int
-    public $m2_utiles; // int
-    public $m2_superficie_m; // int
-    public $fachada_exterior; // Arrays
-    public $distribucion; // Array
-    public $uso_exclusivo_of; // Array
-    public $numero_banos_as; // int
-    public $tipo_de_banos; // Array
-    public $ubicacion_banos; // Array
-    public $ascensores; // int (incluye 0)
-    public $certificacion_energetica; // Array
-    public $plazas_garaje_ip; // int
-    public $aire_acondicionado; // array
-    public $seguridad_oficina; // array
-    public $caracteristicas_oficina; // array
-    public $mobilidad_reducida; // bool
-    public $precio_mes; // int
-    public $fianza; // array
-    public $descripcion_anuncio; //string
+    public $tipos_inmueble_validos;
+    public $operaciones_validas;
+    public $provincias_validas;
+    public $codigos_postales_validos;
+    public $estados_validos;
+    public $fachada_exterior_validas;
+    public $distribucion_validos;
+    public $uso_exclusivo_of_validos;
+    public $tipo_de_banos_validos;
+    public $ubicacion_banos_validos;
+    public $certificacion_energetica_validos;
+    public $aire_acondicionado_validos;
+    public $seguridad_oficina_validos;
+    public $caracteristicas_oficina_validos;
+    public $fianza_validos;
+    public $planta_validos;
+    public $metodo_contacto_validos;
 
-    private $tipos_inmueble_validos;
-    private $operaciones_validas;
-    private $provincias_validas;
-    private $codigos_postales_validos;
-    private $estados_validos;
-    private $fachada_exterior_validas;
-    private $distribucion_validos;
-    private $uso_exclusivo_of_validos;
-    private $tipo_de_banos_validos;
-    private $ubicacion_banos_validos;
-    private $certificacion_energetica_validos;
-    private $aire_acondicionado_validos;
-    private $seguridad_oficina_validos;
-    private $caracteristicas_oficina_validos;
-    private $fianza_validos;
-
-    public function __construct(
-        $tipo_inmueble,
-        $operacion,
-        $direccion,
-        $provincia,
-        $codigo_postal,
-        $ocultar_calle,
-        $planta,
-        $puerta,
-        $bloque_portal,
-        $urbanizacion,
-        $email,
-        $telefono,
-        $telefono_extranjero,
-        $nombre_usuario,
-        $preferencia_contrato,
-        $estado,
-        $m2_construidos,
-        $m2_utiles,
-        $m2_superficie_m,
-        $fachada_exterior,
-        $distribucion,
-        $uso_exclusivo_of,
-        $numero_banos_as,
-        $tipo_de_banos,
-        $ubicacion_banos,
-        $ascensores,
-        $certificacion_energetica,
-        $plazas_garaje_ip,
-        $aire_acondicionado,
-        $seguridad_oficina,
-        $caracteristicas_oficina,
-        $mobilidad_reducida,
-        $precio_mes,
-        $fianza,
-        $descripcion_anuncio
-    ) {
+    public function __construct()
+    {
         $this->errores = array();
-        $this->tipos_inmueble_validos = ["oficina", "piso", "azotea", "garaje"];
-        $this->operaciones_validas = ["Alquiler", "Venta"];
-        $this->provincias_validas = ["Barcelona", "Madrid", "Huelva"];
-        $this->codigos_postales_validos = ["50005", "08002", "09002"];
-        // A partir de aquí cambiar valores
+        $this->tipos_inmueble_validos = array(
+            "oficina"      => "Oficina",
+            "piso"         => "Piso",
+            "azotea"       => "Azotea",
+            "garaje"       => "Garaje",
+            "garaje_motos" => "Garaje para motocicletas"
+        );
+        $this->operaciones_validas = array(
+            'venta'       => "Venta",
+            "alquiler"    => "Alquiler",
+            "intercambio" => "Intercambio",
+            "regalo"      => "Regalo"
+        );
+        $this->provincias_validas = array(
+            'lleida'    => "Lleida",
+            'barcelona' => "Barcelona",
+            'madrid'    => "Madrid",
+            'cadiz'     => "Cadiz",
+            'caceres'   => "Caceres",
+        );
+        $this->codigos_postales_validos = array(
+            "50005",
+            "08002",
+            "09002"
+        );
         $this->estados_validos = ["50005", "08002", "09002"];
         $this->fachada_exterior_validas = ["50005", "08002", "09002"];
-        $this->distribucion_validos = ["50005", "08002", "09002"];
+        $this->distribucion_validos = array(
+            'diafana'      => "Diáfana",
+            'div_mamparas' => "Dividida con mamparas",
+            'div_tabiques' => "Dividida con tabiques",
+        );
         $this->uso_exclusivo_of_validos = ["50005", "08002", "09002"];
-        $this->tipo_de_banos_validos = ["50005", "08002", "09002"];
+        $this->tipo_de_banos_validos = array(
+            'aseos'     => "Aseos",
+            'banos'     => "Baños",
+            'dos_tipos' => "De los dos tipos",
+        );
         $this->ubicacion_banos_validos = ["50005", "08002", "09002"];
-        $this->certificacion_energetica_validos = ["50005", "08002", "09002"];
-        $this->aire_acondicionado_validos = ["50005", "08002", "09002"];
-        $this->seguridad_oficina_validos = ["50005", "08002", "09002"];
-        $this->caracteristicas_oficina_validos = ["50005", "08002", "09002"];
+        $this->certificacion_energetica_validos = array(
+            'cer1' => 'Cer 1',
+            'cer2' => 'Cer 2',
+            'cer3' => 'Cer 3',
+            'cer4' => 'Cer 4',
+            'cer5' => 'Cer 5',
+            'cer6' => 'Cer 6',
+        );
+        $this->aire_acondicionado_validos = array(
+            'no_disponible'  => 'No disponible',
+            'frio'           => 'Frío',
+            'frio_calor'     => 'Frío / calor',
+            'preinstalacion' => 'Preinstalación',
+        );
+        $this->seguridad_oficina_validos = array(
+            'puerta_seguridad'        => 'Puerta de seguridad',
+            'sistemas_alarma_cerrado' => 'Sistema de alarma/circuito cerrado de seguridad',
+            'control_accesos'         => 'Control de accesos',
+            'extintores'              => 'Extintores',
+        );
+        $this->caracteristicas_oficina_validos = array(
+            'agua_caliente'         => "Agua caliente",
+            'calefaccion'           => "Calefacción",
+            'cocina_office'         => "Cocina/office",
+            'almacen'               => "Almacén",
+            'doble_acristalamiento' => "Doble acristalamiento",
+        );
         $this->fianza_validos = ["50005", "08002", "09002"];
+        $this->planta_validos = array(
+            'primera_planta' => "Primera Planta",
+            'segunda_planta' => "Segunda Planta",
+            'tercera_planta' => "Tercera Planta",
+        );
+        $this->metodo_contacto_validos = array(
+            'telefono_y_mail_y_chat' => "Teléfono, email y mensajes de chat (recomendado)",
+            'solo_telefono'          => "Solamente por teléfono",
+            'solo_por_mail_y_chat'   => "Solamente por email y mensajes de chat",
+        );
+        $this->planta_validos = array(
+            'primera_planta' => "Primera Planta",
+            'segunda_planta' => "Segunda Planta",
+            'tercera_planta' => "Tercera Planta",
+        );
+    }
 
+    // Validar array
+    private function validarElementoArray($elemento, $array, $nombreError, $mensajeError)
+    {
+        if (in_array($elemento, $array)) {
+            return $elemento;
+        } else {
+            $this->errores[$nombreError] = $mensajeError;
+        }
+    }
+
+    // Validar frase
+    private function validarString($frase, $nombreError)
+    {
+        if (!empty($frase)) {
+            $this->errores[$nombreError] = "No has completado el campo.";
+        } elseif (!is_string($frase)) {
+            $this->errores[$nombreError] = "No has enviado un valor valido (no es una frase).";
+        } else {
+            $this->direccion = $frase;
+        }
+    }
+
+    // Validar Boolean
+    private function validarBoolean($valor, $nombreError)
+    {
+        if ($valor === true || $valor === false) {
+            return $valor;
+        } else {
+            $this->errores[$nombreError] = "No has seleccionado un valor correcto.";
+        }
+    }
+
+    private function validarNumeroInt($valor, $nombreError)
+    {
+        if (!is_int($valor)) {
+            $this->errores[$nombreError] = "No has enviado un valor correcto.";
+        } else {
+            return $valor;
+        }
+    }
+
+    // Validaciones
+    public function validarPropiedades()
+    {
         $this->tipo_inmueble = $this->validarElementoArray(
             $tipo_inmueble,
             $this->tipos_inmueble_validos,
@@ -310,47 +312,6 @@ class EnvioPropiedad {
         $this->descripcion_anuncio = $this->validarString($descripcion_anuncio, "descripcion_anuncio");
     }
 
-    // Validar array
-    private function validarElementoArray($elemento, $array, $nombreError, $mensajeError)
-    {
-        if (in_array($elemento, $array)) {
-            return $elemento;
-        } else {
-            $this->errores[$nombreError] = $mensajeError;
-        }
-    }
-
-    // Validar frase
-    private function validarString($frase, $nombreError)
-    {
-        if (!empty($frase)) {
-            $this->errores[$nombreError] = "No has completado el campo.";
-        } elseif (!is_string($frase)) {
-            $this->errores[$nombreError] = "No has enviado un valor valido (no es una frase).";
-        } else {
-            $this->direccion = $frase;
-        }
-    }
-
-    // Validar Boolean
-    private function validarBoolean($valor, $nombreError)
-    {
-        if ($valor === true || $valor === false) {
-            return $valor;
-        } else {
-            $this->errores[$nombreError] = "No has seleccionado un valor correcto.";
-        }
-    }
-
-    private function validarNumeroInt($valor, $nombreError)
-    {
-        if (!is_int($valor)) {
-            $this->errores[$nombreError] = "No has enviado un valor correcto.";
-        } else {
-            return $valor;
-        }
-    }
-
     // Comprobar errores
     public function hayErrores()
     {
@@ -361,83 +322,6 @@ class EnvioPropiedad {
         }
     }
 }
-
-// Variables clase
-$tipo_inmueble = "oficina";
-$operacion = "valores";
-$direccion = "valores";
-$provincia = "valores";
-$codigo_postal = "valores";
-$ocultar_calle = "valores";
-$planta = "valores";
-$puerta = "valores";
-$bloque_portal = "valores";
-$urbanizacion = "valores";
-$email = "valores";
-$telefono = "valores";
-$telefono_extranjero = "valores";
-$nombre_usuario = "valores";
-$preferencia_contrato = "valores";
-$estado = "valores";
-$m2_construidos = "valores";
-$m2_utiles = "valores";
-$m2_superficie_m = "valores";
-$fachada_exterior = "valores";
-$distribucion = "valores";
-$uso_exclusivo_of = "valores";
-$numero_banos_as = "valores";
-$tipo_de_banos = "valores";
-$ubicacion_banos = "valores";
-$ascensores = "valores";
-$certificacion_energetica = "valores";
-$plazas_garaje_ip = "valores";
-$aire_acondicionado = "valores";
-$seguridad_oficina = "valores";
-$caracteristicas_oficina = "valores";
-$mobilidad_reducida = "valores";
-$precio_mes = "valores";
-$fianza = "valores";
-$descripcion_anuncio = "valores";
-
-
-$miPiso = new EnvioPropiedad(
-    $tipo_inmueble,
-    $operacion,
-    $direccion,
-    $provincia,
-    $codigo_postal,
-    $ocultar_calle,
-    $planta,
-    $puerta,
-    $bloque_portal,
-    $urbanizacion,
-    $email,
-    $telefono,
-    $telefono_extranjero,
-    $nombre_usuario,
-    $preferencia_contrato,
-    $estado,
-    $m2_construidos,
-    $m2_utiles,
-    $m2_superficie_m,
-    $fachada_exterior,
-    $distribucion,
-    $uso_exclusivo_of,
-    $numero_banos_as,
-    $tipo_de_banos,
-    $ubicacion_banos,
-    $ascensores,
-    $certificacion_energetica,
-    $plazas_garaje_ip,
-    $aire_acondicionado,
-    $seguridad_oficina,
-    $caracteristicas_oficina,
-    $mobilidad_reducida,
-    $precio_mes,
-    $fianza,
-    $descripcion_anuncio
-);
-// $miPiso->hayErrores();
 ?>
 
 <!DOCTYPE html>
@@ -459,6 +343,7 @@ $miPiso = new EnvioPropiedad(
     <?php $enviarProp = new EnvioPropiedad(); ?>
 
     <form action="" class="mi-formulario">
+        
         <!-- Tipo inmueble -->
         <div class="grupo">
             <label for="tipo_inmueble">Elige el timpo de inmueble:</label>
@@ -492,7 +377,7 @@ $miPiso = new EnvioPropiedad(
             <label for="provincia">Tu provincia:</label>
             <select name="provincia" id="provincia">
                 <option value="" selected disabled>--Por favor escoge una opción--</option>
-                <?php foreach ($provincias_validos as $key => $value) : ?>
+                <?php foreach ($enviarProp->provincias_validas as $key => $value) : ?>
                      <option value="<?php echo $key; ?>"><?php echo $value ?></option>
                 <?php endforeach; ?>
             </select>
@@ -518,7 +403,7 @@ $miPiso = new EnvioPropiedad(
             <label for="planta">Escoge planta:</label>
             <select name="planta" id="planta">
                 <option value="" selected disabled>--Por favor escoge una opción--</option>
-                <?php foreach ($planta_validos as $key => $value) : ?>
+                <?php foreach ($enviarProp->planta_validos as $key => $value) : ?>
                      <option value="<?php echo $key; ?>"><?php echo $value ?></option>
                 <?php endforeach; ?>
             </select>
@@ -580,7 +465,7 @@ $miPiso = new EnvioPropiedad(
         <!-- Como prefieres que te contacten, input -->
         <div class="grupo">
             <p>¿Cómo prefieres que te contacten?</p>
-            <?php foreach ($metodo_contacto_validos as $key => $value) : ?>
+            <?php foreach ($enviarProp->metodo_contacto_validos as $key => $value) : ?>
                 <div class="grupo grupo-radio">
                     <input type="radio" id="<?php echo $key; ?>" value="<?php echo $key; ?>" name="metodo_contacto">
                     <label for="<?php echo $key; ?>"><?php echo $value; ?></label>
@@ -635,7 +520,7 @@ $miPiso = new EnvioPropiedad(
         <!-- Distribución, radio -->
         <div class="grupo">
             <p>Distribución</p>
-            <?php foreach ($distribucion_validos as $key => $value) : ?>
+            <?php foreach ($enviarProp->distribucion_validos as $key => $value) : ?>
                 <div class="grupo grupo-radio">
                     <input type="radio" id="<?php echo $key; ?>" value="<?php echo $key; ?>" name="distribucion">
                     <label for="<?php echo $key; ?>"><?php echo $value; ?></label>
@@ -666,7 +551,7 @@ $miPiso = new EnvioPropiedad(
         <!-- Tipo de baños (opcional), radio -->
         <div class="grupo">
             <p>Tipos de baños (opcional)</p>
-            <?php foreach ($tipos_banos_validos as $key => $value) : ?>
+            <?php foreach ($enviarProp->tipo_de_banos_validos as $key => $value) : ?>
                 <div class="grupo grupo-radio">
                     <input type="radio" id="<?php echo $key; ?>" value="<?php echo $key; ?>" name="tipo_de_banos">
                     <label for="<?php echo $key; ?>"><?php echo $value; ?></label>
@@ -698,7 +583,7 @@ $miPiso = new EnvioPropiedad(
             <label for="certificacion-energetica">Certificación energética:</label>
             <select name="certificacion-energetica" id="certificacion-energetica">
                 <option value="">--Selecciona--</option>
-                <?php foreach ($array_certificaciones as $key => $value) : ?>
+                <?php foreach ($enviarProp->certificacion_energetica_validos as $key => $value) : ?>
                     <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
                 <?php endforeach; ?>
             </select>
@@ -707,7 +592,7 @@ $miPiso = new EnvioPropiedad(
         <!-- Aire acondicionado, radio -->
         <div class="grupo">
             <p>Aire acondicionado</p>
-            <?php foreach ($array_aire_acondicionado as $key => $value) : ?>
+            <?php foreach ($enviarProp->aire_acondicionado_validos as $key => $value) : ?>
                 <div class="grupo grupo-radio">
                     <input type="radio" id="<?php echo $key; ?>" value="<?php echo $key; ?>" name="aire_acondicionado">
                     <label for="<?php echo $key; ?>"><?php echo $value; ?></label>
@@ -718,7 +603,7 @@ $miPiso = new EnvioPropiedad(
         <!-- Seguridad de la oficina, checkboxes -->
         <div class="grupo">
             <p>Seguridad de la oficina</p>
-            <?php foreach ($array_seguridad_oficina as $key => $value) : ?>
+            <?php foreach ($enviarProp->seguridad_oficina_validos as $key => $value) : ?>
                 <div class="grupo grupo-checkboxes">
                     <input type="checkbox" id="<?php echo $key; ?>" name="<?php echo $key; ?>">
                     <label for="<?php echo $key; ?>"><?php echo $value; ?></label>
@@ -729,7 +614,7 @@ $miPiso = new EnvioPropiedad(
         <!-- Características de tu oficina -->
         <div class="grupo">
             <p>Características de tu oficina</p>
-            <?php foreach ($caracteristicas_oficina_validos as $key => $value) : ?>
+            <?php foreach ($enviarProp->caracteristicas_oficina_validos as $key => $value) : ?>
                 <div class="grupo grupo-checkboxes">
                     <input type="checkbox" id="<?php echo $key; ?>" name="<?php echo $key; ?>">
                     <label for="<?php echo $key; ?>"><?php echo $value; ?></label>
