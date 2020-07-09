@@ -6,10 +6,10 @@
 // Variables de nombre, apellidos peso y altura.
 // Mostraremos un mensaje acorde.
 
-$nombre = $_POST["nombre"];
-$apellidos = $_POST["apellidos"];
-$peso = $_POST["peso"];
-$altura = $_POST["altura"];
+// $nombre = $_POST["nombre"];
+// $apellidos = $_POST["apellidos"];
+// $peso = $_POST["peso"];
+// $altura = $_POST["altura"];
 
 ?>
 
