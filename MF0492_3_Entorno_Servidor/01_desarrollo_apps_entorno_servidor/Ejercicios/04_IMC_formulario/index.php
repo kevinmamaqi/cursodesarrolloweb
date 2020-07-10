@@ -48,20 +48,57 @@ $existeIMC = empty($CalculoIMC) ? false : true;
 
         <!-- INPUT APELLIDOS -->
         <div class="grupo">
-            <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
+            <?php if ($existeIMC && !empty($CalculoIMC->errores["apellidos"])) : ?>
+                <input class="error-input" type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
+                <?php echo $CalculoIMC->mensajes_error["apellidos"]; ?>
+            
+            <?php elseif ($existeIMC && empty($CalculoIMC->errores["apellidos"])) : ?>
+                <input class="valid-input" type="text" name="apellidos" id="apellidos" placeholder="Apellidos" value="<?php echo $CalculoIMC->apellidos; ?>">
+            
+            <?php else : ?>
+                <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
+            
+            <?php endif; ?>
+                
         </div>
 
         <!-- INPUT PESO -->
         <div class="grupo">
-            <input type="text" name="peso" id="peso" placeholder="Peso">
+            <?php if ($existeIMC && !empty($CalculoIMC->errores["peso"])) : ?>
+                <input class="error-input" type="text" name="peso" id="peso" placeholder="Peso" value="<?php echo $CalculoIMC->peso; ?>">
+                <?php echo $CalculoIMC->mensajes_error["peso"]; ?>
+            
+            <?php elseif ($existeIMC && empty($CalculoIMC->errores["peso"])) : ?>
+                <input class="valid-input" type="text" name="peso" id="peso" placeholder="Peso" value="<?php echo $CalculoIMC->peso; ?>">
+
+            <?php else : ?>
+                <input type="text" name="peso" id="peso" placeholder="Peso">
+
+            <?php endif; ?>
         </div>
         
         <!-- INPUT ALTURA -->
         <div class="grupo">
-            <input type="text" name="altura" id="altura" placeholder="Altura">
+            <?php if ($existeIMC && !empty($CalculoIMC->errores["altura"])) : ?>
+                <input class="error-input" type="text" name="altura" id="altura" placeholder="Altura" value="<?php echo $CalculoIMC->altura; ?>">
+                <?php echo $CalculoIMC->mensajes_error["altura"]; ?>
+            
+            <?php elseif ($existeIMC && empty($CalculoIMC->errores["altura"])) : ?>
+                <input class="valid-input" type="altura" name="altura" id="altura" placeholder="Altura" value="<?php echo $CalculoIMC->altura; ?>">
+
+            <?php else : ?>
+                <input type="text" name="altura" id="altura" placeholder="Altura">
+
+            <?php endif; ?>
         </div>
 
         <button type="submit">Calcular IMC</button>
     </form>
+
+    <?php if ($existeIMC && empty($CalculoIMC->errores)) : ?>
+        <hr>
+        <h2>Resultado</h2>
+        <?php $CalculoIMC->devolverCalculoIMC(); ?>
+    <?php endif; ?>
 </body>
 </html>

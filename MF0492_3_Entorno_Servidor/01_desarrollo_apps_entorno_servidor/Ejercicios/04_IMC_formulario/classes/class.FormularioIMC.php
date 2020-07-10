@@ -42,9 +42,16 @@ class CalcularIMC
 
     private function comprobarNumero($input, $campo)
     {
-        if (filter_var($input, FILTER_VALIDATE_INT) === false) {
-            $this->errores[$campo] = $this->mensajes_error[$campo];
+        if (empty($input)) {
+            $this->errores[$campo]["vacio"] = $this->mensajes_error[$campo];
+            return $input;
         }
+
+        if (filter_var($input, FILTER_VALIDATE_INT) === false) {
+            $this->errores[$campo]["erroneo"] = $this->mensajes_error[$campo];
+        }
+        
+        return $input;
     }
 
     private function mensajesError()
@@ -52,7 +59,8 @@ class CalcularIMC
         $mensajesError = array();
         $mensajesError['nombre'] = "El nombre esta vacio, por favor rellena el campo.";
         $mensajesError['apellidos'] = "Los apellidos estan vacios, por favor rellena el campo.";
-        $mensajesError['peso'] = "El peso que has enviado es incorrecto.";
+        $mensajesError['peso']["erroneo"] = "El peso que has enviado es incorrecto.";
+        $mensajesError['peso']["vacio"]
         $mensajesError['altura'] = "La altura que has enviado es incorrecta.";
         return $mensajesError;
     }
@@ -62,11 +70,11 @@ class CalcularIMC
         $valorIMC = $this->calcularIMCPaciente();
         
         if ($valorIMC > 25) {
-            echo "Enhorabuena " . $this->nombre . " " . $this->apellidos . " tienes que ir al gimnasio." . PHP_EOL;
+            echo "<p>Enhorabuena " . $this->nombre . " " . $this->apellidos . " tienes que ir al gimnasio.";
         } elseif ($valorIMC > 20 && $valorIMC < 25) {
-            echo "Enhorabuena " . $this->nombre . " " . $this->apellidos . " estas en tu peso ideal." . PHP_EOL;
+            echo "<p>Enhorabuena " . $this->nombre . " " . $this->apellidos . " estas en tu peso ideal.</p>";
         } else {
-            echo "Enhorabuena " . $this->nombre . " " . $this->apellidos . " tienes que comer más." . PHP_EOL;
+            echo "<p>Enhorabuena " . $this->nombre . " " . $this->apellidos . " tienes que comer más.</p>";
         }
     }
 }
