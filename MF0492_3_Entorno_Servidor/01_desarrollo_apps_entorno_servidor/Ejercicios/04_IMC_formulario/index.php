@@ -1,32 +1,18 @@
 <?php
 
-function validarString($input) {
-    $input = trim($input);
-    $input = htmlspecialchars($input);
-    return $input;
-}
-$formulario_enviado = false;
+include "./classes/class.FormularioIMC.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $formulario_enviado = true;
+    $CalculoIMC = new CalcularIMC(
+        $_POST["nombre"],
+        $_POST["apellidos"],
+        $_POST["peso"],
+        $_POST["altura"]
+    );
 }
 
-if ($formulario_enviado) {
-    $errores = [];
-    $nombre = validarString($_POST["nombre"]);
-    $apellidos = validarString($_POST["apellidos"]);
-    $peso = filter_var($_POST["peso"], FILTER_VALIDATE_INT);
-    $altura = filter_var($_POST["altura"], FILTER_VALIDATE_INT);
+$existeIMC = empty($CalculoIMC) ? false : true;
 
-    var_dump($peso);
-    if ($peso === false) {
-        $errores["peso"] = "El peso que has enviado no es valido.";
-    }
-    var_dump($altura);
-
-    echo '<p>' . $peso . '</p>';
-    echo '<p>' . $altura . '</p>';
-}
 ?>
 
 <!DOCTYPE html>
@@ -42,34 +28,35 @@ if ($formulario_enviado) {
     <title>Calcular IMC</title>
 </head>
 <body>
-    <?php if ($formulario_enviado) {
-        $peso_valor = $_POST["peso"];
-        $error_peso_mensaje = '<p style="color: #FF0000;">El peso que has enviado es incorrecto.</p>';
-    } ?>
+   
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        
+        <!-- INPUT NOMBRE -->
         <div class="grupo">
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+            <?php if ($existeIMC && !empty($CalculoIMC->errores["nombre"])) : ?>
+                <input class="error-input" type="text" name="nombre" id="nombre" placeholder="Nombre">
+                <?php echo $CalculoIMC->mensajes_error["nombre"]; ?>
+
+            <?php elseif ($existeIMC && empty($CalculoIMC->errores["nombre"])) : ?>
+                <input class="valid-input" type="text" name="nombre" id="nombre" placeholder="Nombre" value="<?php echo $CalculoIMC->nombre; ?>">
+
+            <?php else : ?>
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+            
+            <?php endif; ?>
         </div>
 
+        <!-- INPUT APELLIDOS -->
         <div class="grupo">
             <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
         </div>
 
         <!-- INPUT PESO -->
         <div class="grupo">
-            <?php if (!empty($errores["peso"])) : ?>
-                <input class="error-input" type="text" name="peso" id="peso" placeholder="Peso" value="<?php echo $peso_valor; ?>">
-                <?php echo $error_peso_mensaje; ?>
-
-            <?php elseif ($formulario_enviado && empty($errores["peso"])) : ?>
-                <input class="valid-input" type="text" name="peso" id="peso" placeholder="Peso" value="<?php echo $peso_valor; ?>">
-            
-            <?php else : ?>
-                <input type="text" name="peso" id="peso" placeholder="Peso">
-            
-            <?php endif; ?>
+            <input type="text" name="peso" id="peso" placeholder="Peso">
         </div>
-
+        
+        <!-- INPUT ALTURA -->
         <div class="grupo">
             <input type="text" name="altura" id="altura" placeholder="Altura">
         </div>

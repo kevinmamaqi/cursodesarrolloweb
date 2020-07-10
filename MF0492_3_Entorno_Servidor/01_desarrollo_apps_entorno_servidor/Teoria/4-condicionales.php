@@ -11,7 +11,7 @@ function comprobarColegioAbierto($consulta)
 {
     if ($consulta < 9) {
         echo "El colegio esta cerrado." . PHP_EOL;
-    } else if ($consulta > 17) {
+    } elseif ($consulta > 17) {
         echo "El colegio esta cerrado" . PHP_EOL;
     } else {
         echo "El colegio esta abierto" . PHP_EOL;
