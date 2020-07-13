@@ -98,7 +98,13 @@ $existeIMC = empty($CalculoIMC) ? false : true;
     <?php if ($existeIMC && empty($CalculoIMC->errores)) : ?>
         <hr>
         <h2>Resultado</h2>
-        <?php $CalculoIMC->devolverCalculoIMC(); ?>
+        <?php
+            // $CalculoIMC->devolverCalculoIMC();
+
+            // https://www.php.net/manual/es/function.file-put-contents.php
+            $resultado = $CalculoIMC->guardarResultados();
+            file_put_contents("resultadosIMC.txt", $resultado, FILE_APPEND);
+        ?>
     <?php endif; ?>
 </body>
 </html>

@@ -48,7 +48,11 @@ print_r($listaDeClase[0][1]);
 // Objetos de javascript son arrays asociativos en PHP.
 $alumno = [
     "cer1" => "Cer 1",
-    "cer2" => "Cer 2"
+    "cer2" => "Cer 2",
+    [
+        "errores" => "mi error",
+        "vacio" => "esta vacio"
+    ]
 ];
 print_r($alumno["apellidos"]);
 

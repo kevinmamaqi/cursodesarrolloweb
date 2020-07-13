@@ -60,7 +60,7 @@ class CalcularIMC
         $mensajesError['nombre'] = "El nombre esta vacio, por favor rellena el campo.";
         $mensajesError['apellidos'] = "Los apellidos estan vacios, por favor rellena el campo.";
         $mensajesError['peso']["erroneo"] = "El peso que has enviado es incorrecto.";
-        $mensajesError['peso']["vacio"]
+        $mensajesError['peso']["vacio"] = "El peso esta vacio";
         $mensajesError['altura'] = "La altura que has enviado es incorrecta.";
         return $mensajesError;
     }
@@ -76,5 +76,11 @@ class CalcularIMC
         } else {
             echo "<p>Enhorabuena " . $this->nombre . " " . $this->apellidos . " tienes que comer más.</p>";
         }
+    }
+
+    public function guardarResultados()
+    {
+        $IMC_PACIENTE = $this->calcularIMCPaciente();
+        return $this->nombre . " " . $this->apellidos . ", Resultado: " . $IMC_PACIENTE . ". Peso: " . $this->peso . ". Altura: " . $this->altura . "." . PHP_EOL;
     }
 }
