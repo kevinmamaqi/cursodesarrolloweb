@@ -1,0 +1,35 @@
+1. PONER LA CLASE EN OTRO ARCHIVO.
+    El archivo esta en ./classes/class.EnvioPropiedad.php
+
+2. INCLUIR LA CLASE EN LA CABECERA.
+    include "./classes/class.EnvioPropiedad.php";
+
+3. PONER LA CABECERA EN EL ARCHIVO header.php.
+    Llamar el archivo con include "./templates/header.php";
+
+4. INICIALIZO LA CLASE.
+    $NuevoEnvio = new EnvioPropiedad($parametros);
+
+5. COMPRUEBO SI SE HA ENVIADO.
+    $formularioEnviado = empty($NuevoEnvio) ? false : true;
+
+6. DIVIDO EL FORMULARIO EN DOS PARTES
+    Guardo cada parte en un archivo.
+    Incluyo los archivos como include "./templates/formulario.Parte1.php"; y include "./templates/formulario.Parte2.php";
+
+7. PONER EL FOOTER EN EL ARCHIVO footer.php
+    include "./templates/footer.php";
+
+
+_______
+
+
+COMO CONTINUAR
+
+1. ENVIAR EL FORMULARIO
+
+2. COMPROBAR SI HAY ERRORES
+    - SI HAY: Mostar un mensaje antes del título que diga: Hay errores, vuelve a enviarlo.
+    - SI NO HAY: Mostrar un mensaje antes del título que diga: Enhorabuena, hemos recibido tu propiedad. Ya se ha guardado.
+    
+3. GUARDAR LA PROPIEDAD EN UN ARCHIVO

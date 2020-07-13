@@ -100,8 +100,6 @@ $existeIMC = empty($CalculoIMC) ? false : true;
         <h2>Resultado</h2>
         <?php
             // $CalculoIMC->devolverCalculoIMC();
-
-            // https://www.php.net/manual/es/function.file-put-contents.php
             $resultado = $CalculoIMC->guardarResultados();
             file_put_contents("resultadosIMC.txt", $resultado, FILE_APPEND);
         ?>
