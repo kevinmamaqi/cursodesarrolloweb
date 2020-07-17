@@ -7,14 +7,34 @@
 class Validacion
 {
     public $nombre_usuario;
+    public $provincia;
+
+    public $provincias_validas;
     public $errores;
     public $mensajes_error;
 
-    public function __construct($nombre_usuario)
+    public function __construct()
     {
         $this->errores = array();
         $this->mensajes_error = $this->mensajesError();
+        $this->provincias_validas = array(
+            'lleida'    => "Lleida",
+            'barcelona' => "Barcelona",
+            'madrid'    => "Madrid",
+            'cadiz'     => "Cadiz",
+            'caceres'   => "Caceres",
+        );
+    }
+
+    public function envioFormulario($nombre_usuario, $provincia) {
         $this->nombre_usuario = $this->validarString($nombre_usuario, "nombre_usuario");
+        
+        $this->provincia = $this->validarElementoArray(
+            $provincia,
+            $this->provincias_validas,
+            "provincia",
+            "La provincia seleccionada no existe."
+        );
     }
 
     private function validarString($input, $campo)
@@ -33,11 +53,28 @@ class Validacion
         return $input;
     }
 
+    // Validar array
+    private function validarElementoArray($elemento, $array, $nombreError, $mensajeError)
+    {
+        if (empty($elemento)) {
+            $this->errores[$nombreError]["vacio"] = $this->mensajes_error[$nombreError]["vacio"];
+            return $elemento;
+        }
+
+        if (in_array($elemento, array_keys($array))) {
+            return $elemento;
+        } else {
+            $this->errores[$nombreError]["erroneo"] = $this->mensajes_error[$nombreError]["erroneo"];
+        }
+    }
+
     private function mensajesError()
     {
         $mensajesError = array();
         $mensajesError['nombre_usuario']["vacio"] = "El nombre esta vacio.";
         $mensajesError['nombre_usuario']["erroneo"] = "Has enviado un nombre no valido.";
+        $mensajesError['provincia']["vacio"] = "Debes seleccionar una provincia.";
+        $mensajesError['provincia']["erroneo"] = "Debes seleccionar una provincia adecuada.";
        
         return $mensajesError;
     }

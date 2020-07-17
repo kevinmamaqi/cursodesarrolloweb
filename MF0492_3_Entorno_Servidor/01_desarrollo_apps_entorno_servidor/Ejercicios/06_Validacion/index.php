@@ -1,13 +1,20 @@
 <?php
 
 include "./classes/class.Validacion.php";
+$Validacion = new Validacion();
+
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $Validacion = new Validacion(
+
+    $provincia = !empty($_POST["provincia"]) ? $_POST["provincia"] : "";
+    
+    $Validacion->envioFormulario(
         $_POST["nombre_usuario"],
+        $provincia
     );
 }
-$existeValidacion = empty($Validacion) ? false : true;
+
+$existeValidacion = !empty($Validacion) && $_SERVER["REQUEST_METHOD"] === "POST" ? true : false;
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +47,6 @@ $existeValidacion = empty($Validacion) ? false : true;
         
         <!-- INPUT NOMBRE -->
         <div class="grupo">
-
             <!-- PRIMERO COMPROBAR QUE SE HA ENVIADO Y HAY ERROR -->
             <?php if ($existeValidacion && !empty($Validacion->errores["nombre_usuario"])) : ?>
 
@@ -64,6 +70,41 @@ $existeValidacion = empty($Validacion) ? false : true;
             
             <?php endif; ?>
         </div>
+
+        <!-- Provincia -->
+        <div class="grupo"> 
+            <?php if ($existeValidacion && !empty($Validacion->errores["provincia"])) : ?>
+                <p style="color: red;">Distribución</p>
+
+                <!-- SEGUNDO COMPROBAR QUE ERROR ES (VACIO O ERRONEO) -->
+                <!-- MOSTRAR EL ERROR DE MANERA ACORDE -->
+                <?php if (!empty($Validacion->errores["provincia"]["vacio"])) : ?>
+                    <p><?php echo $Validacion->mensajes_error["provincia"]["vacio"]; ?></p>
+                    
+                <?php else : ?>
+                    <p><?php echo $Validacion->mensajes_error["provincia"]["erroneo"]; ?></p>
+                
+                <?php endif; ?>
+
+            <?php else : ?>
+                <p>Distribución</p>
+            <?php endif; ?>
+
+            <?php foreach ($Validacion->provincias_validas as $key => $value) : ?>
+                <div class="grupo grupo-radio">
+                    <input
+                        type="radio"
+                        id="<?php echo $key; ?>"
+                        value="<?php echo $key; ?>"
+                        name="provincia"
+                        <?php echo $Validacion->provincia === $key ? "checked" :  "" ?>
+                    />
+                    <label for="<?php echo $key; ?>"><?php echo $value; ?></label>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+
         <button type="submit">Enviar</button>
     </form>
 
