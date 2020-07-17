@@ -75,11 +75,11 @@
 <div class="grupo">
     <p>¿Hay más de un bloque/portal?</p>
     <div class="grupo grupo-radio">
-        <input type="radio" id="bloque_puerta_no" value="si" name="bloque_puerta">
+        <input type="radio" id="bloque_puerta_no" value="si" name="bloque_portal">
         <label for="bloque_puerta_no">No</label>
     </div>
     <div class="grupo grupo-radio">
-        <input type="radio" id="bloque_puerta_si" value="no" name="bloque_puerta">
+        <input type="radio" id="bloque_puerta_si" value="no" name="bloque_portal">
         <label for="bloque_puerta_si">Si</label>
     </div>
 </div>

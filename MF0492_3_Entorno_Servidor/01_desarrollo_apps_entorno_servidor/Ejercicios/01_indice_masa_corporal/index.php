@@ -52,5 +52,5 @@ class CalcularIMC
     }
 }
 
-$paciente = new CalcularIMC("Kevin", "Mamaqi", "A", "1.72");
-var_dump($paciente);
+$paciente = new CalcularIMC("Kevin", "Mamaqi", "33", "1.72");
+var_dump($paciente->nombre);

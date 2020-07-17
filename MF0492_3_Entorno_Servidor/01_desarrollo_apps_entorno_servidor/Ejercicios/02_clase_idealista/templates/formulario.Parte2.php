@@ -14,7 +14,7 @@
 <!-- m2 construidos, input -->
 <div class="grupo">
     <label for="m2_construidos">m2 construidos</label>
-    <input type="number" id="m2_construidos" name="m2_construidos" required>
+    <input type="number" id="m2_construidos" name="m2_construidos">
 </div>
 
 <!-- m2 utiles, input -->

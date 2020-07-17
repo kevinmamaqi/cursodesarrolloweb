@@ -14,6 +14,8 @@
 // Las clases tienen MODIFICADORES DE ACCESO.
 // Controlan (permiten) que propiedades y métodos son accesibles.
 
+// HERENCIA
+// Permite heredar las propiedades y métodos de la clase "padre", y a su vez extender la clase con propiedades y métodos internos.
 
 
 class Fruta {

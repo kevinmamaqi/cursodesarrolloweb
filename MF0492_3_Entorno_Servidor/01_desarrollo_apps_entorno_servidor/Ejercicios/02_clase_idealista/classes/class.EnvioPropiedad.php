@@ -197,128 +197,165 @@ class EnvioPropiedad {
     }
 
     // Validaciones
-    public function validarPropiedades()
-    {
+    public function validarPropiedades(
+        $tipo_inmueble
+        // $operacion,
+        // $provincia,
+        // $codigo_postal,
+        // $direccion,
+        // $ocultar_calle,
+        // $planta,
+        // $puerta,
+        // $bloque_portal,
+        // $urbanizacion,
+        // $email,
+        // $telefono,
+        // $telefono_extranjero,
+        // $nombre_usuario,
+        // $preferencia_contrato,
+        // $estado,
+        // $m2_construidos,
+        // $m2_utiles,
+        // $m2_superficie_m,
+        // $fachada_exterior,
+        // $distribucion,
+        // $uso_exclusivo_of,
+        // $numero_banos_as,
+        // $tipo_de_banos,
+        // $ubicacion_banos,
+        // $certificacion_energetica
+        // $ascensores,
+        // $plazas_garaje_ip,
+        // $aire_acondicionado,
+        // $seguridad_oficina,
+        // $caracteristicas_oficina,
+        // $mobilidad_reducida,
+        // $precio_mes,
+        // $fianza,
+        // $descripcion_anuncio
+    ) {
         $this->tipo_inmueble = $this->validarElementoArray(
             $tipo_inmueble,
             $this->tipos_inmueble_validos,
             "tipo_inmueble",
             "El inmueble seleccionado no existe."
         );
-        $this->operacion = $this->validarElementoArray(
-            $operacion,
-            $this->operaciones_validas,
-            "operacion",
-            "La operación seleccionada no existe."
-        );
-        $this->direccion = $this->validarString($direccion, "direccion");
-        $this->provincia = $this->validarElementoArray(
-            $provincia,
-            $this->provincias_validas,
-            "provincia",
-            "La provincia seleccionada no existe."
-        );
-        $this->codigo_postal = $this->validarElementoArray(
-            $codigo_postal,
-            $this->codigos_postales_validos,
-            "codigo_postal",
-            "El código postal seleccionado no existe."
-        );
-        $this->ocultar_calle        = $this->validarBoolean($ocultar_calle, "ocultar_calle");
-        $this->planta               = $this->validarNumeroInt($planta, "planta");
-        $this->puerta               = $this->validarString($puerta, "puerta");
-        $this->bloque_portal        = $this->validarBoolean($bloque_portal, "bloque_portal");
-        $this->urbanizacion         = $this->validarString($urbanizacion, "urbanizacion");
-        $this->email                = $this->validarString($email, "email");
-        $this->telefono             = $this->validarString($telefono, "telefono");
-        $this->telefono_extranjero  = $this->validarBoolean($telefono_extranjero, "telefono_extranjero");
-        $this->nombre_usuario       = $this->validarString($nombre_usuario, "nombre_usuario");
-        $this->preferencia_contrato = $this->validarString($preferencia_contrato, "preferencia_contrato");
+        // $this->operacion = $this->validarElementoArray(
+        //     $operacion,
+        //     $this->operaciones_validas,
+        //     "operacion",
+        //     "La operación seleccionada no existe."
+        // );
+        // $this->direccion = $this->validarString($direccion, "direccion");
+        // $this->provincia = $this->validarElementoArray(
+        //     $provincia,
+        //     $this->provincias_validas,
+        //     "provincia",
+        //     "La provincia seleccionada no existe."
+        // );
+        // $this->codigo_postal = $this->validarElementoArray(
+        //     $codigo_postal,
+        //     $this->codigos_postales_validos,
+        //     "codigo_postal",
+        //     "El código postal seleccionado no existe."
+        // );
+        // $this->ocultar_calle        = $this->validarBoolean($ocultar_calle, "ocultar_calle");
+        // $this->planta               = $this->validarNumeroInt($planta, "planta");
+        // $this->puerta               = $this->validarString($puerta, "puerta");
+        // $this->bloque_portal        = $this->validarBoolean($bloque_portal, "bloque_portal");
+        // $this->urbanizacion         = $this->validarString($urbanizacion, "urbanizacion");
+        // $this->email                = $this->validarString($email, "email");
+        // $this->telefono             = $this->validarString($telefono, "telefono");
+        // $this->telefono_extranjero  = $this->validarBoolean($telefono_extranjero, "telefono_extranjero");
+        // $this->nombre_usuario       = $this->validarString($nombre_usuario, "nombre_usuario");
+        // $this->preferencia_contrato = $this->validarString($preferencia_contrato, "preferencia_contrato");
 
-        $this->estado = $this->validarElementoArray(
-            $estado,
-            $this->estados_validos,
-            "estado",
-            "El estado seleccionado no existe o no es valido."
-        );
-        $this->m2_construidos               = $this->validarNumeroInt($m2_construidos, "m2_construidos");
-        $this->m2_utiles               = $this->validarNumeroInt($m2_utiles, "m2_utiles");
-        $this->m2_superficie_m               = $this->validarNumeroInt($m2_superficie_m, "m2_superficie_m");
-        $this->fachada_exterior = $this->validarElementoArray(
-            $fachada_exterior,
-            $this->fachada_exterior_validas,
-            "fachada_exterior",
-            "La fachada exterior no es valida."
-        );
-        $this->distribucion = $this->validarElementoArray(
-            $distribucion,
-            $this->distribucion_validos,
-            "distribucion",
-            "El distribución seleccionado no existe."
-        );
-        $this->uso_exclusivo_of = $this->validarElementoArray(
-            $uso_exclusivo_of,
-            $this->uso_exclusivo_of_validos,
-            "uso_exclusivo_of",
-            "El uso exclusivo oficinas seleccionado no existe."
-        );
-        $this->numero_banos_as = $this->validarNumeroInt($numero_banos_as, "numero_banos_as");
-        $this->tipo_de_banos = $this->validarElementoArray(
-            $tipo_de_banos,
-            $this->tipo_de_banos_validos,
-            "tipo_de_banos",
-            "El uso tipo de baños seleccionado no existe."
-        );
-        $this->ubicacion_banos = $this->validarElementoArray(
-            $ubicacion_banos,
-            $this->ubicacion_banos_validos,
-            "ubicacion_banos",
-            "La ubicación de los baños seleccionados no es valida."
-        );
-        $this->ascensores = $this->validarNumeroInt($ascensores, "ascensores");
-        $this->certificacion_energetica = $this->validarElementoArray(
-            $certificacion_energetica,
-            $this->certificacion_energetica_validos,
-            "certificacion_energetica",
-            "El uso exclusivo oficinas seleccionado no existe."
-        );
-        $this->plazas_garaje_ip = $this->validarNumeroInt($plazas_garaje_ip, "plazas_garaje_ip");
-        $this->aire_acondicionado = $this->validarElementoArray(
-            $aire_acondicionado,
-            $this->aire_acondicionado_validos,
-            "aire_acondicionado",
-            "Las opciones de aire acondicionado seleccionadas no son validas."
-        );
-        $this->seguridad_oficina = $this->validarElementoArray(
-            $seguridad_oficina,
-            $this->seguridad_oficina_validos,
-            "seguridad_oficina",
-            "Las opciones de seguridad oficina no son validas o no existen."
-        );
-        $this->caracteristicas_oficina = $this->validarElementoArray(
-            $caracteristicas_oficina,
-            $this->caracteristicas_oficina_validos,
-            "caracteristicas_oficina",
-            "Las características de la oficina no son validas o no existen."
-        );
-        $this->mobilidad_reducida  = $this->validarBoolean($mobilidad_reducida, "mobilidad_reducida");
-        $this->precio_mes = $this->validarNumeroInt($precio_mes, "precio_mes");
-        $this->fianza = $this->validarElementoArray(
-            $fianza,
-            $this->fianza_validos,
-            "fianza",
-            "El tipo de fianza no es valida o no existe."
-        );
-        $this->descripcion_anuncio = $this->validarString($descripcion_anuncio, "descripcion_anuncio");
+        // $this->estado = $this->validarElementoArray(
+        //     $estado,
+        //     $this->estados_validos,
+        //     "estado",
+        //     "El estado seleccionado no existe o no es valido."
+        // );
+        // $this->m2_construidos   = $this->validarNumeroInt($m2_construidos, "m2_construidos");
+        // $this->m2_utiles        = $this->validarNumeroInt($m2_utiles, "m2_utiles");
+        // $this->m2_superficie_m  = $this->validarNumeroInt($m2_superficie_m, "m2_superficie_m");
+        // $this->fachada_exterior = $this->validarElementoArray(
+        //     $fachada_exterior,
+        //     $this->fachada_exterior_validas,
+        //     "fachada_exterior",
+        //     "La fachada exterior no es valida."
+        // );
+        // $this->distribucion = $this->validarElementoArray(
+        //     $distribucion,
+        //     $this->distribucion_validos,
+        //     "distribucion",
+        //     "El distribución seleccionado no existe."
+        // );
+        // $this->uso_exclusivo_of = $this->validarElementoArray(
+        //     $uso_exclusivo_of,
+        //     $this->uso_exclusivo_of_validos,
+        //     "uso_exclusivo_of",
+        //     "El uso exclusivo oficinas seleccionado no existe."
+        // );
+        // $this->numero_banos_as = $this->validarNumeroInt($numero_banos_as, "numero_banos_as");
+        // $this->tipo_de_banos = $this->validarElementoArray(
+        //     $tipo_de_banos,
+        //     $this->tipo_de_banos_validos,
+        //     "tipo_de_banos",
+        //     "El uso tipo de baños seleccionado no existe."
+        // );
+        // $this->ubicacion_banos = $this->validarElementoArray(
+        //     $ubicacion_banos,
+        //     $this->ubicacion_banos_validos,
+        //     "ubicacion_banos",
+        //     "La ubicación de los baños seleccionados no es valida."
+        // );
+        // $this->certificacion_energetica = $this->validarElementoArray(
+        //     $certificacion_energetica,
+        //     $this->certificacion_energetica_validos,
+        //     "certificacion_energetica",
+        //     "El uso exclusivo oficinas seleccionado no existe."
+        // );
+
+        // $this->ascensores = $this->validarNumeroInt($ascensores, "ascensores");
+
+        // $this->plazas_garaje_ip = $this->validarNumeroInt($plazas_garaje_ip, "plazas_garaje_ip");
+        // $this->aire_acondicionado = $this->validarElementoArray(
+        //     $aire_acondicionado,
+        //     $this->aire_acondicionado_validos,
+        //     "aire_acondicionado",
+        //     "Las opciones de aire acondicionado seleccionadas no son validas."
+        // );
+        // $this->seguridad_oficina = $this->validarElementoArray(
+        //     $seguridad_oficina,
+        //     $this->seguridad_oficina_validos,
+        //     "seguridad_oficina",
+        //     "Las opciones de seguridad oficina no son validas o no existen."
+        // );
+        // $this->caracteristicas_oficina = $this->validarElementoArray(
+        //     $caracteristicas_oficina,
+        //     $this->caracteristicas_oficina_validos,
+        //     "caracteristicas_oficina",
+        //     "Las características de la oficina no son validas o no existen."
+        // );
+        // $this->mobilidad_reducida  = $this->validarBoolean($mobilidad_reducida, "mobilidad_reducida");
+        // $this->precio_mes = $this->validarNumeroInt($precio_mes, "precio_mes");
+        // $this->fianza = $this->validarElementoArray(
+        //     $fianza,
+        //     $this->fianza_validos,
+        //     "fianza",
+        //     "El tipo de fianza no es valida o no existe."
+        // );
+        // $this->descripcion_anuncio = $this->validarString($descripcion_anuncio, "descripcion_anuncio");
     }
 
     // Comprobar errores
     public function hayErrores()
     {
         if (count($this->errores) > 0) {
-            print_r($this->errores);
+            return true;
         } else {
-            echo "No hay errores" . PHP_EOL;
+            return false;
         }
     }
 }
