@@ -1,0 +1,87 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin-top: 0;
+}
+
+h1 {
+	margin-top: 0px;
+	font-size: 14px;
+	color: yellow;
+}
+
+p {
+	font-size: 12px;
+	color: #ddd;
+}
+
+strong {
+	color: yellow;
+}
+
+h2 {
+	color: red;
+	text-align: right;
+	font-size: 14px;
+}
+
+.contenedor {
+	display: flex;
+	margin-top: 0px;
+}
+
+.izd {
+	display: flex;
+	width: 100%;
+	margin-right: 50px;
+}
+
+.izd #formulario {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+}
+
+.izd #formulario label {
+	font-size: 12px;
+	color: #aaa;
+	margin-bottom: 0.5rem;
+}
+
+.izd #formulario input {
+	width: 100%;
+	margin-bottom: 30px;
+	border: none;
+	padding: 0rem;
+	background-color: white;
+	border-radius: 0;
+	font-size: 13px;
+	margin-top: -20px;
+	text-align: right;
+}
+
+.izd #formulario button {
+	color: burlywood;
+	background-color: transparent;
+	display: inline;
+	text-align: left;
+	padding: 0;
+}
+
+.dcha {
+	display: flex;
+	flex-direction: column;
+	width: 300%;
+	margin-left: 0px;
+}
+
+.dcha h2 {
+	margin-top: 0;
+}
+
+.dcha #caja-resultado {
+	padding: 2.5rem;
+	background-color: #f2f2f2;
+}

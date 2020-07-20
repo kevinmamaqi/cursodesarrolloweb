@@ -104,7 +104,6 @@ $existeValidacion = !empty($Validacion) && $_SERVER["REQUEST_METHOD"] === "POST"
             <?php endforeach; ?>
         </div>
 
-
         <button type="submit">Enviar</button>
     </form>
 
