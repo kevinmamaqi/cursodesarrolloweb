@@ -149,6 +149,10 @@
     }
     echo "</tbody>";
     echo "</table>";
+
+    // COGER DATOS DE JSONS EN INTERNET
+    // $json = json_decode(file_get_contents("https://coronavirus-tracker-api.herokuapp.com/confirmed"));
+    // var_dump($json);
 ?>
 
 <script>

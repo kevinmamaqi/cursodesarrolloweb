@@ -56,7 +56,7 @@ Un lenguaje de marcado o lenguaje de marcas es una forma de codificar un documen
     -   video
 -   Formularios:
     -   form -> define un formulario.
-    -   label -> etiqueta para el input. Importante **usar etiqueta for=""**. Se enlaza directamente al campo con la etiqueta name. Ejemplo: `<label for="nombre">Nombre</label><input type="text" name="nombre" />`
+    -   label -> etiqueta para el input. Importante **usar etiqueta for=""**. Se enlaza directamente al campo con la etiqueta ID. Ejemplo: `<label for="nombre">Nombre</label><input type="text" name="miNombre" id="nombre"/>`
     -   input -> campo a rellenar por el usuario. Tipos: text, textarea, email, submit, etc... Importante **usar etiqueta name=""**.
     -   button -> botón. Si es para enviar un formulario se pone type="submit" -> `<button type="submit">Enviar</submit>`.
 
