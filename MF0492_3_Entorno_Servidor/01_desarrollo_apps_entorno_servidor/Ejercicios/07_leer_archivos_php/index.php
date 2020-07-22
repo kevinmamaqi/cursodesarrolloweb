@@ -13,6 +13,10 @@
 <h1>Leer archivos PHP</h1>
 
 <?php
+
+if (empty($_POST)) {
+    echo "<p>HOLAAAA</p>";
+}
     // ARCHIVOS TXT
     // $txt = file_get_contents('./contenido.txt');
     // $txt_con_lineas = nl2br($txt);

@@ -5,7 +5,7 @@ $Validacion = new Validacion();
 
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
+    // COMPROBAMOS SI SE HA ENVIADO PROVINCIA Y LO ENVIAMOS 
     $provincia = !empty($_POST["provincia"]) ? $_POST["provincia"] : "";
     
     $Validacion->envioFormulario(
