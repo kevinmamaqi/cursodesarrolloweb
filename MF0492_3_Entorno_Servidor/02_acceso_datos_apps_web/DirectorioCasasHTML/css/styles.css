@@ -1,0 +1,94 @@
+* {
+	box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	line-height: 1.3em;
+}
+
+body {
+	line-height: 1.5em;
+}
+
+.caja-contenedora {
+	width: 90%;
+	display: block;
+	margin: 0 auto;
+}
+
+.caja-contenido {
+	display: flex;
+	flex-direction: column;
+}
+
+.caja-cabecera {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+h1 {
+	margin-bottom: 0;
+	font-size: 48px;
+}
+
+hr {
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 32px;
+}
+
+button {
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	background-color: #fff;
+	color: #666;
+	padding: 0.5rem 1rem;
+}
+
+.caja-casa {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.caja-casa .caja-imagen {
+	width: 30%;
+}
+
+.caja-casa .caja-imagen img {
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+}
+
+.caja-casa .info-casa {
+	width: 70%;
+	padding-left: 60px;
+}
+
+.propiedades {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-top: 30px;
+}
+
+.propiedades ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.propiedades ul li {
+	font-size: 14px;
+	line-height: 26px;
+}
