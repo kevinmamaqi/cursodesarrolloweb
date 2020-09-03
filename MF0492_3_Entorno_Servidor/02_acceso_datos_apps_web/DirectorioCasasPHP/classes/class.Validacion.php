@@ -2,10 +2,23 @@
 
 class Validacion
 {
+    public $foto;
+    public $dir_subida;
+
     public $titulo;
+    public $descripcion;
+    public $n_habitaciones;
+    public $metros_Cuadrados;
     public $aire_acondicionado;
     public $ascensor;
-    
+    public $n_banios;
+    public $garaje;
+    public $amueblada;
+    public $jardin;
+    public $n_pisos;
+    public $sotano;
+    public $certificacion;
+    public $usuario;
     
     public $checkbox_validos;
     public $errores;
@@ -24,19 +37,42 @@ class Validacion
         );
     }
 
-    public function envioFormulario($titulo, $descripcion, $n_habitaciones, $aire_acondicionado, $certificacion)
-    {
+    public function envioFormulario(
+        $foto,
+        $titulo,
+        $descripcion,
+        $n_habitaciones,
+        $metros_cuadrados,
+        $aire_acondicionado,
+        $ascensor,
+        $n_banios,
+        $garaje,
+        $amueblada,
+        $jardin,
+        $n_pisos,
+        $sotano,
+        $certificacion,
+        $usuario
+    ) {
+        $this->dir_subida = getcwd() . "/tmp";
+
+        $this->foto = $this->validarImagen($foto, "foto");
         $this->titulo = $this->validarString($titulo, "titulo");
         $this->descripcion = $this->validarString($descripcion, "descripcion");
+        $this->n_habitaciones = $this->validarInt($n_habitaciones, "n_habitaciones");
+        $this->metros_cuadrados = $this->validarInt($metros_cuadrados, "metros_cuadrados");
         $this->aire_acondicionado = $this->validarCheckbox($aire_acondicionado, "aire_acondicionado");
+        $this->ascensor = $this->validarCheckbox($ascensor, "ascensor");
+        $this->n_banios = $this->validarInt($n_banios, "n_banios");
+        $this->garaje = $this->validarCheckbox($garaje, "garaje");
+        $this->amueblada = $this->validarCheckbox($amueblada, "amueblada");
+        $this->jardin = $this->validarCheckbox($jardin, "jardin");
+        $this->n_pisos = $this->validarInt($n_pisos, "n_pisos");
+        $this->sotano = $this->validarCheckbox($sotano, "sotano");
+        $this->certificacion = $this->validarArray($certificacion, "certificacion");
+        $this->usuario = $this->validarArray($usuario, "usuario");
 
 
-        // $this->provincia = $this->validarElementoArray(
-        //     $provincia,
-        //     $this->provincias_validas,
-        //     "provincia",
-        //     "La provincia seleccionada no existe."
-        // );
     }
 
     private function validarString($input, $campo)
@@ -84,6 +120,51 @@ class Validacion
         }
     }
 
+    private function validarInt($input, $campo)
+    {
+        if (empty($input)) {
+            $this->errores[$campo]["vacio"] = $this->mensajes_error[$campo];
+            return $input;
+        }
+
+        if (filter_var($input, FILTER_VALIDATE_INT) === false) {
+            $this->errores[$campo]["erroneo"] = $this->mensajes_error[$campo];
+        }
+        
+        return $input;
+    }
+
+    private function validarImagen($foto, $campo)
+    {
+        if (!$foto) {
+            $this->errores[$campo]["vacio"] = $this->mensajes_error[$campo];
+            return "";
+        }
+
+        $fichero_subido = $this->dir_subida . basename($foto['name']);
+        $fichero_extension = pathinfo($fichero_subido, PATHINFO_EXTENSION);
+
+        $array_mimetype_permitidos = array(
+            "image/png",
+            "image/jpg",
+            "image/gif"
+        );
+
+        $array_extensiones_permitidas = array(
+            "png",
+            "jpg",
+            "gif"
+        );
+
+        if (
+            !in_array($_FILES["foto_casa"]['type'], $array_mimetype_permitidos) &&
+            !in_array($fichero_extension, $array_extensiones_permitidas)
+        ) {
+             $this->errores[$campo]["erroneo"] = $this->mensajes_error[$campo];
+             return "";
+        }
+    }
+
     private function mensajesError()
     {
         $mensajesError = array();
@@ -93,6 +174,8 @@ class Validacion
         $mensajesError['descripcion']["erroneo"] = "Has enviado una descripción no valida.";
         $mensajesError['provincia']["vacio"] = "Debes seleccionar una provincia.";
         $mensajesError['provincia']["erroneo"] = "Debes seleccionar una provincia adecuada.";
+        $mensajesError['foto']["vacio"] = "Debes seleccionar y subir una imagen.";
+        $mensajesError['foto']["erroneo"] = "Debes seleccionar un archivo de imagen valido.";
        
         return $mensajesError;
     }

@@ -8,6 +8,9 @@ class Validacion
 {
     public $nombre_usuario;
     public $provincia;
+    public $garaje;
+    public $amueblada;
+    public $jardin;
 
     public $provincias_validas;
     public $errores;
