@@ -92,30 +92,30 @@ class Validacion
     }
 
     // Validar array
-    private function validarElementoArray($elemento, $array, $nombreError, $mensajeError)
+    private function validarElementoArray($input, $campo)
     {
-        if (empty($elemento)) {
-            $this->errores[$nombreError]["vacio"] = $this->mensajes_error[$nombreError]["vacio"];
+        if (empty($input)) {
+            $this->errores[$campo]["vacio"] = $this->mensajes_error[$campo]["vacio"];
             return $elemento;
         }
 
-        if (in_array($elemento, array_keys($array))) {
+        if (in_array($input, array_keys($this->array_validos))) {
             return $elemento;
         } else {
-            $this->errores[$nombreError]["erroneo"] = $this->mensajes_error[$nombreError]["erroneo"];
+            $this->errores[$campo]["erroneo"] = $this->mensajes_error[$campo]["erroneo"];
         }
     }
 
     // Validar array
-    private function validarCheckbox($elemento, $nombre_elemento)
+    private function validarCheckbox($input, $campo)
     {
-        if (empty($elemento)) {
+        if (empty($input)) {
             return false;
         } else {
-            if (in_array($elemento, $this->checkbox_validos)) {
+            if (in_array($input, $this->checkbox_validos)) {
                 return true;
             } else {
-                $this->errores[$nombre_elemento]["erroneo"] = $this->mensajes_error[$nombre_elemento]["erroneo"];
+                $this->errores[$campo]["erroneo"] = $this->mensajes_error[$campo]["erroneo"];
             }
         }
     }

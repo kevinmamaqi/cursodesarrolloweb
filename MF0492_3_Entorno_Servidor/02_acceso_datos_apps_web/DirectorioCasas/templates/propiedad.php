@@ -16,7 +16,7 @@
             <div class="col1">
                 <ul>
                     <li>
-                        <strong>Habitaciones</strong>: 3
+                        <strong>Habitaciones</strong>: <?php $propiedad[5]; ?>
                     </li>
                     <li>
                         <strong>Metros cuadrados</strong>: 490
