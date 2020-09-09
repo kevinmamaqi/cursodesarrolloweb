@@ -1,6 +1,6 @@
  <div class="caja-casa">
     <div class="caja-imagen">
-        <img src="./img/foto1.jpg" alt="Casa 1" />
+        <img src="<?php echo $propiedad["Path"]; ?>" alt="Casa 1" />
     </div>
 
     <div class="info-casa">
@@ -13,7 +13,7 @@
                         <strong>Habitaciones</strong>: <?php echo $propiedad["n_habitaciones"]; ?>
                     </li>
                     <li>
-                        <strong>Metros cuadrados</strong>: 490
+                        <strong>Metros cuadrados</strong>: <?php echo $propiedad["m2"]; ?>
                     </li>
                     <li>
                         <strong>Aire acondicionado</strong>:

@@ -4,7 +4,9 @@ class Validacion
 {
     // Variables del formulario especificas
     public $foto;
+    public $path_media;
     public $dir_subida;
+    public $dir_proyecto;
     public $titulo;
     public $descripcion;
     public $n_habitaciones;
@@ -28,6 +30,7 @@ class Validacion
     public function __construct()
     {
         $this->dir_subida = getcwd() . "/tmp/";
+        $this->dir_proyecto =  "/tmp/";
         $this->errores = array();
         $this->mensajes_error = $this->mensajesError();
         $this->checkbox_validos = array(
@@ -106,63 +109,7 @@ class Validacion
         }
     }
 
-    public function guardarEnBD()
-    {
-        $mysqli = mysqli_connect("localhost", "root", "", "directorio_casas");
-        if (mysqli_connect_errno()) {
-            return true;
-        }
-
-        $cert;
-        if ($this->certificacion === "A")
-            $cert = 1;
-        else if ($this->certificacion === "AA") {
-            $cert = 2;
-        } else {
-            $cert = 3;
-        }
-
-        if (
-            !$mysqli->query("
-                INSERT INTO directorio_casas.PROPIEDADES
-                    (
-                        propietario,
-                        certificacion,
-                        n_habitaciones,
-                        m2,
-                        aacondicionado,
-                        ascensor,
-                        garaje,
-                        amueblada,
-                        sotano,
-                        n_pisos,
-                        n_banios,
-                        descripcion,
-                        titulo
-                    )
-                VALUES
-                    (
-                        '" . intval($this->usuario) . "',
-                        '$cert',
-                        '$this->n_habitaciones',
-                        '$this->m_cuadrados',
-                        '" . intval($this->aire_acondicionado) . "',
-                        '" . intval($this->ascensor) . "',
-                        '" . intval($this->garaje) . "',
-                        '" . intval($this->amueblada) . "',
-                        '" . intval($this->sotano) . "',
-                        '$this->n_pisos',
-                        '$this->n_banios',
-                        '$this->descripcion',
-                        '$this->titulo'
-                    );
-                "
-            )
-        ) {
-            var_dump($mysqli->error);
-        };
-        $mysqli->close();
-    }
+    
 
     private function validarString($input, $campo)
     {
@@ -215,6 +162,7 @@ class Validacion
         }
 
         $fichero_subido = $this->dir_subida . basename($foto['name']);
+        $this->path_media = $this->dir_proyecto . basename($foto['name']);
         $fichero_extension = pathinfo($fichero_subido, PATHINFO_EXTENSION);
 
         $array_mimetype_permitidos = array(
@@ -254,6 +202,78 @@ class Validacion
         }
     }
 
+    public function guardarEnBD()
+    {
+        $mysqli = mysqli_connect("localhost", "root", "", "directorio_casas");
+        if (mysqli_connect_errno()) {
+            return true;
+        }
+
+        if ($this->certificacion === "A")
+            $cert = 1;
+        else if ($this->certificacion === "AA") {
+            $cert = 2;
+        } else {
+            $cert = 3;
+        }
+
+        if (!$mysqli->query(
+            "
+                INSERT INTO directorio_casas.MEDIA
+                    (path)
+                VALUES
+                    ('$this->path_media');"
+        )) {
+            var_dump($mysqli->error);
+            $mysqli->close();
+        } else {
+            $ID = $mysqli->insert_id;
+        };
+
+        if (
+            !$mysqli->query("
+                INSERT INTO directorio_casas.PROPIEDADES
+                    (
+                        propietario,
+                        certificacion,
+                        n_habitaciones,
+                        m2,
+                        aacondicionado,
+                        ascensor,
+                        garaje,
+                        amueblada,
+                        sotano,
+                        n_pisos,
+                        n_banios,
+                        descripcion,
+                        titulo,
+                        media_principal
+                    )
+                VALUES
+                    (
+                        '" . intval($this->usuario) . "',
+                        '$cert',
+                        '$this->n_habitaciones',
+                        '$this->m_cuadrados',
+                        '" . intval($this->aire_acondicionado) . "',
+                        '" . intval($this->ascensor) . "',
+                        '" . intval($this->garaje) . "',
+                        '" . intval($this->amueblada) . "',
+                        '" . intval($this->sotano) . "',
+                        '$this->n_pisos',
+                        '$this->n_banios',
+                        '$this->descripcion',
+                        '$this->titulo',
+                        '$ID'
+                    );
+                "
+            )
+        ) {
+            var_dump($mysqli->error);
+        };
+        $mysqli->close();
+    }
+
     public function obtenerPropiedades()
     {
         $mysqli = mysqli_connect("localhost", "root", "", "directorio_casas");
@@ -261,7 +281,21 @@ class Validacion
             return true;
         }
         $resultados_array = array();
-        $result = $mysqli->query("SELECT * FROM directorio_casas.PROPIEDADES");
+        $result = $mysqli->query(
+            "SELECT 
+                directorio_casas.PROPIEDADES.*,
+                directorio_casas.PROPIETARIOS.nombre as Nombre,
+                directorio_casas.PROPIETARIOS.apellidos as Apellidos,
+                directorio_casas.CERTIFICACIONES.nombre as Certificacion,
+                directorio_casas.MEDIA.path as Path
+            FROM directorio_casas.PROPIEDADES
+            LEFT JOIN directorio_casas.PROPIETARIOS
+            ON PROPIEDADES.propietario = PROPIETARIOS.id
+            LEFT JOIN directorio_casas.CERTIFICACIONES
+            ON PROPIEDADES.certificacion = CERTIFICACIONES.id
+            LEFT JOIN directorio_casas.MEDIA
+            ON PROPIEDADES.media_principal = MEDIA.id;"
+        );
         if ($result) {
             while ($row = $result->fetch_assoc()) {
                 $resultados_array[] = $row;
