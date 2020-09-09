@@ -15,6 +15,9 @@
             $propiedades = $ClasePropiedades->obtenerPropiedades();
             foreach ($propiedades as $propiedad) {
                 $propiedad = $propiedad;
+                echo "<pre>";
+                print_r($propiedad);
+                echo "</pre>";
                 include "./templates/propiedad.php";
             }
         ?>

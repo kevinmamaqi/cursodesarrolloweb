@@ -263,7 +263,7 @@ class Validacion
         $resultados_array = array();
         $result = $mysqli->query("SELECT * FROM directorio_casas.PROPIEDADES");
         if ($result) {
-            while ($row = $result->fetch_row()) {
+            while ($row = $result->fetch_assoc()) {
                 $resultados_array[] = $row;
             }
             return $resultados_array;

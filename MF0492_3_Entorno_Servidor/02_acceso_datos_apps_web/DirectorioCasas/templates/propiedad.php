@@ -4,19 +4,13 @@
     </div>
 
     <div class="info-casa">
-        <h2>Titulo</h2>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Vel animi saepe voluptatibus distinctio
-            tempore consequatur laborum maiores quasi. Error
-            quae corporis, doloribus minima soluta iste
-            consectetur! Ducimus impedit ad iusto?
-        </p>
+        <h2><?php echo $propiedad["titulo"]; ?></h2>
+        <p><?php echo $propiedad["descripcion"]; ?></p>
         <div class="propiedades">
             <div class="col1">
                 <ul>
                     <li>
-                        <strong>Habitaciones</strong>: <?php $propiedad[5]; ?>
+                        <strong>Habitaciones</strong>: <?php echo $propiedad["n_habitaciones"]; ?>
                     </li>
                     <li>
                         <strong>Metros cuadrados</strong>: 490
