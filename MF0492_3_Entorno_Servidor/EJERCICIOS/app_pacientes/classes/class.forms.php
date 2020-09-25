@@ -14,7 +14,8 @@ class CeinaForms {
         $this->datosRecibidos = $datos;
     }
 
-    public function showInput($type, $id, $name, $placeholder, $label, $validacion) {
+    public function showInput($type, $id, $name, $placeholder, $label, $validacion, $options = null)
+    {
         switch ($type) {
             case 'text':
                 return $this->getTypeInput($type, $id, $name, $placeholder, $label, $validacion);
@@ -24,6 +25,9 @@ class CeinaForms {
                 return $this->getTypeCheckbox($type, $id, $name, $placeholder, $label, $validacion);
                 break;
 
+            case 'select':
+                return $this->getTypeSelect($type, $id, $name, $placeholder, $label, $validacion, $options);
+                break;
 
             default:
                 # code...
@@ -34,7 +38,8 @@ class CeinaForms {
     private function getTypeInput($type, $id, $name, $placeholder, $label, $validacion)
     {
         $classes = "input input-text";
-
+        $miDato = "";
+        $esValido = null;
         if ($validacion) {
             $miDato = $this->sanitizacion($this->datosRecibidos[$name], $type);
             $esValido = $this->validacion($miDato, $type);
@@ -51,9 +56,10 @@ class CeinaForms {
         $textInput .= $label;
         $textInput .= '</label>';
         $textInput .= '<input value="' . $miDato . '" type="text" name="' . $name . '" id="' . $id . '" placeholder="' . $placeholder . '" class="' . $classes . '" />';
-        if ($esValido) {
+        if ($miDato && $esValido) {
             $textInput .= '<p class="success small">Datos validos.</p>';
-        } else {
+        }
+        if ($esValido === false) {
             $textInput .= '<p class="error small">Por favor, revisa el campo. El dato esta vacio o no es valido.</p>';
         }
         $textInput .= '</div>';
@@ -81,6 +87,33 @@ class CeinaForms {
         // }
         $checkBox .= '</div>';
         echo $checkBox;
+    }
+
+    private function getTypeSelect($type, $id, $name, $placeholder, $label, $validacion, $options)
+    {
+        $classes = "input input-select";
+        $isChecked = "";
+        if ($validacion && in_array($name, array_keys($this->datosRecibidos))) {
+                $isChecked = "checked";
+                $classes .= " valid-input";
+        }
+
+        $select = '<div class="grupo grupo-select">';
+        $select .= '<label class="label" for="' . $id . '">';
+        $select .= $label;
+        $select .= '</label>';
+        $select .= '<select id="' . $id . '" name="' . $name . '" class="' . $classes . '">';
+        foreach ($options as $key => $value) {
+            $select .= '<option value="' . $key . '">' . $value . '</option>';
+        }
+        // if ($esValido) {
+        //     $checkBox .= '<p class="success small">Datos validos.</p>';
+        // } else {
+        //     $checkBox .= '<p class="error small">Por favor, revisa el campo. El dato esta vacio o no es valido.</p>';
+        // }
+        $select .= '</select>';
+        $select .= '</div>';
+        echo $select;
     }
 
     private function sanitizacion($valor, $tipo)
