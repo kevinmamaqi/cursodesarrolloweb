@@ -146,3 +146,20 @@ button.submit:hover {
 	color: green;
 	border-color: green !important;
 }
+
+.error-input {
+	color: red;
+	border-color: red !important;
+}
+
+p.success.small {
+	font-size: 12px;
+	color: green;
+	margin-top: 0px;
+}
+
+p.error.small {
+	font-size: 12px;
+	color: red;
+	margin-top: 0px;
+}
