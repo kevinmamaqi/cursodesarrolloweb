@@ -18,6 +18,7 @@ include "./templates/header.php";
             
             foreach ($propiedades as $propiedad) {
                 $propiedad = $propiedad;
+                $casas_propietario = $ClasePropiedades->obtenerCasasPropietario($propiedad["propietario"]);
                 echo "<pre>";
                 print_r($propiedad);
                 echo "</pre>";

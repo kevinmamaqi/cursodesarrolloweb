@@ -50,7 +50,6 @@
                     </li>
                     <li>
                         <strong>Casas en venta</strong>:<br />-
-                        2133
                     </li>
                 </ul>
             </div>
