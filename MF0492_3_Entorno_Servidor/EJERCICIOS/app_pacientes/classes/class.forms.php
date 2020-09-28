@@ -6,7 +6,7 @@ class CeinaForms {
     public $datosRecibidos;
 
     public function __construct() {
-
+        $this->errores = false;
     }
 
     public function enviarFormulario($datos)
@@ -48,6 +48,7 @@ class CeinaForms {
                 $classes .= " valid-input";
             } else {
                 $classes .= " error-input";
+                $this->errores = true;
             }
         }
 
@@ -92,26 +93,34 @@ class CeinaForms {
     private function getTypeSelect($type, $id, $name, $placeholder, $label, $validacion, $options)
     {
         $classes = "input input-select";
-        $isChecked = "";
-        if ($validacion && in_array($name, array_keys($this->datosRecibidos))) {
-                $isChecked = "checked";
-                $classes .= " valid-input";
-        }
+        $mensaje_validacion = "";
+        $isSelected = false;
+        $valor_seleccionado = "";
 
+        if ($validacion && in_array($name, array_keys($this->datosRecibidos))) {
+            $valor_seleccionado = $this->datosRecibidos[$name];
+
+            if (in_array($valor_seleccionado, array_keys($options))) {
+                $classes .= " valid-input";
+                $mensaje_validacion = '<p class="success small">Datos validos.</p>';
+                $isSelected = true;
+            } else {
+                $classes .= " error-input";
+                $mensaje_validacion = '<p class="error small">Alguno de los datos esta mal, por favor revisa los datos seleccionados.</p>';
+                $this->errores = true;
+            }
+        }
         $select = '<div class="grupo grupo-select">';
         $select .= '<label class="label" for="' . $id . '">';
         $select .= $label;
         $select .= '</label>';
         $select .= '<select id="' . $id . '" name="' . $name . '" class="' . $classes . '">';
+        $select .= '<option disabled' . ($isSelected === false ? ' selected' : "") . '>-- Por favor seleccionar una opción</option>';
         foreach ($options as $key => $value) {
-            $select .= '<option value="' . $key . '">' . $value . '</option>';
+            $select .= '<option value="' . $key . '"' . ($valor_seleccionado === $key ? ' selected' : "") . '>' . $value . '</option>';
         }
-        // if ($esValido) {
-        //     $checkBox .= '<p class="success small">Datos validos.</p>';
-        // } else {
-        //     $checkBox .= '<p class="error small">Por favor, revisa el campo. El dato esta vacio o no es valido.</p>';
-        // }
         $select .= '</select>';
+        $select .= $mensaje_validacion;
         $select .= '</div>';
         echo $select;
     }
@@ -141,5 +150,10 @@ class CeinaForms {
                 # code...
                 break;
         }
+    }
+
+    public function hayErrores()
+    {
+        return $this->errores;
     }
 }

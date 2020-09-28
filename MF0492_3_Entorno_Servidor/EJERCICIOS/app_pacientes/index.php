@@ -34,11 +34,16 @@ $existeValidacion = !empty($FormularioCeina) && $_SERVER["REQUEST_METHOD"] === "
         $label = "Mi select.",
         $validacion = $existeValidacion,
         $options = array(
-            "uno" => "Uno",
-            "dos" => "Dos",
-            "tres" => "Tres"
+            "uno" => "Una camiseta",
+            "dos" => "Una camiseta + pantalon",
+            "tres" => "Camiseta + pantalon + calconcillos"
         )
     );
+    $errores = $FormularioCeina->hayErrores();
+    if (!$errores && $existeValidacion) {
+        // Enviar a la base de datos
+        var_dump($FormularioCeina->datosRecibidos);
+    }
 ?>
 <button type="submit" class="submit">Enviar</button>
 </form>
