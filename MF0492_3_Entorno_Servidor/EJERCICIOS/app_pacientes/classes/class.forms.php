@@ -14,11 +14,25 @@ class CeinaForms {
         $this->datosRecibidos = $datos;
     }
 
+    private function validarTipo($type)
+    {
+        if (in_array($type, ['text', 'number', 'checkbox', 'select'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function showInput($type, $id, $name, $placeholder, $label, $validacion, $options = null)
     {
+        
         switch ($type) {
             case 'text':
                 return $this->getTypeInput($type, $id, $name, $placeholder, $label, $validacion);
+                break;
+            
+            case 'number':
+                return $this->getTypeInputNumber($type, $id, $name, $placeholder, $label, $validacion);
                 break;
 
             case 'checkbox':

@@ -3,10 +3,12 @@
 include "./templates/header.php";
 include "./classes/class.forms.php";
 $FormularioCeina = new CeinaForms();
+// COMPRUEBO SI ESTAMOS EN METODO POST.
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     var_dump($_POST);
     $FormularioCeina->enviarFormulario($_POST);
 }
+// COMPRUEBO SI ESTAMOS EN METODO POST Y LA CLASE EXISTE
 $existeValidacion = !empty($FormularioCeina) && $_SERVER["REQUEST_METHOD"] === "POST" ? true : false;
 ?>
 <div class="caja-contenedora">
@@ -18,6 +20,8 @@ $existeValidacion = !empty($FormularioCeina) && $_SERVER["REQUEST_METHOD"] === "
 >
 <?php
     $FormularioCeina->showInput("text", "prueba", "prueba", "hola", "hola", $existeValidacion);
+    $FormularioCeina->showInput("teasdasfsadfgsdfgsdfgxt", "prueba", "prueba", "hola", "hola", $existeValidacion);
+
     $FormularioCeina->showInput(
         $type = "checkbox",
         $id = "testing",
@@ -44,8 +48,16 @@ $existeValidacion = !empty($FormularioCeina) && $_SERVER["REQUEST_METHOD"] === "
         // Enviar a la base de datos
         var_dump($FormularioCeina->datosRecibidos);
     }
+
+
 ?>
 <button type="submit" class="submit">Enviar</button>
 </form>
 </div>
+<?php
+$array_vacio = array();
+$array_vacio_condatos = array('dato'=> '');
+var_dump(!empty($array_vacio)) . PHP_EOL;
+var_dump(!empty($array_vacio_condatos)). PHP_EOL;
+?>
 <?php include "./templates/footer.php";
