@@ -93,4 +93,35 @@ class DBforms {
         // Devuevlo el ID
         return $id;
     }
+
+    public function obtenerHospitales()
+    {
+        // ESTABLECER CONEXION
+        $miConexion = $this->crearConexion();
+
+        // PREPARAR QUERY
+        $prepare = $miConexion->prepare("SELECT id, nombre FROM HOSPITALES");
+
+        // COMPROBAR SI HAY ERROR
+        if (!$prepare) {
+            var_dump($miConexion->error_list);
+        }
+
+        // EJECUTAR
+        $prepare->execute();
+
+        // BIND RESULT
+        $prepare->bind_result($id, $nombre);
+
+        // FETCH RESULT
+        $miArray = array();
+        while ($prepare->fetch()) {
+            $miArray[$id] = $nombre;
+        }
+       
+        // CLOSE CONNECTION
+        $miConexion->close();
+
+        return $miArray;
+    }
 }

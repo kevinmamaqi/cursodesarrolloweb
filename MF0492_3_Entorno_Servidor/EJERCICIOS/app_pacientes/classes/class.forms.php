@@ -23,7 +23,7 @@ class CeinaForms {
         }
     }
 
-    public function showInput($type, $id, $name, $placeholder, $label, $validacion, $options = null)
+    public function showInput($type, $id, $name, $placeholder, $label, $validacion, $options = null, $multiple = null)
     {
         
         switch ($type) {
@@ -40,7 +40,7 @@ class CeinaForms {
                 break;
 
             case 'select':
-                return $this->getTypeSelect($type, $id, $name, $placeholder, $label, $validacion, $options);
+                return $this->getTypeSelect($type, $id, $name, $placeholder, $label, $validacion, $options, $multiple);
                 break;
 
             default:
@@ -104,34 +104,60 @@ class CeinaForms {
         echo $checkBox;
     }
 
-    private function getTypeSelect($type, $id, $name, $placeholder, $label, $validacion, $options)
+    private function getTypeSelect($type, $id, $name, $placeholder, $label, $validacion, $options, $multiple)
     {
         $classes = "input input-select";
         $mensaje_validacion = "";
         $isSelected = false;
         $valor_seleccionado = "";
 
+        if ($multiple) {
+            $name = str_replace('[]', '', $name);
+            $valor_seleccionado = array();
+        }
+
         if ($validacion && in_array($name, array_keys($this->datosRecibidos))) {
             $valor_seleccionado = $this->datosRecibidos[$name];
 
-            if (in_array($valor_seleccionado, array_keys($options))) {
-                $classes .= " valid-input";
-                $mensaje_validacion = '<p class="success small">Datos validos.</p>';
-                $isSelected = true;
+            if ($multiple) {
+                $arrayValoresSeleccionados = array_values($valor_seleccionado);
+                $arrayEnviado = array_keys($options);
+                $resultado = array_intersect($arrayValoresSeleccionados, $arrayEnviado);
+                
+                if (count($resultado) === count($arrayValoresSeleccionados)) {
+                    $classes .= " valid-input";
+                    $mensaje_validacion = '<p class="success small">Datos validos.</p>';
+                    $isSelected = true;
+                } else {
+                    $classes .= " error-input";
+                    $mensaje_validacion = '<p class="error small">Alguno de los datos esta mal, por favor revisa los datos seleccionados.</p>';
+                    $this->errores = true;
+                }
             } else {
-                $classes .= " error-input";
-                $mensaje_validacion = '<p class="error small">Alguno de los datos esta mal, por favor revisa los datos seleccionados.</p>';
-                $this->errores = true;
+                if (in_array($valor_seleccionado, array_keys($options))) {
+                    $classes .= " valid-input";
+                    $mensaje_validacion = '<p class="success small">Datos validos.</p>';
+                    $isSelected = true;
+                } else {
+                    $classes .= " error-input";
+                    $mensaje_validacion = '<p class="error small">Alguno de los datos esta mal, por favor revisa los datos seleccionados.</p>';
+                    $this->errores = true;
+                }
             }
         }
+
         $select = '<div class="grupo grupo-select">';
         $select .= '<label class="label" for="' . $id . '">';
         $select .= $label;
         $select .= '</label>';
-        $select .= '<select id="' . $id . '" name="' . $name . '" class="' . $classes . '">';
+        $select .= '<select ' . ($multiple ? 'multiple' : '') . ' id="' . $id . '" name="' . $name . '" class="' . $classes . '">';
         $select .= '<option disabled' . ($isSelected === false ? ' selected' : "") . '>-- Por favor seleccionar una opción</option>';
         foreach ($options as $key => $value) {
-            $select .= '<option value="' . $key . '"' . ($valor_seleccionado === $key ? ' selected' : "") . '>' . $value . '</option>';
+            if ($multiple) {
+                $select .= '<option value="' . $key . '"' . (in_array($key, array_values($valor_seleccionado)) ? ' selected' : "") . '>' . $value . '</option>';
+            } else {
+                $select .= '<option value="' . $key . '"' . ($valor_seleccionado === $key ? ' selected' : "") . '>' . $value . '</option>';
+            }
         }
         $select .= '</select>';
         $select .= $mensaje_validacion;
