@@ -49,11 +49,16 @@ class DBforms {
 
         // Compruebo si la conexión se establece bien
         if (!$enviarLocalizacion) {
-            throw new Exception($conexion->error_list);
+            throw new enviarLocalizacion($miConexion->error_list);
         }
 
         // Ejecute la query
         $enviarLocalizacion->execute();
+        
+        // Compruebo si se envia y no hay error
+        if (!$enviarLocalizacion) {
+            throw new Exception($miConexion->error_list);
+        }
 
         // Devuelvo el último valor añadido
         $id = $enviarLocalizacion->insert_id;
@@ -84,6 +89,11 @@ class DBforms {
         // Ejecute la query
         $enviarHospital->execute();
 
+        // Compruebo si se envia y no hay error
+        if (!$enviarHospital) {
+            throw new Exception($miConexion->error_list);
+        }
+
         // Devuelvo el último valor añadido
         $id = $enviarHospital->insert_id;
 
@@ -94,6 +104,71 @@ class DBforms {
         return $id;
     }
 
+    public function enviarPaciente($datos, $idLocalizacion, $nombre, $apellidos, $edad)
+    {
+        $miConexion = $this->crearConexion();
+        $enviarPaciente = $miConexion->prepare("INSERT INTO PACIENTES (LOCALIZACION_id, nombre, apellidos, edad) VALUES (?, ?, ?, ?)");
+        $enviarPaciente->bind_param(
+            $datos,
+            $idLocalizacion,
+            $nombre,
+            $apellidos,
+            $edad
+        );
+
+        // Compruebo si la conexión se establece bien
+        if (!$enviarPaciente) {
+            throw new Exception($conexion->error_list);
+        }
+
+        // Ejecute la query
+        $enviarPaciente->execute();
+
+        // Compruebo si se envia y no hay error
+        if (!$enviarPaciente) {
+            throw new Exception($miConexion->error_list);
+        }
+
+        // Devuelvo el último valor añadido
+        $id = $enviarPaciente->insert_id;
+
+        // Cierro conexión
+        $enviarPaciente->close();
+
+        // Devuevlo el ID
+        return $id;
+    }
+
+    public function enviarPacienteHospital($datos, $idPaciente, $idHospital)
+    {
+        $miConexion = $this->crearConexion();
+        $enviarPacienteHospital = $miConexion->prepare("INSERT INTO PACIENTES_HOSPITALES (PACIENTES_id, HOSPITALES_id) VALUES (?, ?)");
+        $enviarPacienteHospital->bind_param(
+            $datos,
+            $idPaciente,
+            $idHospital
+        );
+
+        // Compruebo si la conexión se establece bien
+        if (!$enviarPacienteHospital) {
+            throw new Exception($miConexion->error_list);
+        }
+
+        // Ejecute la query
+        $enviarPacienteHospital->execute();
+
+        // Compruebo si se envia y no hay error
+        if (!$enviarPacienteHospital) {
+            throw new Exception($miConexion->error_list);
+        }
+
+        // Devuelvo el último valor añadido
+        $id = $enviarPacienteHospital->insert_id;
+
+        // Cierro conexión
+        $enviarPacienteHospital->close();
+    }
+
     public function obtenerHospitales()
     {
         // ESTABLECER CONEXION
@@ -101,6 +176,37 @@ class DBforms {
 
         // PREPARAR QUERY
         $prepare = $miConexion->prepare("SELECT id, nombre FROM HOSPITALES");
+
+        // COMPROBAR SI HAY ERROR
+        if (!$prepare) {
+            var_dump($miConexion->error_list);
+        }
+
+        // EJECUTAR
+        $prepare->execute();
+
+        // BIND RESULT
+        $prepare->bind_result($id, $nombre);
+
+        // FETCH RESULT
+        $miArray = array();
+        while ($prepare->fetch()) {
+            $miArray[$id] = $nombre;
+        }
+       
+        // CLOSE CONNECTION
+        $miConexion->close();
+
+        return $miArray;
+    }
+
+    public function obtenerMedicos()
+    {
+        // ESTABLECER CONEXION
+        $miConexion = $this->crearConexion();
+
+        // PREPARAR QUERY
+        $prepare = $miConexion->prepare("SELECT id, nombre FROM MEDICOS");
 
         // COMPROBAR SI HAY ERROR
         if (!$prepare) {

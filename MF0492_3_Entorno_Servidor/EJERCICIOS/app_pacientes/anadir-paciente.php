@@ -9,7 +9,9 @@ $enviarPaciente = new DBforms();
 
 // COMPRUEBO SI ESTAMOS EN METODO POST.
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    var_dump($_POST);
+    echo '<pre>';
+    print_r($_POST);
+    echo '</pre>';
     $FormularioCeina->enviarFormulario($_POST);
 }
 
@@ -25,7 +27,65 @@ $existeValidacion = !empty($FormularioCeina) && $_SERVER["REQUEST_METHOD"] === "
         method="post"
     >
     <?php
-        $arrayHospitales = $enviarPaciente->obtenerHospitales();
+    
+        $FormularioCeina->showInput(
+            $type = "text",
+            $id = "nombre",
+            $name = "nombre",
+            $placeholder = "Introduzca su nombre",
+            $label = "Nombre",
+            $validacion = $existeValidacion
+        );
+        $FormularioCeina->showInput(
+            $type = "text",
+            $id = "apellidos",
+            $name = "apellidos",
+            $placeholder = "Introduzca sus apellidos",
+            $label = "Apellidos",
+            $validacion = $existeValidacion
+        );
+        $FormularioCeina->showInput(
+            $type = "number",
+            $id = "edad",
+            $name = "edad",
+            $placeholder = "Introduzca su edad",
+            $label = "Edad",
+            $validacion = $existeValidacion
+        );
+        echo '<hr>';
+        $FormularioCeina->showInput(
+            $type = "text",
+            $id = "direccion",
+            $name = "direccion",
+            $placeholder = "Introduzca su direccion",
+            $label = "Dirección",
+            $validacion = $existeValidacion
+        );
+        $FormularioCeina->showInput(
+            $type = "text",
+            $id = "codigo_postal",
+            $name = "codigo_postal",
+            $placeholder = "Código postal",
+            $label = "Código postal",
+            $validacion = $existeValidacion
+        );
+        $FormularioCeina->showInput(
+            $type = "text",
+            $id = "ciudad",
+            $name = "ciudad",
+            $placeholder = "Ciudad",
+            $label = "Ciudad",
+            $validacion = $existeValidacion
+        );
+        $FormularioCeina->showInput(
+            $type = "text",
+            $id = "pais",
+            $name = "pais",
+            $placeholder = "País",
+            $label = "País",
+            $validacion = $existeValidacion
+        );
+        echo '<hr>';
         $FormularioCeina->showInput(
             $type = "select",
             $id = "hospitales",
@@ -36,10 +96,60 @@ $existeValidacion = !empty($FormularioCeina) && $_SERVER["REQUEST_METHOD"] === "
             $options = $enviarPaciente->obtenerHospitales(),
             $multiple = true
         );
+
+        echo '<hr>';
+        $FormularioCeina->showInput(
+            $type = "select",
+            $id = "medicos",
+            $name = "medicos[]",
+            $placeholder = "",
+            $label = "Medicos",
+            $validacion = $existeValidacion,
+            $options = $enviarPaciente->obtenerMedicos(),
+            $multiple = true
+        );
+
+        
     ?>
         <button type="submit" class="submit">Enviar</button>
     </form>
 </div>
+<?php
+    $errores = $FormularioCeina->hayErrores();
+
+    if (!$errores && $existeValidacion) {
+        // Enviar a la base de datos
+        $idLocalizacion = $enviarPaciente->enviarLocalizacion(
+            'ssss',
+            $FormularioCeina->datosRecibidos['direccion'],
+            $FormularioCeina->datosRecibidos['codigo_postal'],
+            $FormularioCeina->datosRecibidos['ciudad'],
+            $FormularioCeina->datosRecibidos['pais']
+        );
+
+        $idPaciente = $enviarPaciente->enviarPaciente(
+            'issi',
+            $idLocalizacion,
+            $FormularioCeina->datosRecibidos['nombre'],
+            $FormularioCeina->datosRecibidos['apellidos'],
+            $FormularioCeina->datosRecibidos['edad']
+        );
+
+        if (!empty($idPaciente)) {
+            echo '<p>Gracias, hemos recibido y guardado sus datos</p>';
+        }
+
+        if ($FormularioCeina->datosRecibidos['hospitales']) {
+            foreach ($FormularioCeina->datosRecibidos['hospitales'] as $key => $value) {
+                $enviarPaciente->enviarPacienteHospital(
+                    'ii',
+                    $idPaciente,
+                    $value
+                );
+            }
+        }
+    }
+?>
 <?php include "./templates/footer.php";
 
 

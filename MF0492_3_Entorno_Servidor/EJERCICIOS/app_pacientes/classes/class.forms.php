@@ -5,7 +5,8 @@ class CeinaForms {
     public $mensajes_error;
     public $datosRecibidos;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->errores = false;
     }
 
@@ -81,6 +82,38 @@ class CeinaForms {
         echo $textInput;
     }
 
+    private function getTypeInputNumber($type, $id, $name, $placeholder, $label, $validacion)
+    {
+        $classes = "input input-number";
+        $miDato = "";
+        $esValido = null;
+        if ($validacion) {
+            $miDato = $this->sanitizacion($this->datosRecibidos[$name], $type);
+            $esValido = $this->validacion($miDato, $type);
+
+            if ($esValido) {
+                $classes .= " valid-input";
+            } else {
+                $classes .= " error-input";
+                $this->errores = true;
+            }
+        }
+
+        $textInput = '<div class="grupo">';
+        $textInput .= '<label class="label" for="' . $id . '">';
+        $textInput .= $label;
+        $textInput .= '</label>';
+        $textInput .= '<input value="' . $miDato . '" type="number" name="' . $name . '" id="' . $id . '" placeholder="' . $placeholder . '" class="' . $classes . '" />';
+        if ($miDato && $esValido) {
+            $textInput .= '<p class="success small">Datos validos.</p>';
+        }
+        if ($esValido === false) {
+            $textInput .= '<p class="error small">Por favor, revisa el campo. El dato esta vacio o no es valido.</p>';
+        }
+        $textInput .= '</div>';
+        echo $textInput;
+    }
+
     private function getTypeCheckbox($type, $id, $name, $placeholder, $label, $validacion)
     {
         $classes = "input input-checkbox";
@@ -110,14 +143,13 @@ class CeinaForms {
         $mensaje_validacion = "";
         $isSelected = false;
         $valor_seleccionado = "";
-
+        
         if ($multiple) {
-            $name = str_replace('[]', '', $name);
             $valor_seleccionado = array();
         }
 
-        if ($validacion && in_array($name, array_keys($this->datosRecibidos))) {
-            $valor_seleccionado = $this->datosRecibidos[$name];
+        if ($validacion && in_array(str_replace('[]', '', $name), array_keys($this->datosRecibidos))) {
+            $valor_seleccionado = $this->datosRecibidos[str_replace('[]', '', $name)];
 
             if ($multiple) {
                 $arrayValoresSeleccionados = array_values($valor_seleccionado);
@@ -171,6 +203,10 @@ class CeinaForms {
             case 'text':
                 $filter = FILTER_SANITIZE_STRING;
                 break;
+
+            case 'number':
+                $filter = FILTER_SANITIZE_NUMBER_INT;
+                break;
             
             default:
                 # code...
@@ -183,6 +219,10 @@ class CeinaForms {
     {
         switch ($tipo) {
             case 'text':
+                return $valor !== '' ? true : false;
+                break;
+
+            case 'number':
                 return $valor !== '' ? true : false;
                 break;
             
