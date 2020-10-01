@@ -4,15 +4,29 @@ class CeinaForms {
     public $errores;
     public $mensajes_error;
     public $datosRecibidos;
+    public $fotoRecibida;
+    public $path_media;
+    public $dir_subida;
+    public $dir_proyecto;
+
+    public $array_mime_types;
+    public $array_extensiones_permitidas;
 
     public function __construct()
     {
         $this->errores = false;
+        $this->dir_subida = getcwd() . '/tmp/';
+        $this->dir_proyecto = '/tmp/';
+        $this->array_mime_types = array('image/png', 'image/jpeg', 'image/gif');
+        $this->array_extensiones_permitidas = array('png', 'jpg', 'gif');
     }
 
-    public function enviarFormulario($datos)
+    public function enviarFormulario($datos, $files)
     {
         $this->datosRecibidos = $datos;
+        // Utilizar la función reset(); me permite coger el primer valor de un
+        // array asociativo.
+        $this->fotoRecibida = reset($files);
     }
 
     private function validarTipo($type)
@@ -43,6 +57,11 @@ class CeinaForms {
             case 'select':
                 return $this->getTypeSelect($type, $id, $name, $placeholder, $label, $validacion, $options, $multiple);
                 break;
+
+            case 'file':
+                return $this->getTypeFile($type, $id, $name, $placeholder, $label, $validacion);
+                break;
+
 
             default:
                 # code...
@@ -104,6 +123,46 @@ class CeinaForms {
         $textInput .= $label;
         $textInput .= '</label>';
         $textInput .= '<input value="' . $miDato . '" type="number" name="' . $name . '" id="' . $id . '" placeholder="' . $placeholder . '" class="' . $classes . '" />';
+        if ($miDato && $esValido) {
+            $textInput .= '<p class="success small">Datos validos.</p>';
+        }
+        if ($esValido === false) {
+            $textInput .= '<p class="error small">Por favor, revisa el campo. El dato esta vacio o no es valido.</p>';
+        }
+        $textInput .= '</div>';
+        echo $textInput;
+    }
+
+    private function getTypeFile($type, $id, $name, $placeholder, $label, $validacion)
+    {
+        $classes = "input input-file";
+        $miDato = "";
+        $esValido = null;
+        if ($validacion) {
+            var_dump($this->fotoRecibida);
+
+            $fichero_subido = $this->dir_subida . basename($this->fotoRecibida['name']);
+            $this->path_media = $this->dir_proyecto . basename($this->fotoRecibida['name']);
+            $fichero_extension = pathinfo($fichero_subido, PATHINFO_EXTENSION);
+            if (
+                !in_array($this->fotoRecibida['type'], $this->array_mime_types) ||
+                !in_array($fichero_extension, $this->array_extensiones_permitidas)
+            ) {
+                $classes .= " error-input";
+                $this->errores = true;
+                // throw new Exception("Hay un error de validación con el fichero que has seleccionado");
+                // return "";
+            }
+
+            move_uploaded_file($this->fotoRecibida['tmp_name'], $fichero_subido);
+            $classes .= " valid-input";
+        }
+
+        $textInput = '<div class="grupo">';
+        $textInput .= '<label class="label" for="' . $id . '">';
+        $textInput .= $label;
+        $textInput .= '</label>';
+        $textInput .= '<input type="file" name="' . $name . '" id="' . $id . '" placeholder="' . $placeholder . '" class="' . $classes . '" accept="image/png, image/jpeg, image/gif"/>';
         if ($miDato && $esValido) {
             $textInput .= '<p class="success small">Datos validos.</p>';
         }
