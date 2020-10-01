@@ -139,7 +139,6 @@ class CeinaForms {
         $miDato = "";
         $esValido = null;
         if ($validacion) {
-            var_dump($this->fotoRecibida);
 
             $fichero_subido = $this->dir_subida . basename($this->fotoRecibida['name']);
             $this->path_media = $this->dir_proyecto . basename($this->fotoRecibida['name']);
@@ -153,6 +152,9 @@ class CeinaForms {
                 // throw new Exception("Hay un error de validación con el fichero que has seleccionado");
                 // return "";
             }
+
+            $nuevoNombre = $this->escanearDirectorio(basename($this->fotoRecibida['name']));
+
 
             move_uploaded_file($this->fotoRecibida['tmp_name'], $fichero_subido);
             $classes .= " valid-input";
@@ -294,5 +296,20 @@ class CeinaForms {
     public function hayErrores()
     {
         return $this->errores;
+    }
+
+    private function escanearDirectorio($nombreArchivo)
+    {
+        $ficherosDirectorio = scandir($this->dir_subida);
+        echo '<pre>';
+        print_r($ficherosDirectorio);
+        print_r($nombreArchivo);
+        echo '</pre>';
+
+        if (in_array($nombreArchivo, $ficherosDirectorio)) {
+            echo "ESTOY EN EL DIRECTORIO NO ME GUARDES";
+        } else {
+            echo "GUARDAMEEEEE";
+        }
     }
 }
