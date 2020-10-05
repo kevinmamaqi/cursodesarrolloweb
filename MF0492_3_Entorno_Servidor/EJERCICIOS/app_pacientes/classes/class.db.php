@@ -28,6 +28,13 @@ class DBforms {
         );
     }
 
+    private function showPRE($toPrint)
+    {
+        echo '<pre>';
+        print_r($toPrint);
+        echo '</pre>';
+    }
+
     public function hayError($conexion)
     {
         if ($conexion->connect_error) {

@@ -21,12 +21,21 @@ class CeinaForms {
         $this->array_extensiones_permitidas = array('png', 'jpg', 'gif');
     }
 
-    public function enviarFormulario($datos, $files)
+    private function showPRE($toPrint)
+    {
+        echo '<pre>';
+        print_r($toPrint);
+        echo '</pre>';
+    }
+
+    public function enviarFormulario($datos, $files = null)
     {
         $this->datosRecibidos = $datos;
         // Utilizar la función reset(); me permite coger el primer valor de un
         // array asociativo.
-        $this->fotoRecibida = reset($files);
+        if ($files !== null) {
+            $this->fotoRecibida = reset($files);
+        }
     }
 
     private function validarTipo($type)
@@ -138,8 +147,7 @@ class CeinaForms {
         $classes = "input input-file";
         $miDato = "";
         $esValido = null;
-        if ($validacion) {
-
+        if ($validacion && $this->fotoRecibida) {
             $fichero_subido = $this->dir_subida . basename($this->fotoRecibida['name']);
             $this->path_media = $this->dir_proyecto . basename($this->fotoRecibida['name']);
             $fichero_extension = pathinfo($fichero_subido, PATHINFO_EXTENSION);
@@ -147,10 +155,14 @@ class CeinaForms {
                 !in_array($this->fotoRecibida['type'], $this->array_mime_types) ||
                 !in_array($fichero_extension, $this->array_extensiones_permitidas)
             ) {
+                $this->showPRE($this->fotoRecibida['type']);
+                $this->showPRE($fichero_extension);
+                $this->showPRE($this->array_mime_types);
+                $this->showPRE($this->array_extensiones_permitidas);
                 $classes .= " error-input";
                 $this->errores = true;
-                // throw new Exception("Hay un error de validación con el fichero que has seleccionado");
-                // return "";
+                throw new Exception("Hay un error de validación con el fichero que has seleccionado");
+                return "";
             }
 
             $nuevoNombre = $this->escanearDirectorio(basename($this->fotoRecibida['name']));

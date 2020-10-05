@@ -108,8 +108,6 @@ $existeValidacion = !empty($FormularioCeina) && $_SERVER["REQUEST_METHOD"] === "
             $options = $enviarPaciente->obtenerMedicos(),
             $multiple = true
         );
-
-        
     ?>
         <button type="submit" class="submit">Enviar</button>
     </form>
