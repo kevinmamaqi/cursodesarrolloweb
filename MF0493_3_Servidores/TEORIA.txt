@@ -66,7 +66,6 @@ cliente servidor y ofrecer una web al público.
 8.2 VIM para edición de archivos.
 8.3 Instalamos PHP por ser el lenguaje de programación utilizado.
 8.4 Servidor HTTP. En nuestro caso usamos NGINX, puede ser Apache.
-8.5 Servidor EMAIL. Postfix.
 9. Configuramos usuarios, directorios, permisos para el software.
 10. Lo normal es servir las webs en el directorio /var/www/miweb.com/html/
 
