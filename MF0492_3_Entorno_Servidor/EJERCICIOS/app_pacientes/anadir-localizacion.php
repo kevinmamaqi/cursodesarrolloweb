@@ -109,6 +109,7 @@ if (!$errores && $existeValidacion) {
     if (!$datosAEnviar) {
         var_dump($conexion->error_list);
     }
+
     for ($i = 0; $i < 20; $i++) { 
         $datosAEnviar->bind_param(
             'ssss',
