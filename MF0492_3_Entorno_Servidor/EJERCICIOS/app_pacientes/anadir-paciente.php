@@ -98,16 +98,16 @@ $existeValidacion = !empty($FormularioCeina) && $_SERVER["REQUEST_METHOD"] === "
         );
 
         echo '<hr>';
-        $FormularioCeina->showInput(
-            $type = "select",
-            $id = "medicos",
-            $name = "medicos[]",
-            $placeholder = "",
-            $label = "Medicos",
-            $validacion = $existeValidacion,
-            $options = $enviarPaciente->obtenerMedicos(),
-            $multiple = true
-        );
+        // $FormularioCeina->showInput(
+        //     $type = "select",
+        //     $id = "medicos",
+        //     $name = "medicos[]",
+        //     $placeholder = "",
+        //     $label = "Medicos",
+        //     $validacion = $existeValidacion,
+        //     $options = $enviarPaciente->obtenerMedicos(),
+        //     $multiple = true
+        // );
     ?>
         <button type="submit" class="submit">Enviar</button>
     </form>
